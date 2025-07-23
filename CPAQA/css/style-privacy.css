@@ -1,0 +1,170 @@
+html,
+body {
+    height: 100%;
+}
+
+
+/* 
+.scroll-area-lg {
+    height: 600px;
+    overflow-x: hidden;
+}*/
+
+.white-txt {
+    color: #fff;
+}
+
+.red-txt {
+    color: #ef1c24;
+}
+
+.orange-txt {
+    color: #f5911d;
+}
+
+.gray-txt {
+    color: #80838a;
+}
+
+.gray-txt {
+    color: #80838a;
+}
+
+.gray-txt-2 {
+    color: #555;
+}
+
+.green-txt {
+    color: #46aa3a;
+}
+
+.black-txt {
+    color: #000;
+}
+
+.black-txt-2 {
+    color: #333;
+}
+
+.blue-txt {
+    color: #00b0f0;
+}
+
+.underline-txt {
+    text-decoration: underline;
+}
+
+.underline {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+}
+
+.vld-txt {
+    margin-top: 3px;
+}
+
+.txt-spacing {
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+.prg-txt-box,
+.inline-label {
+    font-family: 'Sarabun';
+}
+
+.prg-txt-box {
+    font-size: 20px;
+    line-height: 1em;
+}
+
+.prg-txt-box strong {
+    font-family: 'Sarabun';
+    font-weight: normal;
+}
+
+.txt-prg {
+    font-family: 'Sarabun';
+    font-size: 14px;
+    padding: 30px;
+    line-height: 25px;
+}
+
+.txt-prg strong {
+    font-family: 'Sarabun';
+    font-weight: 700;
+}
+
+.txt-prg a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.txt-indent {
+    margin-left: 30px;
+}
+
+.txt-indent.-two {
+    margin-left: 40px;
+}
+
+.red-dots .slick-dots {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.red-dots .slick-dots>li {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.red-dots .slick-dots button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    -webkit-appearance: none;
+    border: none;
+    background-color: #aaa;
+    text-indent: -9999px;
+    padding: 0;
+    outline: none;
+}
+
+.red-dots .slick-dots .slick-active button {
+    background-color: #0066cc;
+}
+
+.red-arws .slick-arrow {
+    position: absolute;
+    top: 50%;
+    margin-top: -10px;
+    width: 12px;
+    height: 20px;
+    background-color: transparent;
+    background-image: url('../sprite/sprite.png');
+    background-repeat: no-repeat;
+    background-size: 5242.105263157894% 3112.5%;
+    text-indent: -9999px;
+    padding: 0;
+    -webkit-appearance: none;
+    border: none;
+    border-radius: 0;
+    outline: none;
+    z-index: 5;
+}
+
+.red-arws .slick-arrow.slick-disabled {
+    opacity: 0.4;
+}
+
+.red-arws .slick-arrow.slick-prev {
+    left: -5px;
+    background-position: 23.643807574206754% 11.20331950207469%;
+}
+
+.red-arws .slick-arrow.slick-next {
+    right: -5px;
+    background-position: 26.305015353121803% 11.20331950207469%;
+}

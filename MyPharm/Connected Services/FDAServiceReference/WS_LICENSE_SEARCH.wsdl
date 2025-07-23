@@ -1,0 +1,954 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GET_DATA_FOOD">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DATAS" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GET_DATA_FOODResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GET_DATA_FOODResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GET_DATA_FOOD_FULL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DATAS" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GET_DATA_FOOD_FULLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GET_DATA_FOOD_FULLResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GET_DRUG_LCN_INFORMATION">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DATAS" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GET_DRUG_LCN_INFORMATIONResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GET_DRUG_LCN_INFORMATIONResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GET_DRUG_INFORMATION">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DATAS" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GET_DRUG_INFORMATIONResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GET_DRUG_INFORMATIONResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GET_DATA_CMT">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DATAS" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GET_DATA_CMTResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GET_DATA_CMTResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GET_DATA_DRUG">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DATAS" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GET_DATA_DRUGResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GET_DATA_DRUGResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GET_DATA_HERB">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DATAS" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GET_DATA_HERBResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GET_DATA_HERBResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GET_DATA_NCT">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DATAS" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GET_DATA_NCTResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GET_DATA_NCTResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GET_DATA_MDC">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DATAS" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GET_DATA_MDCResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GET_DATA_MDCResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GET_DATA_TXC">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DATAS" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GET_DATA_TXCResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GET_DATA_TXCResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GET_DATA_ALL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DATAS" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GET_DATA_ALLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GET_DATA_ALLResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GET_DATA_ALL_LCN">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DATAS" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GET_DATA_ALL_LCNResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GET_DATA_ALL_LCNResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GET_DATA_LCN_DRUG">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DATAS" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GET_DATA_LCN_DRUGResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GET_DATA_LCN_DRUGResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GET_DATA_LCN_FOOD">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DATAS" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GET_DATA_LCN_FOODResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GET_DATA_LCN_FOODResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GET_DATA_LCN_NCT">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DATAS" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GET_DATA_LCN_NCTResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GET_DATA_LCN_NCTResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GET_DATA_LCN_NCT_STATUS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DATAS" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GET_DATA_LCN_NCT_STATUSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GET_DATA_LCN_NCT_STATUSResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GET_DATA_LCN_TXC">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DATAS" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GET_DATA_LCN_TXCResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GET_DATA_LCN_TXCResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GET_DATA_LCN_CMT">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DATAS" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GET_DATA_LCN_CMTResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GET_DATA_LCN_CMTResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GET_DATA_LCN_MDC">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DATAS" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GET_DATA_LCN_MDCResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GET_DATA_LCN_MDCResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GET_DATA_FOODSoapIn">
+    <wsdl:part name="parameters" element="tns:GET_DATA_FOOD" />
+  </wsdl:message>
+  <wsdl:message name="GET_DATA_FOODSoapOut">
+    <wsdl:part name="parameters" element="tns:GET_DATA_FOODResponse" />
+  </wsdl:message>
+  <wsdl:message name="GET_DATA_FOOD_FULLSoapIn">
+    <wsdl:part name="parameters" element="tns:GET_DATA_FOOD_FULL" />
+  </wsdl:message>
+  <wsdl:message name="GET_DATA_FOOD_FULLSoapOut">
+    <wsdl:part name="parameters" element="tns:GET_DATA_FOOD_FULLResponse" />
+  </wsdl:message>
+  <wsdl:message name="GET_DRUG_LCN_INFORMATIONSoapIn">
+    <wsdl:part name="parameters" element="tns:GET_DRUG_LCN_INFORMATION" />
+  </wsdl:message>
+  <wsdl:message name="GET_DRUG_LCN_INFORMATIONSoapOut">
+    <wsdl:part name="parameters" element="tns:GET_DRUG_LCN_INFORMATIONResponse" />
+  </wsdl:message>
+  <wsdl:message name="GET_DRUG_INFORMATIONSoapIn">
+    <wsdl:part name="parameters" element="tns:GET_DRUG_INFORMATION" />
+  </wsdl:message>
+  <wsdl:message name="GET_DRUG_INFORMATIONSoapOut">
+    <wsdl:part name="parameters" element="tns:GET_DRUG_INFORMATIONResponse" />
+  </wsdl:message>
+  <wsdl:message name="GET_DATA_CMTSoapIn">
+    <wsdl:part name="parameters" element="tns:GET_DATA_CMT" />
+  </wsdl:message>
+  <wsdl:message name="GET_DATA_CMTSoapOut">
+    <wsdl:part name="parameters" element="tns:GET_DATA_CMTResponse" />
+  </wsdl:message>
+  <wsdl:message name="GET_DATA_DRUGSoapIn">
+    <wsdl:part name="parameters" element="tns:GET_DATA_DRUG" />
+  </wsdl:message>
+  <wsdl:message name="GET_DATA_DRUGSoapOut">
+    <wsdl:part name="parameters" element="tns:GET_DATA_DRUGResponse" />
+  </wsdl:message>
+  <wsdl:message name="GET_DATA_HERBSoapIn">
+    <wsdl:part name="parameters" element="tns:GET_DATA_HERB" />
+  </wsdl:message>
+  <wsdl:message name="GET_DATA_HERBSoapOut">
+    <wsdl:part name="parameters" element="tns:GET_DATA_HERBResponse" />
+  </wsdl:message>
+  <wsdl:message name="GET_DATA_NCTSoapIn">
+    <wsdl:part name="parameters" element="tns:GET_DATA_NCT" />
+  </wsdl:message>
+  <wsdl:message name="GET_DATA_NCTSoapOut">
+    <wsdl:part name="parameters" element="tns:GET_DATA_NCTResponse" />
+  </wsdl:message>
+  <wsdl:message name="GET_DATA_MDCSoapIn">
+    <wsdl:part name="parameters" element="tns:GET_DATA_MDC" />
+  </wsdl:message>
+  <wsdl:message name="GET_DATA_MDCSoapOut">
+    <wsdl:part name="parameters" element="tns:GET_DATA_MDCResponse" />
+  </wsdl:message>
+  <wsdl:message name="GET_DATA_TXCSoapIn">
+    <wsdl:part name="parameters" element="tns:GET_DATA_TXC" />
+  </wsdl:message>
+  <wsdl:message name="GET_DATA_TXCSoapOut">
+    <wsdl:part name="parameters" element="tns:GET_DATA_TXCResponse" />
+  </wsdl:message>
+  <wsdl:message name="GET_DATA_ALLSoapIn">
+    <wsdl:part name="parameters" element="tns:GET_DATA_ALL" />
+  </wsdl:message>
+  <wsdl:message name="GET_DATA_ALLSoapOut">
+    <wsdl:part name="parameters" element="tns:GET_DATA_ALLResponse" />
+  </wsdl:message>
+  <wsdl:message name="GET_DATA_ALL_LCNSoapIn">
+    <wsdl:part name="parameters" element="tns:GET_DATA_ALL_LCN" />
+  </wsdl:message>
+  <wsdl:message name="GET_DATA_ALL_LCNSoapOut">
+    <wsdl:part name="parameters" element="tns:GET_DATA_ALL_LCNResponse" />
+  </wsdl:message>
+  <wsdl:message name="GET_DATA_LCN_DRUGSoapIn">
+    <wsdl:part name="parameters" element="tns:GET_DATA_LCN_DRUG" />
+  </wsdl:message>
+  <wsdl:message name="GET_DATA_LCN_DRUGSoapOut">
+    <wsdl:part name="parameters" element="tns:GET_DATA_LCN_DRUGResponse" />
+  </wsdl:message>
+  <wsdl:message name="GET_DATA_LCN_FOODSoapIn">
+    <wsdl:part name="parameters" element="tns:GET_DATA_LCN_FOOD" />
+  </wsdl:message>
+  <wsdl:message name="GET_DATA_LCN_FOODSoapOut">
+    <wsdl:part name="parameters" element="tns:GET_DATA_LCN_FOODResponse" />
+  </wsdl:message>
+  <wsdl:message name="GET_DATA_LCN_NCTSoapIn">
+    <wsdl:part name="parameters" element="tns:GET_DATA_LCN_NCT" />
+  </wsdl:message>
+  <wsdl:message name="GET_DATA_LCN_NCTSoapOut">
+    <wsdl:part name="parameters" element="tns:GET_DATA_LCN_NCTResponse" />
+  </wsdl:message>
+  <wsdl:message name="GET_DATA_LCN_NCT_STATUSSoapIn">
+    <wsdl:part name="parameters" element="tns:GET_DATA_LCN_NCT_STATUS" />
+  </wsdl:message>
+  <wsdl:message name="GET_DATA_LCN_NCT_STATUSSoapOut">
+    <wsdl:part name="parameters" element="tns:GET_DATA_LCN_NCT_STATUSResponse" />
+  </wsdl:message>
+  <wsdl:message name="GET_DATA_LCN_TXCSoapIn">
+    <wsdl:part name="parameters" element="tns:GET_DATA_LCN_TXC" />
+  </wsdl:message>
+  <wsdl:message name="GET_DATA_LCN_TXCSoapOut">
+    <wsdl:part name="parameters" element="tns:GET_DATA_LCN_TXCResponse" />
+  </wsdl:message>
+  <wsdl:message name="GET_DATA_LCN_CMTSoapIn">
+    <wsdl:part name="parameters" element="tns:GET_DATA_LCN_CMT" />
+  </wsdl:message>
+  <wsdl:message name="GET_DATA_LCN_CMTSoapOut">
+    <wsdl:part name="parameters" element="tns:GET_DATA_LCN_CMTResponse" />
+  </wsdl:message>
+  <wsdl:message name="GET_DATA_LCN_MDCSoapIn">
+    <wsdl:part name="parameters" element="tns:GET_DATA_LCN_MDC" />
+  </wsdl:message>
+  <wsdl:message name="GET_DATA_LCN_MDCSoapOut">
+    <wsdl:part name="parameters" element="tns:GET_DATA_LCN_MDCResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WS_LICENSE_SEARCHSoap">
+    <wsdl:operation name="GET_DATA_FOOD">
+      <wsdl:input message="tns:GET_DATA_FOODSoapIn" />
+      <wsdl:output message="tns:GET_DATA_FOODSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GET_DATA_FOOD_FULL">
+      <wsdl:input message="tns:GET_DATA_FOOD_FULLSoapIn" />
+      <wsdl:output message="tns:GET_DATA_FOOD_FULLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GET_DRUG_LCN_INFORMATION">
+      <wsdl:input message="tns:GET_DRUG_LCN_INFORMATIONSoapIn" />
+      <wsdl:output message="tns:GET_DRUG_LCN_INFORMATIONSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GET_DRUG_INFORMATION">
+      <wsdl:input message="tns:GET_DRUG_INFORMATIONSoapIn" />
+      <wsdl:output message="tns:GET_DRUG_INFORMATIONSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GET_DATA_CMT">
+      <wsdl:input message="tns:GET_DATA_CMTSoapIn" />
+      <wsdl:output message="tns:GET_DATA_CMTSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GET_DATA_DRUG">
+      <wsdl:input message="tns:GET_DATA_DRUGSoapIn" />
+      <wsdl:output message="tns:GET_DATA_DRUGSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GET_DATA_HERB">
+      <wsdl:input message="tns:GET_DATA_HERBSoapIn" />
+      <wsdl:output message="tns:GET_DATA_HERBSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GET_DATA_NCT">
+      <wsdl:input message="tns:GET_DATA_NCTSoapIn" />
+      <wsdl:output message="tns:GET_DATA_NCTSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GET_DATA_MDC">
+      <wsdl:input message="tns:GET_DATA_MDCSoapIn" />
+      <wsdl:output message="tns:GET_DATA_MDCSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GET_DATA_TXC">
+      <wsdl:input message="tns:GET_DATA_TXCSoapIn" />
+      <wsdl:output message="tns:GET_DATA_TXCSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GET_DATA_ALL">
+      <wsdl:input message="tns:GET_DATA_ALLSoapIn" />
+      <wsdl:output message="tns:GET_DATA_ALLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GET_DATA_ALL_LCN">
+      <wsdl:input message="tns:GET_DATA_ALL_LCNSoapIn" />
+      <wsdl:output message="tns:GET_DATA_ALL_LCNSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GET_DATA_LCN_DRUG">
+      <wsdl:input message="tns:GET_DATA_LCN_DRUGSoapIn" />
+      <wsdl:output message="tns:GET_DATA_LCN_DRUGSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GET_DATA_LCN_FOOD">
+      <wsdl:input message="tns:GET_DATA_LCN_FOODSoapIn" />
+      <wsdl:output message="tns:GET_DATA_LCN_FOODSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GET_DATA_LCN_NCT">
+      <wsdl:input message="tns:GET_DATA_LCN_NCTSoapIn" />
+      <wsdl:output message="tns:GET_DATA_LCN_NCTSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GET_DATA_LCN_NCT_STATUS">
+      <wsdl:input message="tns:GET_DATA_LCN_NCT_STATUSSoapIn" />
+      <wsdl:output message="tns:GET_DATA_LCN_NCT_STATUSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GET_DATA_LCN_TXC">
+      <wsdl:input message="tns:GET_DATA_LCN_TXCSoapIn" />
+      <wsdl:output message="tns:GET_DATA_LCN_TXCSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GET_DATA_LCN_CMT">
+      <wsdl:input message="tns:GET_DATA_LCN_CMTSoapIn" />
+      <wsdl:output message="tns:GET_DATA_LCN_CMTSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GET_DATA_LCN_MDC">
+      <wsdl:input message="tns:GET_DATA_LCN_MDCSoapIn" />
+      <wsdl:output message="tns:GET_DATA_LCN_MDCSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WS_LICENSE_SEARCHSoap" type="tns:WS_LICENSE_SEARCHSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GET_DATA_FOOD">
+      <soap:operation soapAction="http://tempuri.org/GET_DATA_FOOD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_DATA_FOOD_FULL">
+      <soap:operation soapAction="http://tempuri.org/GET_DATA_FOOD_FULL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_DRUG_LCN_INFORMATION">
+      <soap:operation soapAction="http://tempuri.org/GET_DRUG_LCN_INFORMATION" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_DRUG_INFORMATION">
+      <soap:operation soapAction="http://tempuri.org/GET_DRUG_INFORMATION" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_DATA_CMT">
+      <soap:operation soapAction="http://tempuri.org/GET_DATA_CMT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_DATA_DRUG">
+      <soap:operation soapAction="http://tempuri.org/GET_DATA_DRUG" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_DATA_HERB">
+      <soap:operation soapAction="http://tempuri.org/GET_DATA_HERB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_DATA_NCT">
+      <soap:operation soapAction="http://tempuri.org/GET_DATA_NCT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_DATA_MDC">
+      <soap:operation soapAction="http://tempuri.org/GET_DATA_MDC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_DATA_TXC">
+      <soap:operation soapAction="http://tempuri.org/GET_DATA_TXC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_DATA_ALL">
+      <soap:operation soapAction="http://tempuri.org/GET_DATA_ALL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_DATA_ALL_LCN">
+      <soap:operation soapAction="http://tempuri.org/GET_DATA_ALL_LCN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_DATA_LCN_DRUG">
+      <soap:operation soapAction="http://tempuri.org/GET_DATA_LCN_DRUG" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_DATA_LCN_FOOD">
+      <soap:operation soapAction="http://tempuri.org/GET_DATA_LCN_FOOD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_DATA_LCN_NCT">
+      <soap:operation soapAction="http://tempuri.org/GET_DATA_LCN_NCT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_DATA_LCN_NCT_STATUS">
+      <soap:operation soapAction="http://tempuri.org/GET_DATA_LCN_NCT_STATUS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_DATA_LCN_TXC">
+      <soap:operation soapAction="http://tempuri.org/GET_DATA_LCN_TXC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_DATA_LCN_CMT">
+      <soap:operation soapAction="http://tempuri.org/GET_DATA_LCN_CMT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_DATA_LCN_MDC">
+      <soap:operation soapAction="http://tempuri.org/GET_DATA_LCN_MDC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WS_LICENSE_SEARCHSoap12" type="tns:WS_LICENSE_SEARCHSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GET_DATA_FOOD">
+      <soap12:operation soapAction="http://tempuri.org/GET_DATA_FOOD" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_DATA_FOOD_FULL">
+      <soap12:operation soapAction="http://tempuri.org/GET_DATA_FOOD_FULL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_DRUG_LCN_INFORMATION">
+      <soap12:operation soapAction="http://tempuri.org/GET_DRUG_LCN_INFORMATION" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_DRUG_INFORMATION">
+      <soap12:operation soapAction="http://tempuri.org/GET_DRUG_INFORMATION" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_DATA_CMT">
+      <soap12:operation soapAction="http://tempuri.org/GET_DATA_CMT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_DATA_DRUG">
+      <soap12:operation soapAction="http://tempuri.org/GET_DATA_DRUG" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_DATA_HERB">
+      <soap12:operation soapAction="http://tempuri.org/GET_DATA_HERB" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_DATA_NCT">
+      <soap12:operation soapAction="http://tempuri.org/GET_DATA_NCT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_DATA_MDC">
+      <soap12:operation soapAction="http://tempuri.org/GET_DATA_MDC" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_DATA_TXC">
+      <soap12:operation soapAction="http://tempuri.org/GET_DATA_TXC" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_DATA_ALL">
+      <soap12:operation soapAction="http://tempuri.org/GET_DATA_ALL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_DATA_ALL_LCN">
+      <soap12:operation soapAction="http://tempuri.org/GET_DATA_ALL_LCN" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_DATA_LCN_DRUG">
+      <soap12:operation soapAction="http://tempuri.org/GET_DATA_LCN_DRUG" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_DATA_LCN_FOOD">
+      <soap12:operation soapAction="http://tempuri.org/GET_DATA_LCN_FOOD" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_DATA_LCN_NCT">
+      <soap12:operation soapAction="http://tempuri.org/GET_DATA_LCN_NCT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_DATA_LCN_NCT_STATUS">
+      <soap12:operation soapAction="http://tempuri.org/GET_DATA_LCN_NCT_STATUS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_DATA_LCN_TXC">
+      <soap12:operation soapAction="http://tempuri.org/GET_DATA_LCN_TXC" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_DATA_LCN_CMT">
+      <soap12:operation soapAction="http://tempuri.org/GET_DATA_LCN_CMT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_DATA_LCN_MDC">
+      <soap12:operation soapAction="http://tempuri.org/GET_DATA_LCN_MDC" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WS_LICENSE_SEARCH">
+    <wsdl:port name="WS_LICENSE_SEARCHSoap" binding="tns:WS_LICENSE_SEARCHSoap">
+      <soap:address location="http://porta.fda.moph.go.th/FDA_SEARCH_ALL/WS_LICENSE_SEARCH.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WS_LICENSE_SEARCHSoap12" binding="tns:WS_LICENSE_SEARCHSoap12">
+      <soap12:address location="http://porta.fda.moph.go.th/FDA_SEARCH_ALL/WS_LICENSE_SEARCH.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,68 @@
+.dc_pagination {
+    font: 14px 'Sarabun';
+    height: 100%;
+    list-style-type: none;
+    margin: 4px 0px 4px 5px;
+    overflow: hidden;
+    padding: 5px;
+}
+
+.dc_pagination :first-child {
+    margin-left: 5px; 
+}
+
+.dc_pagination a {
+    color: #000000 !important;
+    display: block;
+    padding: 7px 10px 7px 10px;
+    text-decoration: none
+}
+.dc_pagination a img {
+    border: none
+}
+
+.dc_paginationC {
+    padding-bottom: 1px
+}
+.dc_paginationC a {
+    background: #bbe0e3;
+    border: solid 1px #DCDCDC;
+    border-radius: 3px;
+    color: #008548 !important;
+    moz-border-radius: 3px;
+    padding: 6px 9px 6px 9px;
+    webkit-border-radius: 3px
+}
+
+.dc_paginationC01 a:hover,
+.dc_paginationC01 a:active,
+.dc_paginationC01 a:visited,
+.dc_paginationC01 a.current {
+    color: #FFFFFF !important;
+    text-decoration: none;
+    background: -moz-linear-gradient(top, #008548 1%, #008548 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, #008548), color-stop(100%, #008548));
+    background: -webkit-linear-gradient(top, #008548 1%, #008548 100%);
+    background: -o-linear-gradient(top, #008548 1%, #008548 100%);
+    background: -ms-linear-gradient(top, #008548 1%, #008548 100%);
+    background: linear-gradient(top, #008548 1%, #008548 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#008548', endColorstr='#eaeaea', GradientType=0);
+    text-shadow: 0px 1px #008548
+}
+
+.dc_paginationC01 span {
+    border: 1px solid #008548;
+    border-radius: 3px;
+    color: #fff !important;
+    moz-border-radius: 3px;
+    padding: 0px 9px 13px 9px;
+    webkit-border-radius: 3px;
+    background: -moz-linear-gradient(top, #008548 1%, #008548 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, #008548), color-stop(100%, #008548));
+    background: -webkit-linear-gradient(top, #008548 1%, #008548 100%);
+    background: -o-linear-gradient(top, #008548 1%, #008548 100%);
+    background: -ms-linear-gradient(top, #008548 1%, #008548 100%);
+    background: linear-gradient(top, #008548 1%, #008548 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#008548', endColorstr='#008548', GradientType=0);
+    text-shadow: 0px 1px #008548
+}

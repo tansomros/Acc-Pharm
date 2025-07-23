@@ -1,0 +1,156 @@
+.dropZoneExternal>div,
+.dropZoneExternal>img {
+    position: absolute;
+}
+
+.dropZoneExternal {
+    position: relative;
+    /* border: 1px dashed #f17f21!important;*/
+    cursor: pointer;
+}
+
+.dropZoneExternal,
+.dragZoneText {
+    /*width: 150px;*/
+    height: 150px;
+}
+
+#dragZone {
+     width: 100%; 
+    height: 150px;
+}
+
+.dropZoneText {
+    width: 150px;
+    height: 150px;
+    color: #fff;
+    background-color: #888;
+}
+
+#dropZone {
+    top: 0;
+    /*padding: 100px 25px;*/
+}
+
+.uploadControlDropZone,
+.hidden {
+    display: none;
+}
+
+.dropZoneText,
+.dragZoneText {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 10pt;
+}
+
+.dragZoneText {
+    color: #808080;
+}
+
+.dxucInlineDropZoneSys span {
+    color: #fff!important;
+    font-size: 10pt;
+    font-weight: normal!important;
+}
+
+.uploadControlProgressBar {
+    width: 350px!important;
+}
+
+.validationMessage {
+    padding: 0 20px;
+    text-align: center;
+}
+
+.uploadControl {
+    margin-top: 10px;
+}
+
+.Note {
+    width: 500px;
+}
+.profile-location-img {
+    margin: 0 auto;
+    width: 100%;
+    padding: 3px;
+    border: 1px solid #d2d6de;
+}
+
+/* -- Responsive code -- */
+
+@media screen and (max-width: 1366px) {}
+
+@media screen and (max-width: 1280px) {}
+
+@media screen and (max-width: 1080px) {}
+
+@media screen and (max-width: 1024px) {}
+
+@media screen and (max-width: 991px) {}
+
+@media screen and (max-width: 900px) {}
+
+@media screen and (max-width: 736px) {}
+
+@media screen and (max-width: 667px) {}
+
+@media screen and (max-width: 640px) {}
+
+@media screen and (max-width: 600px) {}
+
+@media screen and (max-width: 480px) {
+    .dropZoneExternal,
+    .dragZoneText {
+        width: 100px;
+        height: 100px;
+    }
+    .dropZoneText {
+        width: 100px;
+        height: 50px;
+    }
+    #dropZone {
+        top: 0;
+        padding: 50px 15px;
+    }
+    .dropZoneText,
+    .dragZoneText {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        font-size: 10pt;
+    }
+}
+
+@media screen and (max-width: 414px) {
+    .dropZoneExternal,
+    .dragZoneText {
+        width: 100px;
+        height: 100px;
+    }
+    .dropZoneText {
+        width: 100px;
+        height: 50px;
+    }
+    #dropZone {
+        top: 0;
+        padding: 50px 15px;
+    }
+    .dropZoneText,
+    .dragZoneText {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        font-size: 10pt;
+    }
+}
+
+@media screen and (max-width: 384px) {}
+
+@media screen and (max-width: 375px) {}
+
+@media screen and (max-width: 320px) {}
+
+
+/* -- //Responsive code -- */
