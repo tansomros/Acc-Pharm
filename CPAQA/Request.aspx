@@ -46,6 +46,7 @@
                                     <asp:CheckBox ID="chkType2" runat="server" AutoPostBack="true" Text="ต่ออายุ" /><br />
                                     <asp:CheckBox ID="chkType3" runat="server" Text="ย้าย หรือ เปลี่ยนสถานที่" />   <br />    
                                     <asp:CheckBox ID="chkType6" runat="server" Text="เปลี่ยนชื่อร้านยา (สถานที่,ผู้รับอนุญาต และ เภสัชกร คงเดิม)" /><br />
+                              
                                 </div>
 
                             </div>
@@ -56,7 +57,10 @@
                                     <asp:CheckBox ID="chkType4" runat="server" Text="เปลี่ยนผู้มีหน้าที่ปฏิบัติการ" /><br />
                                     <asp:CheckBox ID="chkType9" runat="server" Text="เพิ่มผู้มีหน้าที่ปฏิบัติการ" /><br />                                                            
                                     <asp:CheckBox ID="chkType8" runat="server" Text="เปลี่ยนแปลงเวลาผู้มีหน้าที่ปฏิบัติการ" /> <br />    
-                                    <asp:CheckBox ID="chkType5" runat="server" AutoPostBack="true" Text="เปลี่ยนผู้ดำเนินกิจการ/ผู้รับอนุญาต (สถานที่เดิม)" /> <br />    
+                                    <asp:CheckBox ID="chkType5" runat="server" AutoPostBack="true" Text="เปลี่ยนผู้ดำเนินกิจการ/ผู้รับอนุญาต (สถานที่เดิม)" /> <br />
+                                    <asp:CheckBox ID="chkType10" runat="server" AutoPostBack="true" Text="ขอรับรองใหม่ร้านยาคุณภาพแบบมีเงื่อนไขเฝ้าระวัง" /> <br />   
+                                    <asp:CheckBox ID="chkType11" runat="server" AutoPostBack="true" Text="ต่ออายุร้านยาคุณภาพแบบมีเงื่อนไขเฝ้าระวัง" /> <br />    
+
                                 </div>
                             </div>
 

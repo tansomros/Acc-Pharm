@@ -122,6 +122,24 @@ Partial Public Class Request
     Protected WithEvents chkType5 As Global.System.Web.UI.WebControls.CheckBox
 
     '''<summary>
+    '''chkType10 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents chkType10 As Global.System.Web.UI.WebControls.CheckBox
+
+    '''<summary>
+    '''chkType11 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents chkType11 As Global.System.Web.UI.WebControls.CheckBox
+
+    '''<summary>
     '''txtFname control.
     '''</summary>
     '''<remarks>

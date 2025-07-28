@@ -70,6 +70,14 @@ Public Class Request
                         chkType8.Checked = True
                     Case 9
                         chkType9.Checked = True
+                    Case 10
+                        chkType10.Checked = True
+                        pnPolicy.Visible = True
+                        pnChange.Visible = False
+                    Case 11
+                        chkType11.Checked = True
+                        pnPolicy.Visible = True
+                        pnChange.Visible = False
                 End Select
 
             Next
@@ -129,7 +137,7 @@ Public Class Request
             Exit Sub
         End If
 
-        If chkType1.Checked Or chkType2.Checked Or chkType7.Checked Then
+        If chkType1.Checked Or chkType2.Checked Or chkType7.Checked Or chkType10.Checked Or chkType11.Checked Then
             If chkAllow.Checked = False Then
                 ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalWarningInfo(this,'ผลการตรวจสอบ','ท่านยังไม่ได้เลือกยอมรับทราบและให้คำรับรอง');", True)
                 Exit Sub
@@ -191,6 +199,12 @@ Public Class Request
         If chkType9.Checked Then
             ctlR.RequestTypeList_Add(StrNull2Zero(hdRequestUID.Value), 9, Request.Cookies("userid").Value)
         End If
+        If chkType10.Checked Then
+            ctlR.RequestTypeList_Add(StrNull2Zero(hdRequestUID.Value), 10, Request.Cookies("userid").Value)
+        End If
+        If chkType11.Checked Then
+            ctlR.RequestTypeList_Add(StrNull2Zero(hdRequestUID.Value), 11, Request.Cookies("userid").Value)
+        End If
 
         ctlL.Location_UpdateLitigation(StrNull2Zero(hdLocationUID.Value), txtLitigation.Text)
 
@@ -207,9 +221,11 @@ Public Class Request
         If chkType1.Checked = True Then
             chkType2.Checked = False
             chkType7.Checked = False
+            chkType10.Checked = False
+            chkType11.Checked = False
             pnPolicy.Visible = True
         End If
-        If chkType1.Checked = False And chkType2.Checked = False And chkType7.Checked = False Then
+        If chkType1.Checked = False And chkType2.Checked = False And chkType7.Checked = False And chkType10.Checked = False And chkType11.Checked = False Then
             pnPolicy.Visible = False
         End If
     End Sub
@@ -218,9 +234,11 @@ Public Class Request
         If chkType2.Checked = True Then
             chkType1.Checked = False
             chkType7.Checked = False
+            chkType10.Checked = False
+            chkType11.Checked = False
             pnPolicy.Visible = True
         End If
-        If chkType1.Checked = False And chkType2.Checked = False And chkType7.Checked = False Then
+        If chkType1.Checked = False And chkType2.Checked = False And chkType7.Checked = False And chkType10.Checked = False And chkType11.Checked = False Then
             pnPolicy.Visible = False
         End If
     End Sub
@@ -237,9 +255,37 @@ Public Class Request
         If chkType1.Checked = True Or chkType7.Checked = True Then
             chkType2.Checked = False
             chkType1.Checked = False
+            chkType10.Checked = False
+            chkType11.Checked = False
             pnPolicy.Visible = True
         End If
-        If chkType1.Checked = False And chkType2.Checked = False And chkType7.Checked = False Then
+        If chkType1.Checked = False And chkType2.Checked = False And chkType7.Checked = False And chkType10.Checked = False And chkType11.Checked = False Then
+            pnPolicy.Visible = False
+        End If
+    End Sub
+
+    Private Sub chkType10_CheckedChanged(sender As Object, e As EventArgs) Handles chkType10.CheckedChanged
+        If chkType10.Checked = True Then
+            chkType2.Checked = False
+            chkType7.Checked = False
+            chkType1.Checked = False
+            chkType11.Checked = False
+            pnPolicy.Visible = True
+        End If
+        If chkType1.Checked = False And chkType2.Checked = False And chkType7.Checked = False And chkType10.Checked = False And chkType11.Checked = False Then
+            pnPolicy.Visible = False
+        End If
+    End Sub
+
+    Private Sub chkType11_CheckedChanged(sender As Object, e As EventArgs) Handles chkType11.CheckedChanged
+        If chkType11.Checked = True Then
+            chkType2.Checked = False
+            chkType7.Checked = False
+            chkType1.Checked = False
+            chkType10.Checked = False
+            pnPolicy.Visible = True
+        End If
+        If chkType1.Checked = False And chkType2.Checked = False And chkType7.Checked = False And chkType10.Checked = False And chkType11.Checked = False Then
             pnPolicy.Visible = False
         End If
     End Sub

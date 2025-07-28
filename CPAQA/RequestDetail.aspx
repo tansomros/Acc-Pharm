@@ -675,6 +675,8 @@
               <asp:CheckBox ID="chkType9" runat="server" Text="เพิ่มผู้มีหน้าที่ปฏิบัติการ" /><br />                  
               <asp:CheckBox ID="chkType8" runat="server" Text="เปลี่ยนแปลงเวลาผู้มีหน้าที่ปฏิบัติการ" /><br />
               <asp:CheckBox ID="chkType5" runat="server" Text="เปลี่ยนผู้ดำเนินกิจการ/ผู้รับอนุญาต (สถานที่เดิม)" /><br />
+             <asp:CheckBox ID="chkType10" runat="server" Text="ขอรับรองใหม่ร้านยาคุณภาพแบบมีเงื่อนไขเฝ้าระวัง" /> <br />   
+              <asp:CheckBox ID="chkType11" runat="server" Text="ต่ออายุร้านยาคุณภาพแบบมีเงื่อนไขเฝ้าระวัง" /> <br />  
          </div>
      </div>
 

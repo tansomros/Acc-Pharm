@@ -145,17 +145,14 @@ Public Class RequestDetail
                 Select Case dtC.Rows(i)("RequestTypeUID")
                     Case 1
                         chkType1.Checked = True
-
                     Case 2
                         chkType2.Checked = True
-
                     Case 3
                         chkType3.Checked = True
                     Case 4
                         chkType4.Checked = True
                     Case 5
                         chkType5.Checked = True
-
                     Case 6
                         chkType6.Checked = True
                     Case 7
@@ -164,6 +161,10 @@ Public Class RequestDetail
                         chkType8.Checked = True
                     Case 9
                         chkType9.Checked = True
+                    Case 10
+                        chkType10.Checked = True
+                    Case 11
+                        chkType11.Checked = True
                 End Select
 
             Next
@@ -1102,6 +1103,12 @@ Public Class RequestDetail
         End If
         If chkType9.Checked Then
             ctlR.RequestTypeList_Add(StrNull2Zero(hdRequestUID.Value), 9, Request.Cookies("userid").Value)
+        End If
+        If chkType10.Checked Then
+            ctlR.RequestTypeList_Add(StrNull2Zero(hdRequestUID.Value), 10, Request.Cookies("userid").Value)
+        End If
+        If chkType11.Checked Then
+            ctlR.RequestTypeList_Add(StrNull2Zero(hdRequestUID.Value), 11, Request.Cookies("userid").Value)
         End If
 
         ctlR.RequestTransaction_Add(hdRequestUID.Value, hdLocationUID.Value, ddlStatus.SelectedValue, "เปลี่ยนประเภทคำขอ", Request.Cookies("UserID").Value)
