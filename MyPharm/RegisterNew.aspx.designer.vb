@@ -41,67 +41,76 @@ Partial Public Class RegisterNew
     Protected WithEvents lblNewCode As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''txtLocationName control.
+    '''lblLicenseNo1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtLocationName As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents lblLicenseNo1 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''txtLicenseNo1 control.
+    '''lblLocationName control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtLicenseNo1 As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents lblLocationName As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''txtAddressNo control.
+    '''lblAddressNo control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtAddressNo As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents lblAddressNo As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''txtMoo control.
+    '''lblMoo control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtMoo As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents lblMoo As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''txtRoad control.
+    '''lblRoad control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtRoad As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents lblRoad As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''txtSubDistict control.
+    '''lblSubDistict control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtSubDistict As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents lblSubDistict As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''txtDistrict control.
+    '''lblDistrict control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtDistrict As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents lblDistrict As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''lblProvince control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblProvince As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''ddlProvince control.
@@ -113,13 +122,49 @@ Partial Public Class RegisterNew
     Protected WithEvents ddlProvince As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''txtZipCode control.
+    '''lblZipCode control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtZipCode As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents lblZipCode As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''lblAuthName control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblAuthName As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''lblLicensee control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblLicensee As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''lblPharmacist control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblPharmacist As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''lblPharmacistLicenseNo control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblPharmacistLicenseNo As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''txtTel control.

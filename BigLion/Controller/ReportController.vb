@@ -193,8 +193,8 @@ Public Class ReportController
         Return SqlHelper.ExecuteNonQuery(ConnectionString, GetFullyQualifiedName("GEN_LocationWarning_Report"), StartDate, EndDate, SeqNo, sType, ProvinceID, IsAccPharm, LocationUID, Keyword, UserID)
     End Function
 
-    Public Function GEN_PostReport(AsmYear As String, pType As String, PGroup As String, ProvinceID As String, AssessorID As String, Search As String, UserID As String) As Integer
-        Return SqlHelper.ExecuteNonQuery(ConnectionString, GetFullyQualifiedName("GEN_PostReport"), AsmYear, pType, PGroup, ProvinceID, AssessorID, Search, UserID)
+    Public Function GEN_PostReport(StartDate As String, EndDate As String, pType As String, QAResult As String, QASummary As String, CIResult As String, CISummary As String, PGroup As String, ProvinceID As String, AssessorID As String, Search As String, UserID As String) As Integer
+        Return SqlHelper.ExecuteNonQuery(ConnectionString, GetFullyQualifiedName("GEN_PostReport"), StartDate, EndDate, pType, QAResult, QASummary, CIResult, CISummary, PGroup, ProvinceID, AssessorID, Search, UserID)
     End Function
 
     Public Function GEN_GPPReportForAdminPPH(AsmYear As String, PGroup As String, ProvinceID As String, Search As String, UserID As String) As Integer
@@ -221,8 +221,8 @@ Public Class ReportController
     End Function
 
 
-    Public Function RPT_PostAudit_GetBySearch(AsmYear As String, pType As String, PGroup As String, ProvinceID As String, UserID As String, Search As String) As DataTable
-        ds = SqlHelper.ExecuteDataset(ConnectionString, GetFullyQualifiedName("RPT_PostAudit_GetBySearch"), AsmYear, pType, PGroup, ProvinceID, UserID, Search)
+    Public Function RPT_PostAudit_GetBySearch(StartDate As String, EndDate As String, pType As String, QAResult As String, QASummary As String, CIResult As String, CISummary As String, PGroup As String, ProvinceID As String, UserID As String, Search As String) As DataTable
+        ds = SqlHelper.ExecuteDataset(ConnectionString, GetFullyQualifiedName("RPT_PostAudit_GetBySearch"), StartDate, EndDate, pType, QAResult, QASummary, CIResult, CISummary, PGroup, ProvinceID, UserID, Search)
         Return ds.Tables(0)
     End Function
 

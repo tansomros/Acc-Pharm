@@ -23,15 +23,6 @@ Partial Public Class Location
     Protected WithEvents hdLocationUID As Global.System.Web.UI.WebControls.HiddenField
 
     '''<summary>
-    '''txtLocationName control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtLocationName As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
     '''txtLicenseNo1 control.
     '''</summary>
     '''<remarks>
@@ -39,6 +30,15 @@ Partial Public Class Location
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtLicenseNo1 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtLocationName control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtLocationName As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''txtAddressNo control.
@@ -68,22 +68,31 @@ Partial Public Class Location
     Protected WithEvents txtRoad As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''txtSubdistrict control.
+    '''txtSubDistrict control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtSubdistrict As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtSubDistrict As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''txtDistrict control.
+    '''lblDistrict control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtDistrict As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents lblDistrict As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''ddlDistrict control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddlDistrict As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
     '''ddlProvince control.
@@ -102,6 +111,51 @@ Partial Public Class Location
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtZipCode As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtAuthName control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtAuthName As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtLicensee control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtLicensee As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''optLicenseeType control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents optLicenseeType As Global.System.Web.UI.WebControls.RadioButtonList
+
+    '''<summary>
+    '''txtPharmacist control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtPharmacist As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtPharmacistLicenseNo control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtPharmacistLicenseNo As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''txtTel control.
@@ -183,24 +237,6 @@ Partial Public Class Location
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtLicenseNo3 As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''txtLicensee control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtLicensee As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''optLicenseeType control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents optLicenseeType As Global.System.Web.UI.WebControls.RadioButtonList
 
     '''<summary>
     '''pnPharmacist control.

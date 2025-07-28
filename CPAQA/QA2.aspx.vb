@@ -146,8 +146,21 @@ Public Class QA2
                 chkStatus.Checked = False
             End If
 
-
+            StatusUpload()
         End If
+    End Sub
+    Private Sub StatusUpload()
+        'lblR1.Text = ctlM.Media_GetStatus(StrNull2Zero(Request("id")), hdLocationUID.Value, "R", 1)
+        'lblQ2.Text = ctlM.Media_GetStatus(StrNull2Zero(Request("id")), hdLocationUID.Value, "A", 2)
+        'lblQ3.Text = ctlM.Media_GetStatus(StrNull2Zero(Request("id")), hdLocationUID.Value, "A", 3)
+        'lblQ4.Text = ctlM.Media_GetStatus(StrNull2Zero(Request("id")), hdLocationUID.Value, "A", 4)
+        'lblQ5.Text = ctlM.Media_GetStatus(StrNull2Zero(Request("id")), hdLocationUID.Value, "A", 5)
+        'lblQ6.Text = ctlM.Media_GetStatus(StrNull2Zero(Request("id")), hdLocationUID.Value, "A", 6)
+        'lblQ7.Text = ctlM.Media_GetStatus(StrNull2Zero(Request("id")), hdLocationUID.Value, "A", 7)
+        'lblQ8.Text = ctlM.Media_GetStatus(StrNull2Zero(Request("id")), hdLocationUID.Value, "A", 8)
+        'lblQ9.Text = ctlM.Media_GetStatus(StrNull2Zero(Request("id")), hdLocationUID.Value, "A", 9)
+        'lblQ10.Text = ctlM.Media_GetStatus(StrNull2Zero(Request("id")), hdLocationUID.Value, "A", 10)
+
     End Sub
     Private Sub CheckStatusAssessment()
         Dim iStatus As Integer = 0

@@ -25,7 +25,8 @@ Public Class Location
             cmdDelete.Visible = False
 
             pnPharmacist.Visible = False
-
+            lblDistrict.Visible = False
+            ddlDistrict.Visible = True
 
             hdLocationUID.Value = Request.Cookies("LoginLocationUID").Value
 
@@ -65,6 +66,24 @@ Public Class Location
         txtArea2.Attributes.Add("OnKeyPress", "return AllowOnlyDouble();")
 
         txtEmail.Attributes.Add("OnKeyPress", "return NotAllowThai();")
+    End Sub
+    Private Sub DisableLocation()
+        txtLocationName.Enabled = False
+        txtAddressNo.Enabled = False
+        txtMoo.Enabled = False
+        txtRoad.Enabled = False
+        txtSubDistrict.Enabled = False
+        ddlDistrict.Enabled = False
+        ddlProvince.Enabled = False
+        txtZipCode.Enabled = False
+        txtAuthName.Enabled = False
+        txtLicensee.Enabled = False
+        txtPharmacist.Enabled = False
+        txtPharmacistLicenseNo.Enabled = False
+        optLicenseeType.Enabled = False
+
+        ddlPType.SelectedIndex = 1
+        ddlPType.Enabled = False
     End Sub
 
     Private Sub CheckStatusAssessment()
@@ -246,9 +265,21 @@ Public Class Location
                 txtAddressNo.Text = String.Concat(.Item("AddressNo"))
                 txtMoo.Text = String.Concat(.Item("Moo"))
                 txtRoad.Text = String.Concat(.Item("Road"))
-                txtSubdistrict.Text = String.Concat(.Item("Subdistrict"))
-                txtDistrict.Text = String.Concat(.Item("District"))
+                txtSubDistrict.Text = String.Concat(.Item("Subdistrict"))
+
                 ddlProvince.SelectedValue = String.Concat(.Item("ProvinceID"))
+                LoadDistrictToDDL()
+
+                lblDistrict.Text = String.Concat(.Item("District"))
+                If DBNull2Zero(.Item("DistrictID")) <> 0 Then
+                    ddlDistrict.SelectedValue = String.Concat(.Item("DistrictID"))
+                    lblDistrict.Visible = False
+                Else
+                    lblDistrict.Visible = True
+                End If
+
+
+
                 txtZipCode.Text = String.Concat(.Item("ZipCode"))
 
                 txtTel.Text = String.Concat(.Item("Tel"))
@@ -273,6 +304,10 @@ Public Class Location
                 txtLicenseNo3.Text = String.Concat(.Item("LicenseNo3"))
                 txtLicensee.Text = String.Concat(.Item("Licensee"))
                 optLicenseeType.SelectedValue = String.Concat(.Item("LicenseeType"))
+
+                txtAuthName.Text = String.Concat(.Item("AuthPerson"))
+                txtPharmacist.Text = String.Concat(.Item("Pharmacist"))
+                txtPharmacistLicenseNo.Text = String.Concat(.Item("PharmacistLicenseNo"))
 
                 If String.Concat(.Item("LocationAsmStatus")) = "Y" Then
                     chkStatus.Checked = True
@@ -345,7 +380,7 @@ Public Class Location
         txtMoo.Text = ""
         txtRoad.Text = ""
         txtSubdistrict.Text = ""
-        txtDistrict.Text = ""
+        lblDistrict.Text = ""
         ddlProvince.SelectedIndex = 1
         Me.txtZipCode.Text = ""
 
@@ -389,10 +424,10 @@ Public Class Location
             ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalWarningInfo(this,'ผลการตรวจสอบ','กรุณาระบุแขวง/ตำบล');", True)
             Exit Sub
         End If
-        If txtDistrict.Text = "" Then
-            ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalWarningInfo(this,'ผลการตรวจสอบ','กรุณาระบุเขต/อำเภอ');", True)
-            Exit Sub
-        End If
+        'If txtDistrict.Text = "" Then
+        '    ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalWarningInfo(this,'ผลการตรวจสอบ','กรุณาระบุเขต/อำเภอ');", True)
+        '    Exit Sub
+        'End If
         If txtZipCode.Text = "" Then
             ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalWarningInfo(this,'ผลการตรวจสอบ','กรุณาระบุรหัสไปรษณีย์');", True)
             Exit Sub
@@ -445,7 +480,7 @@ Public Class Location
             isSoftware = "N"
         End If
 
-        ctlL.Location_UpdateByLocation(hdLocationUID.Value, txtLicenseNo1.Text, txtLicenseNo1.Text, txtLocationName.Text, txtAddressNo.Text, txtMoo.Text, txtRoad.Text, txtSubdistrict.Text, txtDistrict.Text, ddlProvince.SelectedValue, txtZipCode.Text, txtTel.Text, txtEmail.Text, txtLineID.Text, txtWorkTime.Text, sLat, sLng, txtFacebook.Text, StrNull2Zero(txtStartYear.Text), txtLicenseNo1.Text, txtLicenseNo2.Text, txtLicenseNo3.Text, txtLicensee.Text, StrNull2Zero(optLicenseeType.SelectedValue), StrNull2Zero(txtArea1.Text), StrNull2Double(txtArea2.Text), StrNull2Zero(ddlGroup.SelectedValue), StrNull2Zero(ddlChain.SelectedValue), "A", Request.Cookies("userid").Value)
+        ctlL.Location_UpdateByLocation(hdLocationUID.Value, txtLicenseNo1.Text, txtLicenseNo1.Text, txtLocationName.Text, txtAddressNo.Text, txtMoo.Text, txtRoad.Text, txtSubDistrict.Text, ddlDistrict.SelectedValue, ddlProvince.SelectedValue, txtZipCode.Text, txtTel.Text, txtEmail.Text, txtLineID.Text, txtWorkTime.Text, sLat, sLng, txtFacebook.Text, StrNull2Zero(txtStartYear.Text), txtLicenseNo1.Text, txtLicenseNo2.Text, txtLicenseNo3.Text, txtLicensee.Text, StrNull2Zero(optLicenseeType.SelectedValue), StrNull2Zero(txtArea1.Text), StrNull2Double(txtArea2.Text), StrNull2Zero(ddlGroup.SelectedValue), StrNull2Zero(ddlChain.SelectedValue), "A", Request.Cookies("userid").Value)
 
         ctlU.User_GenLogfile(Request.Cookies("UserID").Value, ACTTYPE_UPD, "Locations", "แก้ไขข้อมูลร้านยาจากคำขอ", "[LocationUID=" & hdLocationUID.Value & "]", Environment.MachineName, GetIPAddress())
 
@@ -1016,6 +1051,26 @@ Public Class Location
         ctlR.Request_UpdateLocationAsmStatus(StrNull2Zero(hdLocationUID.Value), StrNull2Long(Request("id")), AsmStatus)
         ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalSuccess(this,'Success','บันทึกเรียบร้อย');", True)
 
+    End Sub
+
+    Private Sub ddlProvince_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ddlProvince.SelectedIndexChanged
+        LoadDistrictToDDL()
+    End Sub
+    Private Sub LoadDistrictToDDL()
+        Dim dtDt As New DataTable
+        Dim ctlM As New MasterController
+        dtDt = ctlM.District_GetForReport(ddlProvince.SelectedValue)
+        If dtDt.Rows.Count > 0 Then
+            With ddlDistrict
+                .Enabled = True
+                .DataSource = dtDt
+                .DataTextField = "DistrictName"
+                .DataValueField = "DistrictID"
+                .DataBind()
+                '.SelectedIndex = 0
+            End With
+        End If
+        dt = Nothing
     End Sub
 End Class
 

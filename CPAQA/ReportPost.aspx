@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="ReportPost.aspx.vb" Inherits="CPAQA.ReportPost" %>
+
 <%@ Import Namespace="System.Data" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
@@ -23,15 +24,52 @@
 
         <div class="box box-solid">
             <div class="box-body" style="background-color: #14539a; color: white">
-                <div class="row">           
+                <div class="row">
                     <div class="col-md-2">
                         <div class="form-group">
-                            <label>ปี</label><br />
-                            <asp:DropDownList ID="ddlYear" runat="server" CssClass="form-control select2">
+                            <label>Start Date</label>
+                            <br />
+                            <div class="input-group">
+                                <asp:TextBox ID="txtStartDate" runat="server" CssClass="form-control text-center"
+                                    autocomplete="off" data-date-format="dd/mm/yyyy"
+                                    data-date-language="th-th" data-provide="datepicker"
+                                    onkeyup="chkstr(this,this.value)"></asp:TextBox>
+                                <div class="input-group-append">
+                                    <span class="input-group-text"><i class="fa lnr-calendar-full"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label>End Date</label>
+                            <br />
+                            <div class="input-group">
+                                <asp:TextBox ID="txtEndDate" runat="server" CssClass="form-control text-center"
+                                    autocomplete="off" data-date-format="dd/mm/yyyy"
+                                    data-date-language="th-th" data-provide="datepicker"
+                                    onkeyup="chkstr(this,this.value)"></asp:TextBox>
+                                <div class="input-group-append">
+                                    <span class="input-group-text"><i class="fa lnr-calendar-full"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label>ภาค</label><br />
+                            <asp:DropDownList ID="ddlProvinceGroup" runat="server" AutoPostBack="true" CssClass="form-control select2">
                             </asp:DropDownList>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label>จังหวัด</label><br />
+                            <asp:DropDownList ID="ddlProvince" runat="server" CssClass="form-control select2">
+                            </asp:DropDownList>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
                         <div class="form-group">
                             <label>การตรวจมาตรฐาน</label><br />
                             <asp:DropDownList ID="ddlType" runat="server" CssClass="form-control select2">
@@ -43,19 +81,48 @@
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
-                            <label>ภาค</label><br />
-                            <asp:DropDownList ID="ddlProvinceGroup" runat="server" CssClass="form-control select2" AutoPostBack="True">
+                            <label>สรุป ระบบร้านยาคุณภาพ</label><br />
+                            <asp:DropDownList ID="ddlQAResult" runat="server" CssClass="form-control select2">
+                                <asp:ListItem Selected="True" Value="0">ทั้งหมด</asp:ListItem>
+                                <asp:ListItem Value="1">ผ่าน</asp:ListItem>
+                                <asp:ListItem Value="2">แก้ไข</asp:ListItem>
+                                <asp:ListItem Value="3">อื่นๆ</asp:ListItem>
                             </asp:DropDownList>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <div class="form-group">
-                            <label>จังหวัด</label><br />
-                            <asp:DropDownList ID="ddlProvince" runat="server" CssClass="form-control select2">
+                            <label>การดำเนินการ ระบบร้านยาคุณภาพ</label><br />
+                            <asp:DropDownList ID="ddlQASummary" runat="server" CssClass="form-control select2">
+                                <asp:ListItem Selected="True" Value="0">ทั้งหมด</asp:ListItem>
+                                <asp:ListItem Value="1">เรียบร้อย</asp:ListItem>
+                                <asp:ListItem Value="2">ไม่เรียบร้อย</asp:ListItem>
                             </asp:DropDownList>
                         </div>
-                    </div>                    
+                    </div>
                     <div class="col-md-2">
+                        <div class="form-group">
+                            <label>สรุป Common illness</label><br />
+                            <asp:DropDownList ID="ddlCIResult" runat="server" CssClass="form-control select2">
+                                <asp:ListItem Selected="True" Value="0">ทั้งหมด</asp:ListItem>
+                                <asp:ListItem Value="1">ผ่าน</asp:ListItem>
+                                <asp:ListItem Value="2">แก้ไข</asp:ListItem>
+                                <asp:ListItem Value="3">อื่นๆ</asp:ListItem>
+                            </asp:DropDownList>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label>การดำเนินการ Common illness</label><br />
+                            <asp:DropDownList ID="ddlCISummary" runat="server" CssClass="form-control select2">
+                                <asp:ListItem Selected="True" Value="0">ทั้งหมด</asp:ListItem>
+                                <asp:ListItem Value="1">เรียบร้อย</asp:ListItem>
+                                <asp:ListItem Value="2">ไม่เรียบร้อย</asp:ListItem>
+                            </asp:DropDownList>
+                        </div>
+                    </div>
+                   
+                    <div class="col-md-4">
                         <div class="form-group">
                             <label>คำค้นหา</label><br />
                             <asp:TextBox ID="txtSearch" runat="server" CssClass="form-control" PlaceHolder="ชื่อร้าน / เลข ขย.5 /เลขที่ใบอนุญาต"></asp:TextBox>
@@ -75,7 +142,7 @@
             </div>
         </div>
 
-          
+
         <div id="pnView" runat="server" class="main-card mb-3 card">
             <div class="card-header">
                 รายงานการตรวจรักษาคุณภาพ
@@ -84,39 +151,39 @@
             </div>
             <div class="card-body table-responsive">
                 <table id="tbdata" class="table table-hover table-bordered">
-                            <thead>
-                                <tr>     
-                                       <th class="text-center">Code</th> 
-                                    <th class="text-center">เลข ขย.</th> 
-                                     <th class="text-center">ร้านยา</th>
- <th class="text-center">จังหวัด</th>
- <th class="text-center">อำเภอ</th>
- <th class="text-center">วันที่บันทึก</th>
- <th class="text-center">ระบบร้านยาคุณภาพ</th>
- <th class="text-center">Common illness</th>     
-                                    <th class="sorting_asc_disabled sorting_desc_disabled text-center">View</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <% For Each row As DataRow In dtGPP.Rows %>
-                                <tr>
-                                    <td class="text-center"><% =String.Concat(row("Code")) %></td>
-                                    <td class="text-center"><% =String.Concat(row("LicenseNo")) %></td>
-                                    <td><a href="PostAudit?m=po&s=list&lid=<% =String.Concat(row("LocationUID")) %>&id=<% =String.Concat(row("PostUID")) %>"><% =String.Concat(row("LocationName")) %> </a></td> 
-                                    <td class="text-center"><% =String.Concat(row("ProvinceName")) %> </td>
-                                    <td class="text-center"><% =String.Concat(row("DistrictName")) %> </td>
-                                    <td class="text-center"><% =String.Concat(row("AsmDate")) %></td>
-                                    <td class="text-center"><% =String.Concat(row("QACompleteTXT")) %></td>
-                                    <td class="text-center"><% =String.Concat(row("CICompleteTXT")) %></td>
-                                    <td width="100" class="text-center">
-                                        <a href="Reports/ReportPostView?m=po&s=rpa&id=<% =String.Concat(row("PostUID")) %>" target="_blank" class="btn btn-info" data-toggle="tooltip" data-placement="top" data-original-title="พิมพ์/ดูแบบละเอียด"><i class="fa fa-desktop" aria-hidden="true"></i></a>
-                                    </td>
-                                </tr>
-                                <%  Next %>
-                            </tbody>
-                        </table>
+                    <thead>
+                        <tr>
+                            <th class="text-center">Code</th>
+                            <th class="text-center">เลข ขย.</th>
+                            <th class="text-center">ร้านยา</th>
+                            <th class="text-center">จังหวัด</th>
+                            <th class="text-center">อำเภอ</th>
+                            <th class="text-center">วันที่บันทึก</th>
+                            <th class="text-center">ระบบร้านยาคุณภาพ</th>
+                            <th class="text-center">Common illness</th>
+                            <th class="sorting_asc_disabled sorting_desc_disabled text-center">View</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% For Each row As DataRow In dtGPP.Rows %>
+                        <tr>
+                            <td class="text-center"><% =String.Concat(row("Code")) %></td>
+                            <td class="text-center"><% =String.Concat(row("LicenseNo")) %></td>
+                            <td><a href="PostAudit?m=po&s=list&lid=<% =String.Concat(row("LocationUID")) %>&id=<% =String.Concat(row("PostUID")) %>"><% =String.Concat(row("LocationName")) %> </a></td>
+                            <td class="text-center"><% =String.Concat(row("ProvinceName")) %> </td>
+                            <td class="text-center"><% =String.Concat(row("DistrictName")) %> </td>
+                            <td class="text-center"><% =String.Concat(row("AsmDate")) %></td>
+                            <td class="text-center"><% =String.Concat(row("QACompleteTXT")) %></td>
+                            <td class="text-center"><% =String.Concat(row("CICompleteTXT")) %></td>
+                            <td width="100" class="text-center">
+                                <a href="Reports/ReportPostView?m=po&s=rpa&id=<% =String.Concat(row("PostUID")) %>" target="_blank" class="btn btn-info" data-toggle="tooltip" data-placement="top" data-original-title="พิมพ์/ดูแบบละเอียด"><i class="fa fa-desktop" aria-hidden="true"></i></a>
+                            </td>
+                        </tr>
+                        <%  Next %>
+                    </tbody>
+                </table>
             </div>
-        </div>   
-           
+        </div>
+
     </section>
 </asp:Content>

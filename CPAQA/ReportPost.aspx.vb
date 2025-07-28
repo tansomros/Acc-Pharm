@@ -13,7 +13,8 @@ Public Class ReportPost
         '    Response.Redirect("Default.aspx")
         'End If
         If Not IsPostBack Then
-            LoadYearToDDL()
+            txtStartDate.Text = "01/01/" & Today.Year + 542
+            txtEndDate.Text = Today.Date.ToString("dd/MM/yyyy")
             LoadProvinceToDDL()
             LoadProvinceGroupToDDL()
 
@@ -42,20 +43,20 @@ Public Class ReportPost
             End If
         End If
     End Sub
-    Private Sub LoadYearToDDL()
-        dt = ctlM.GetGPPYear()
-        If dt.Rows.Count > 0 Then
-            With ddlYear
-                .Enabled = True
-                .DataSource = dt
-                .DataTextField = "YearName"
-                .DataValueField = "AsmYear"
-                .DataBind()
-                '.SelectedIndex = 0
-            End With
-        End If
-        dt = Nothing
-    End Sub
+    'Private Sub LoadYearToDDL()
+    '    dt = ctlM.GetGPPYear()
+    '    If dt.Rows.Count > 0 Then
+    '        With ddlYear
+    '            .Enabled = True
+    '            .DataSource = dt
+    '            .DataTextField = "YearName"
+    '            .DataValueField = "AsmYear"
+    '            .DataBind()
+    '            '.SelectedIndex = 0
+    '        End With
+    '    End If
+    '    dt = Nothing
+    'End Sub
 
     Private Sub LoadProvinceToDDL()
         If ddlProvinceGroup.SelectedValue = "0" Then
@@ -92,12 +93,16 @@ Public Class ReportPost
         dt = Nothing
     End Sub
     Private Sub LoadData()
+        Dim Bdate, Edate As String
+        Bdate = ConvertStrDate2DBDate(txtStartDate.Text)
+        Edate = ConvertStrDate2DBDate(txtEndDate.Text)
+
         If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) >= 4 And Convert.ToInt32(Request.Cookies("ROLE_ID").Value) <= 5 Then
-            dtGPP = ctlR.RPT_PostAudit_GetBySearch(ddlYear.SelectedValue, ddlType.SelectedValue, ddlProvinceGroup.SelectedValue, ddlProvince.SelectedValue, Request.Cookies("UserID").Value, txtSearch.Text)
+            dtGPP = ctlR.RPT_PostAudit_GetBySearch(Bdate, Edate, ddlType.SelectedValue, ddlQAResult.SelectedValue, ddlQASummary.Text, ddlCIResult.SelectedValue, ddlCISummary.SelectedValue, ddlProvinceGroup.SelectedValue, ddlProvince.SelectedValue, Request.Cookies("UserID").Value, txtSearch.Text)
             'ElseIf Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = 5 Then
             '    dtGPP = ctlR.RPT_GPP_GetByAdminPPHSearch(ddlYear.SelectedValue, ddlProvinceGroup.SelectedValue, ddlProvince.SelectedValue, Request.Cookies("UserID").Value, txtSearch.Text)
         Else
-            dtGPP = ctlR.RPT_PostAudit_GetBySearch(ddlYear.SelectedValue, ddlType.SelectedValue, ddlProvinceGroup.SelectedValue, ddlProvince.SelectedValue, "0", txtSearch.Text)
+            dtGPP = ctlR.RPT_PostAudit_GetBySearch(Bdate, Edate, ddlType.SelectedValue, ddlQAResult.SelectedValue, ddlQASummary.Text, ddlCIResult.SelectedValue, ddlCISummary.SelectedValue, ddlProvinceGroup.SelectedValue, ddlProvince.SelectedValue, "0", txtSearch.Text)
         End If
     End Sub
     Protected Sub cmdView_Click(sender As Object, e As EventArgs) Handles cmdView.Click
@@ -105,12 +110,15 @@ Public Class ReportPost
     End Sub
 
     Private Sub cmdExport_Click(sender As Object, e As EventArgs) Handles cmdExport.Click
+        Dim Bdate, Edate As String
+        Bdate = ConvertStrDate2DBDate(txtStartDate.Text)
+        Edate = ConvertStrDate2DBDate(txtEndDate.Text)
         'ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalWarningInfo(this,'Under Construction','อยู่ระหว่างการพัฒนา ขออภัยในความไม่สะดวก');", True)
         Select Case Convert.ToInt32(Request.Cookies("ROLE_ID").Value)
             Case 9
-                ctlR.GEN_PostReport(ddlYear.SelectedValue, ddlType.SelectedValue, ddlProvinceGroup.SelectedValue, ddlProvince.SelectedValue, "0", txtSearch.Text, Request.Cookies("UserID").Value)
+                ctlR.GEN_PostReport(Bdate, Edate, ddlType.SelectedValue, ddlQAResult.SelectedValue, ddlQASummary.Text, ddlCIResult.SelectedValue, ddlCISummary.SelectedValue, ddlProvinceGroup.SelectedValue, ddlProvince.SelectedValue, "0", txtSearch.Text, Request.Cookies("UserID").Value)
             Case Else
-                ctlR.GEN_PostReport(ddlYear.SelectedValue, ddlType.SelectedValue, ddlProvinceGroup.SelectedValue, ddlProvince.SelectedValue, Request.Cookies("UserID").Value, txtSearch.Text, Request.Cookies("UserID").Value)
+                ctlR.GEN_PostReport(Bdate, Edate, ddlType.SelectedValue, ddlQAResult.SelectedValue, ddlQASummary.Text, ddlCIResult.SelectedValue, ddlCISummary.SelectedValue, ddlProvinceGroup.SelectedValue, ddlProvince.SelectedValue, Request.Cookies("UserID").Value, txtSearch.Text, Request.Cookies("UserID").Value)
         End Select
         LoadData()
         ScriptManager.RegisterClientScriptBlock(Me, Me.GetType(), "Report", "window.open('ReportViewer?R=" & Request("s").ToUpper() & "&RPTTYPE=EXCEL','_blank');", True)

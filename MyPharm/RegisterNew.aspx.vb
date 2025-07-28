@@ -21,7 +21,7 @@ Public Class RegisterNew
             LoadLocationChainToDDL()
             LoadLocationTypeToCheckList()
 
-            txtLicenseNo1.Text = Session("LicenseRegister")
+            lblLicenseNo1.Text = Session("LicenseRegister")
             LoadLocationDataFromFDA()
 
             ddlChain.Enabled = False
@@ -32,12 +32,15 @@ Public Class RegisterNew
         txtQAYear.Attributes.Add("OnKeyPress", "return AllowOnlyIntegers();")
         txtArea1.Attributes.Add("OnKeyPress", "return AllowOnlyDouble();")
         txtArea2.Attributes.Add("OnKeyPress", "return AllowOnlyDouble();")
-        txtZipCode.Attributes.Add("OnKeyPress", "return AllowOnlyIntegers();")
+        'txtZipCode.Attributes.Add("OnKeyPress", "return AllowOnlyIntegers();")
         txtEmail.Attributes.Add("OnKeyPress", "return NotAllowThai();")
 
 
     End Sub
     Private Sub LoadLocationDataFromFDA()
+        Dim dtResult1 As New DataTable
+        Dim dtResult2 As New DataTable
+
         Dim ctlFDA As New FDAServiceController
         Dim NewCode As String
         NewCode = ctlFDA.ConvertLicenseToNewCode(Session("LicenseRegister"))
@@ -45,70 +48,85 @@ Public Class RegisterNew
         Try
             dt = ctlFDA.GET_DRUG_LCN_INFORMATION(NewCode)
             If dt.Rows.Count > 0 Then
-                dt.DefaultView.Sort = "appdate desc,lcnno desc"
-                Dim dtResult As DataTable = dt.DefaultView.ToTable()
+                dt.DefaultView.Sort = "lmdfdate desc,lcnno desc"
+                dtResult1 = dt.DefaultView.ToTable()
+            End If
+            dt = ctlFDA.GET_DRUG_PHARMACY(NewCode)
+            If dt.Rows.Count > 0 Then
+                dt.DefaultView.Sort = "lmdfdate desc,lcnno desc"
+                dtResult2 = dt.DefaultView.ToTable()
+            End If
 
-                With dtResult.Rows(0)
-                    'txtLocationName.Text = String.Concat(.Item("thanm"))
-                    'txtAddressNo.Text = String.Concat(.Item("thaaddr"))  '& " " & .Item("tharoad"))
-                    'txtSubDistict.Text = String.Concat(.Item("thathmblnm"))
-                    'txtDistrict.Text = String.Concat(.Item("thaamphrnm"))
-                    'ddlProvince.SelectedValue = String.Concat(.Item("pvncd"))
-                    'txtZipCode.Text = String.Concat(.Item("zipcode"))
-                    'txtTel.Text = String.Concat(.Item("tel"))
-                    'txtLicensee.Text = String.Concat(.Item("grannm_lo"))
-                    'txtWorkTime.Text = String.Concat(.Item("licen_time"))
-                    txtLicenseNo1.Text = Replace(Replace(String.Concat(.Item("lcnno_no")), "ขย1 ", ""), " ", ".")
-                    txtLocationName.Text = checkField(dtResult, "thanm")
-                    txtAddressNo.Text = checkField(dtResult, "thaaddr")
-                    txtMoo.Text = checkField(dtResult, "thamu")
-                    txtRoad.Text = checkField(dtResult, "tharoad") & " " & IIf(checkField(dtResult, "thasoi") <> "", " ซอย " & checkField(dtResult, "thasoi"), "")
-                    txtSubDistict.Text = checkField(dtResult, "thathmblnm")
-                    txtDistrict.Text = checkField(dtResult, "thaamphrnm")
-                    ddlProvince.SelectedValue = checkField(dtResult, "pvncd")
-                    txtZipCode.Text = checkField(dtResult, "zipcode")
-                    txtTel.Text = checkField(dtResult, "tel")
-                    txtLicensee.Text = checkField(dtResult, "grannm_lo")
-                    txtWorkTime.Text = checkField(dtResult, "licen_time")
-                    'lcnno                   รหัสผู้ประกอบการ
-                    'thanm                   ชื่อสถานที่(ร้าน)
-                    'pvncd                   รหัสจังหวัด
-                    'lcntpcd                 ประเภทใบอนุญาตสถานที่ด้าน ยา
-                    'lcnsid                  รหัสผู้ประกอบการ
-                    'GROUPNAME               ประเภทสถานที่
-                    'lcnno_no                เลขใบอนุญาตสถานที่ด้านยา
-                    'lcnno_noo               เลขใบอนุญาตสถานที่ด้านยา
-                    'lcnno_not_pvnabbr       เลขใบอนุญาตสถานที่ด้านยา 
-                    'typee                   ประเภทใบอนุญาตสถานที่ด้าน ยา
-                    'licen                   ชื่อผู้รับอนุญาต
-                    'licen_addr              -
-                    'licen_address           -
-                    'licen_time              เวลาทำการของร้าน
-                    'grannm_lo               ชื่อผู้ดำเนินกิจการ
-                    'grannm_addr              -
-                    'grannm_address           -
-                    'thaaddr                 ที่อยู่สถานที่ 
-                    'tharoom                 ห้อง
-                    'thafloor                ชั้น
-                    'thabuilding             อาคาร
-                    'thasoi                  ซอย
-                    'tharoad                 ถนน
-                    'thamu                   หมู่
-                    'thathmblnm              ตำบล
-                    'zipcode                 รหัสไปรษณีย์
-                    'tel                     เบอร์โทรศัพท์
-                    'fax                     เบอร์โทรสาร
-                    'thanm_addr              ที่อยู่สถานที่ แบบเต็ม
-                    'thanm_address           ที่อยู่สถานที่ แบบเต็ม
-                    'thaamphrnm              อำเภอ
-                    'thachngwtnm             จังหวัด
-                    'cncnm                   สถานะใบอนุญาต
-                    'appdate                 วันที่อนุญาต
-                    'expyear                 ปีที่หมดอายุ
-                    'lmdfdate                Last update
-                    'grouptype               กลุ่มใบอนุญาต
-                    'Newcode_not             รหัส Newcode
-                End With
+            If dtResult1.Rows.Count > 0 Then
+
+                'txtLocationName.Text = String.Concat(.Item("thanm"))
+                'txtAddressNo.Text = String.Concat(.Item("thaaddr"))  '& " " & .Item("tharoad"))
+                'txtSubDistict.Text = String.Concat(.Item("thathmblnm"))
+                'txtDistrict.Text = String.Concat(.Item("thaamphrnm"))
+                'ddlProvince.SelectedValue = String.Concat(.Item("pvncd"))
+                'txtZipCode.Text = String.Concat(.Item("zipcode"))
+                'txtTel.Text = String.Concat(.Item("tel"))
+                'txtLicensee.Text = String.Concat(.Item("grannm_lo"))
+                'txtWorkTime.Text = String.Concat(.Item("licen_time"))
+                lblLicenseNo1.Text = Replace(Replace(String.Concat(dtResult1.Rows(0)("lcnno_no")), "ขย1 ", ""), " ", ".")
+                lblLocationName.Text = checkField(dtResult1, "thanm")
+                lblAddressNo.Text = checkField(dtResult1, "thaaddr")
+                lblMoo.Text = checkField(dtResult1, "thamu")
+                lblRoad.Text = checkField(dtResult1, "tharoad") & " " & IIf(checkField(dtResult1, "thasoi") <> "", " ซอย " & checkField(dtResult1, "thasoi"), "")
+                lblSubDistict.Text = checkField(dtResult1, "thathmblnm")
+                lblDistrict.Text = checkField(dtResult1, "thaamphrnm")
+                ddlProvince.SelectedValue = checkField(dtResult1, "pvncd")
+                lblProvince.Text = ddlProvince.SelectedItem.Text
+                lblZipCode.Text = checkField(dtResult1, "zipcode")
+                txtTel.Text = checkField(dtResult1, "tel")
+                lblLicensee.Text = checkField(dtResult1, "grannm_lo")
+                txtWorkTime.Text = checkField(dtResult1, "licen_time")
+
+                lblAuthName.Text = checkField(dtResult2, "grannm_lo")
+                lblLicensee.Text = checkField(dtResult2, "licen")
+                lblPharmacistLicenseNo.Text = checkField(dtResult2, "phrno")
+                lblPharmacist.Text = checkField(dtResult2, "phrnm")
+                lblPharmacistLicenseNo.Text = Replace(lblPharmacistLicenseNo.Text, "ภ.", "")
+
+                'lcnno                   รหัสผู้ประกอบการ
+                'thanm                   ชื่อสถานที่(ร้าน)
+                'pvncd                   รหัสจังหวัด
+                'lcntpcd                 ประเภทใบอนุญาตสถานที่ด้าน ยา
+                'lcnsid                  รหัสผู้ประกอบการ
+                'GROUPNAME               ประเภทสถานที่
+                'lcnno_no                เลขใบอนุญาตสถานที่ด้านยา
+                'lcnno_noo               เลขใบอนุญาตสถานที่ด้านยา
+                'lcnno_not_pvnabbr       เลขใบอนุญาตสถานที่ด้านยา 
+                'typee                   ประเภทใบอนุญาตสถานที่ด้าน ยา
+                'licen                   ชื่อผู้รับอนุญาต
+                'licen_addr              -
+                'licen_address           -
+                'licen_time              เวลาทำการของร้าน
+                'grannm_lo               ชื่อผู้ดำเนินกิจการ
+                'grannm_addr              -
+                'grannm_address           -
+                'thaaddr                 ที่อยู่สถานที่ 
+                'tharoom                 ห้อง
+                'thafloor                ชั้น
+                'thabuilding             อาคาร
+                'thasoi                  ซอย
+                'tharoad                 ถนน
+                'thamu                   หมู่
+                'thathmblnm              ตำบล
+                'zipcode                 รหัสไปรษณีย์
+                'tel                     เบอร์โทรศัพท์
+                'fax                     เบอร์โทรสาร
+                'thanm_addr              ที่อยู่สถานที่ แบบเต็ม
+                'thanm_address           ที่อยู่สถานที่ แบบเต็ม
+                'thaamphrnm              อำเภอ
+                'thachngwtnm             จังหวัด
+                'cncnm                   สถานะใบอนุญาต
+                'appdate                 วันที่อนุญาต
+                'expyear                 ปีที่หมดอายุ
+                'lmdfdate                Last update
+                'grouptype               กลุ่มใบอนุญาต
+                'Newcode_not             รหัส Newcode
+
             End If
         Catch ex As Exception
 
@@ -185,41 +203,41 @@ Public Class RegisterNew
     End Function
     Protected Sub cmdSave_Click(sender As Object, e As EventArgs) Handles cmdSave.Click
 
-        If ctlL.Location_SearchByLicense(txtLicenseNo1.Text) > 0 Then
+        If ctlL.Location_SearchByLicense(lblLicenseNo1.Text) > 0 Then
             ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalWarningAlert(this,'ผลการตรวจสอบ','เลขที่ใบอนุญาตนี้มี User ในระบบแล้ว กรุณา Login ด้วยรหัสผู้ใช้งานของท่าน');", True)
             Exit Sub
         End If
 
-        If IsNumeric(Left(txtLicenseNo1.Text, 1)) Or IsNumeric(Mid(txtLicenseNo1.Text, 2, 1)) Then
+        If IsNumeric(Left(lblLicenseNo1.Text, 1)) Or IsNumeric(Mid(lblLicenseNo1.Text, 2, 1)) Then
             ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalWarningAlert(this,'ผลการตรวจสอบ','กรุณาระบุเลขที่ใบอนุญาตขายยา (ขย.5) 2 ตัวแรกด้วยรหัสจังหวัด');", True)
             Exit Sub
         End If
 
-        If Len(Trim(txtLicenseNo1.Text)) < 8 Or Len(Trim(txtLicenseNo1.Text)) > 12 Then
+        If Len(Trim(lblLicenseNo1.Text)) < 8 Or Len(Trim(lblLicenseNo1.Text)) > 12 Then
             ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalWarningAlert(this,'ผลการตรวจสอบ','กรุณาระบุเลขที่ใบอนุญาตขายยา (ขย.5) ให้ถูกต้อง');", True)
             Exit Sub
         End If
 
-        If txtLocationName.Text = "" Then
-            ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalWarningAlert(this,'ผลการตรวจสอบ','กรุณาระบุชื่อร้านยา');", True)
-            Exit Sub
-        End If
-        If txtAddressNo.Text = "" Then
-            ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalWarningAlert(this,'ผลการตรวจสอบ','กรุณาระบุบ้านเลขที่/เลขที่ตั้ง');", True)
-            Exit Sub
-        End If
-        If txtSubDistict.Text = "" Then
-            ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalWarningAlert(this,'ผลการตรวจสอบ','กรุณาระบุแขวง/ตำบล');", True)
-            Exit Sub
-        End If
-        If txtDistrict.Text = "" Then
-            ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalWarningAlert(this,'ผลการตรวจสอบ','กรุณาระบุเขต/อำเภอ');", True)
-            Exit Sub
-        End If
-        If txtZipCode.Text = "" Then
-            ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalWarningAlert(this,'ผลการตรวจสอบ','กรุณาระบุรหัสไปรษณีย์');", True)
-            Exit Sub
-        End If
+        'If txtLocationName.Text = "" Then
+        '    ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalWarningAlert(this,'ผลการตรวจสอบ','กรุณาระบุชื่อร้านยา');", True)
+        '    Exit Sub
+        'End If
+        'If txtAddressNo.Text = "" Then
+        '    ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalWarningAlert(this,'ผลการตรวจสอบ','กรุณาระบุบ้านเลขที่/เลขที่ตั้ง');", True)
+        '    Exit Sub
+        'End If
+        'If txtSubDistict.Text = "" Then
+        '    ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalWarningAlert(this,'ผลการตรวจสอบ','กรุณาระบุแขวง/ตำบล');", True)
+        '    Exit Sub
+        'End If
+        'If txtDistrict.Text = "" Then
+        '    ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalWarningAlert(this,'ผลการตรวจสอบ','กรุณาระบุเขต/อำเภอ');", True)
+        '    Exit Sub
+        'End If
+        'If txtZipCode.Text = "" Then
+        '    ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalWarningAlert(this,'ผลการตรวจสอบ','กรุณาระบุรหัสไปรษณีย์');", True)
+        '    Exit Sub
+        'End If
         If txtTel.Text = "" Then
             ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalWarningAlert(this,'ผลการตรวจสอบ','กรุณาระบุเบอร์โทร');", True)
             Exit Sub
@@ -232,7 +250,7 @@ Public Class RegisterNew
             ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalWarningAlert(this,'ผลการตรวจสอบ','รูปแบบอีเมลไม่ถูกต้อง กรุณาตรวจสอบ');", True)
             Exit Sub
         End If
-        If txtLicenseNo1.Text = "" Then
+        If lblLicenseNo1.Text = "" Then
             ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalWarningAlert(this,'ผลการตรวจสอบ','กรุณาระบุเลขที่ใบอนุญาต ขย.5');", True)
             Exit Sub
         End If
@@ -275,25 +293,25 @@ Public Class RegisterNew
         Dim sPassword As String = Generator.Next(1000, 9999).ToString()
         Dim enc As New CryptographyEngine
 
-        ctlL.Location_Register(lblNewCode.Text, txtLicenseNo1.Text, txtLicenseNo1.Text, enc.EncryptString(sPassword, True), txtLocationName.Text, txtAddressNo.Text, txtMoo.Text, txtRoad.Text, txtSubDistict.Text, txtDistrict.Text, ddlProvince.SelectedValue, txtZipCode.Text, txtTel.Text, txtEmail.Text, txtLineID.Text, txtWorkTime.Text, sLat, sLng, txtFacebook.Text, StrNull2Zero(txtQAYear.Text), txtLicenseNo1.Text, txtLicenseNo2.Text, txtLicenseNo3.Text, txtLicensee.Text, StrNull2Zero(optLicenseeType.SelectedValue), StrNull2Zero(txtArea1.Text), StrNull2Double(txtArea2.Text), StrNull2Zero(ddlGroup.SelectedValue), StrNull2Zero(ddlChain.SelectedValue), 1, IsAccPharm, txtNHSOCode.Text, "N")
+        ctlL.Location_Register(lblNewCode.Text, lblLicenseNo1.Text, lblLicenseNo1.Text, enc.EncryptString(sPassword, True), lblLocationName.Text, lblAddressNo.Text, lblMoo.Text, lblRoad.Text, lblSubDistict.Text, lblDistrict.Text, ddlProvince.SelectedValue, lblZipCode.Text, txtTel.Text, txtEmail.Text, txtLineID.Text, txtWorkTime.Text, sLat, sLng, txtFacebook.Text, StrNull2Zero(txtQAYear.Text), lblLicenseNo1.Text, txtLicenseNo2.Text, txtLicenseNo3.Text, txtLicensee.Text, StrNull2Zero(optLicenseeType.SelectedValue), StrNull2Zero(txtArea1.Text), StrNull2Double(txtArea2.Text), StrNull2Zero(ddlGroup.SelectedValue), StrNull2Zero(ddlChain.SelectedValue), 1, IsAccPharm, txtNHSOCode.Text, "N", lblAuthName.Text, lblPharmacist.Text, lblPharmacistLicenseNo.Text)
 
         Dim ctlU As New UserController
-        ctlU.User_GenLogfile(0, ACTTYPE_ADD, "Locations", "ลงทะเบียนร้านยาใหม่:service", "[LicenseNo1=" & txtLicenseNo1.Text & "]", Environment.MachineName, GetIPAddress())
-        ctlU.UserLogfile_UpdateByLicenseNo(txtLicenseNo1.Text)
+        ctlU.User_GenLogfile(0, ACTTYPE_ADD, "Locations", "ลงทะเบียนร้านยาใหม่:service", "[LicenseNo1=" & lblLicenseNo1.Text & "]", Environment.MachineName, GetIPAddress())
+        ctlU.UserLogfile_UpdateByLicenseNo(lblLicenseNo1.Text)
 
         For i = 0 To chkLocationType.Items.Count - 1
             If chkLocationType.Items(i).Selected Then
-                ctlL.LocationTypeDetail_SaveByLicense(txtLicenseNo1.Text, chkLocationType.Items(i).Value)
+                ctlL.LocationTypeDetail_SaveByLicense(lblLicenseNo1.Text, chkLocationType.Items(i).Value)
             End If
         Next
         Try
-            SendEmail(txtLocationName.Text, txtLicenseNo1.Text, sPassword, txtEmail.Text)
+            SendEmail(lblLocationName.Text, lblLicenseNo1.Text, sPassword, txtEmail.Text)
         Catch ex As Exception
 
         End Try
 
 
-        Response.Redirect("RegisterComplete.aspx?u=" & txtLicenseNo1.Text & "&p=" & sPassword)
+        Response.Redirect("RegisterComplete.aspx?u=" & lblLicenseNo1.Text & "&p=" & sPassword)
 
         'ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalSuccess(this,'ผลการตรวจสอบ','สร้าง Customer Company เรียบร้อย');", True)
 
@@ -308,7 +326,7 @@ Public Class RegisterNew
     End Sub
     Private Sub SendEmail(PersonName As String, Username As String, Password As String, sTo As String)
         Dim SenderDisplayName As String = "สภาเภสัชกรรม"
-        Dim MySubject As String = "ยืนยันการลงทะเบียนเข้าใช้งานระบบฐานข้อมูลร้านยา :" & txtLocationName.Text
+        Dim MySubject As String = "ยืนยันการลงทะเบียนเข้าใช้งานระบบฐานข้อมูลร้านยา :" & lblLocationName.Text
         Dim MyMessageBody As String = ""
 
         MyMessageBody = " <font size='4'>

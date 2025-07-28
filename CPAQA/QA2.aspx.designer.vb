@@ -248,6 +248,15 @@ Partial Public Class QA2
     Protected WithEvents imgRisk1 As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
+    '''lblR1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblR1 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''txtRisk2 control.
     '''</summary>
     '''<remarks>

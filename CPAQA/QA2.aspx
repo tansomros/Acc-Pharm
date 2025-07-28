@@ -280,7 +280,8 @@
                                               </label> 
                                              <asp:LinkButton ID="imgRisk1" runat="server" CssClass="file-upload btn btn-primary"><i class="fa fa-camera"></i></asp:LinkButton>               
    
-
+                                            <br />
+                                            <asp:Label ID="lblR1" runat="server" CssClass="small text-success"></asp:Label>
                                         </div>
                                     </div>       
 

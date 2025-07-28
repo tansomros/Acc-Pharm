@@ -53,12 +53,12 @@ Public Class RegisterNew
         Try
             dt = ctlFDA.GET_DRUG_LCN_INFORMATION(NewCode)
             If dt.Rows.Count > 0 Then
-                dt.DefaultView.Sort = "appdate desc,lcnno desc"
+                dt.DefaultView.Sort = "lmdfdate desc,lcnno desc"
                 dtResult1 = dt.DefaultView.ToTable()
             End If
             dt = ctlFDA.GET_DRUG_PHARMACY(NewCode)
             If dt.Rows.Count > 0 Then
-                dt.DefaultView.Sort = "appdate desc,lcnno desc"
+                dt.DefaultView.Sort = "lmdfdate desc,lcnno desc"
                 dtResult2 = dt.DefaultView.ToTable()
             End If
 

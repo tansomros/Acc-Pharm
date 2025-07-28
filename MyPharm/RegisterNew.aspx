@@ -158,67 +158,77 @@
                                         <div class="row"> 
                                             <div class="col-lg-12">
                                                 <div class="p-2">
-                                                     
-                                <div class="row">                                                              
-                                    <div class="col-md-8">
-                                        <div class="form-group">
-                                            <label>ชื่อร้านยา</label><small class="text-red"> *</small>
-                                            <asp:TextBox ID="txtLocationName" runat="server" cssclass="form-control" placeholder=""></asp:TextBox>
-                                        </div>
-                                    </div>
-                                       <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label>เลขที่ใบอนุญาต ขย 5</label><small class="text-red"> *</small>
-                                              <asp:TextBox ID="txtLicenseNo1" runat="server" CssClass="form-control text-blue text-bold text-center" BackColor="White" Enabled="false"></asp:TextBox>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                     <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>สถานที่ตั้งเลขที่</label><small class="text-red"> *</small>
-                                            <asp:TextBox ID="txtAddressNo" runat="server" cssclass="form-control" placeholder="เลขที่/หมู่/ซอย/ถนน"></asp:TextBox>
-                                        </div>
-                                    </div>                                 
-                                                                        <div class="col-md-2">
-                                                    <div class="form-group">
-                                                        <label>หมู่ที่</label>
-                                                        <asp:TextBox ID="txtMoo" runat="server" CssClass="form-control" placeholder="หมู่ที่"></asp:TextBox>
-                                                    </div>
-                                                </div>
-                                                 <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label>ถนน</label>
-                                                        <asp:TextBox ID="txtRoad" runat="server" CssClass="form-control" placeholder="ถนน/ซอย"></asp:TextBox>
-                                                    </div>
-                                                </div>
-                                     </div>
-                                <div class="row">
-  <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label>แขวง/ตำบล</label><small class="text-red"> *</small>
-                                            <asp:TextBox ID="txtSubDistict" runat="server" cssclass="form-control" placeholder=""></asp:TextBox>
-                                        </div>
-                                    </div>
-                                     <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label>เขต/อำเภอ</label><small class="text-red"> *</small>
-                                            <asp:TextBox ID="txtDistrict" runat="server" cssclass="form-control" placeholder=""></asp:TextBox>
-                                        </div>
-                                    </div>
- <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label>จังหวัด</label>
-                                            <asp:DropDownList CssClass="form-control select2"  ID="ddlProvince" runat="server"> </asp:DropDownList>
-                                        </div>
-                                    </div>
-                                     <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label>รหัสไปรษณีย์</label><small class="text-red"> *</small>
-                                            <asp:TextBox ID="txtZipCode" runat="server" cssclass="form-control" MaxLength="5"></asp:TextBox>
-                                        </div>
-                                    </div>
- </div>
+                                                                                 <div class="row">                                 
+                                        <div class="col-md-12 p-2 app-page-header">
+                                 
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <label>เลขที่ใบอนุญาต ขย 5</label>
+            <asp:Label ID="lblLicenseNo1" runat="server" CssClass="text-blue text-bold"></asp:Label>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="form-group">
+            <label>ชื่อร้านยา</label>
+            <asp:Label ID="lblLocationName" runat="server" CssClass="text-blue text-bold"></asp:Label>
+        </div>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group">
+            <label>ที่ตั้ง เลขที่</label>
+            <asp:Label ID="lblAddressNo" runat="server"  CssClass="text-bold"></asp:Label>
+            หมู่
+            <asp:Label ID="lblMoo" runat="server" CssClass="text-bold"></asp:Label>
+            ถนน
+            <asp:Label ID="lblRoad" runat="server" CssClass="text-bold"></asp:Label>
+            <label>แขวง/ตำบล</label>
+            <asp:Label ID="lblSubDistict" runat="server" CssClass="text-bold"></asp:Label>
+            <label>เขต/อำเภอ</label>
+            <asp:Label ID="lblDistrict" runat="server" CssClass="text-bold"></asp:Label>
+            <label>จังหวัด</label>
+            <asp:Label ID="lblProvince" runat="server" CssClass="text-bold"></asp:Label>
+            <asp:DropDownList ID="ddlProvince" runat="server" Visible="false"></asp:DropDownList>
+            <label>รหัสไปรษณีย์</label>
+            <asp:Label ID="lblZipCode" runat="server"  CssClass="text-bold"></asp:Label>
+        </div>
+    </div>
+</div>
+   
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>ชื่อผู้ดำเนินกิจการ</label>
+            <asp:Label ID="lblAuthName" runat="server" CssClass="text-bold"></asp:Label>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>ชื่อผู้รับอนุญาต</label>
+            <asp:Label ID="lblLicensee" runat="server" CssClass="text-bold"></asp:Label>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>ผู้มีหน้าที่ปฏิบัติการ</label>
+            <asp:Label ID="lblPharmacist" runat="server" CssClass="text-bold"></asp:Label>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group mailbox-messages">
+            <label>เลขใบประกอบฯ</label>
+            <asp:Label ID="lblPharmacistLicenseNo" runat="server" CssClass="text-bold"></asp:Label>
+        </div>
+    </div>
+</div>
+    
+                       </div>
+                                </div> 
                                 <div class="row">
                                      <div class="col-md-3">
                                         <div class="form-group">

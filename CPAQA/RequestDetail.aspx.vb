@@ -332,7 +332,7 @@ Public Class RequestDetail
                 lblRequestType.Text = String.Concat(.Item("RequestTypeName"))
                 'ddlType.SelectedValue = String.Concat(.Item("RequestType"))
 
-                txtAmount.Text = StrNull2Double(.Item("AmountFee")).ToString("#,###.##")
+                txtAmount.Text = StrNull2Double(String.Concat(.Item("AmountFee"))).ToString("#,###.##")
 
 
                 lblLocationName.Text = String.Concat(.Item("LocationName"))

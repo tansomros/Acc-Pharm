@@ -1,5 +1,6 @@
 ﻿Imports Microsoft.ApplicationBlocks.Data
 Imports BigLion
+Imports System.Net
 Public Class FDAServiceController
     Inherits BaseClass
     Public ds As New DataSet
@@ -24,9 +25,21 @@ Public Class FDAServiceController
         NewCode = NewCode & ctlM.Province_GetID(Left(LicenseNo, 2)) & Right(LicenseNo, 2) & LNO & "C"
         Return NewCode
     End Function
-
     Public Function GET_DRUG_LCN_INFORMATION(NewCode As String) As DataTable
+        ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
         ds = fdaService.GET_DRUG_LCN_INFORMATION(NewCode)
         Return ds.Tables("SP_GENXML_SEARCH_DRUG_LCN")
+    End Function
+
+    Public Function GET_DRUG_PHARMACY(NewCode As String) As DataTable
+        ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
+        ds = fdaService.GET_DRUG_LCN_INFORMATION(NewCode)
+        Return ds.Tables("SP_GENXML_DRUG_PHARMACY_TO")
+    End Function
+
+    Public Function GET_DRUG_LICEN(NewCode As String) As DataTable
+        ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
+        ds = fdaService.GET_DRUG_LCN_INFORMATION(NewCode)
+        Return ds.Tables("SP_GENXML_DRUG_LCN_LICEN")
     End Function
 End Class

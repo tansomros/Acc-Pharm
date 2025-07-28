@@ -23,22 +23,22 @@ Partial Public Class ReportPost
     Protected WithEvents lblReportTitle As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''ddlYear control.
+    '''txtStartDate control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ddlYear As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents txtStartDate As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''ddlType control.
+    '''txtEndDate control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ddlType As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents txtEndDate As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''ddlProvinceGroup control.
@@ -57,6 +57,51 @@ Partial Public Class ReportPost
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ddlProvince As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''ddlType control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddlType As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''ddlQAResult control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddlQAResult As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''ddlQASummary control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddlQASummary As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''ddlCIResult control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddlCIResult As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''ddlCISummary control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddlCISummary As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
     '''txtSearch control.

@@ -196,8 +196,7 @@
             </div>
             <div class="row">
                 <section class="col-lg-12 connectedSortable">
-                    <div class="justify-content-center">
-                        <div class="col-lg-12">
+                    <div class="justify-content-center">                     
                             <div class="main-card mb-3 card">
                                 <div class="card-header">
                                     <i class="header-icon lnr-store icon-gradient bg-mixed-hopes"></i>ข้อมูลร้านยา 
@@ -206,9 +205,10 @@
                                     </div>
                                 </div>
                                 <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                                <div class="p-2 app-page-header">
+
+                                    <div class="row">                                 
+                                                <div class="col-md-12 p-2 app-page-header">
+                                         
         <div class="row">
             <div class="col-md-4">
                 <div class="form-group">
@@ -242,11 +242,10 @@
                     <asp:DropDownList ID="ddlProvince" runat="server" Visible="false"></asp:DropDownList>
                     <label>รหัสไปรษณีย์</label>
                     <asp:Label ID="lblZipCode" runat="server"  CssClass="text-bold"></asp:Label>
-
                 </div>
             </div>
         </div>
-
+   
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
@@ -275,8 +274,9 @@
                 </div>
             </div>
         </div>
-     </div>
-                                             
+    
+                               </div>
+                                        </div>                  
                                                 <div class="row">
                                                     <div class="col-md-3">
                                                         <div class="form-group">
@@ -419,19 +419,13 @@
                                                 <br />
                                             </div>
                                     
-                                    </div>
+                                   
 
 
 
                                 </div>
-                            </div>
-
-
-
-                        </div>
                     </div>
                 </section>
-
             </div>
             <!-- Modal HTML -->
             <div id="modal-warningalert" class="modal fade" role="dialog" data-backdrop="static">
