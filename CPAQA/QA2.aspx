@@ -300,7 +300,8 @@
                                               </label> 
                                             <asp:LinkButton ID="imgRisk2" runat="server" CssClass="file-upload btn btn-primary"><i class="fa fa-camera"></i></asp:LinkButton>                
    
-
+                                               <br />
+   <asp:Label ID="lblR2" runat="server" CssClass="small text-success"></asp:Label>
                                         </div>
                                     </div>       
 
@@ -319,7 +320,8 @@
                                               </label> 
                                              <asp:LinkButton ID="imgRisk3" runat="server" CssClass="file-upload btn btn-primary"><i class="fa fa-camera"></i></asp:LinkButton>                 
    
-
+                                               <br />
+   <asp:Label ID="lblR3" runat="server" CssClass="small text-success"></asp:Label>
                                         </div>
                                     </div>       
 
@@ -338,7 +340,8 @@
                                               </label> 
                                             <asp:LinkButton ID="imgRisk4" runat="server" CssClass="file-upload btn btn-primary"><i class="fa fa-camera"></i></asp:LinkButton>               
    
-
+                                               <br />
+   <asp:Label ID="lblR4" runat="server" CssClass="small text-success"></asp:Label>
                                         </div>
                                     </div>       
 
@@ -359,7 +362,8 @@
                                               </label> 
                                             <asp:LinkButton ID="imgRisk5" runat="server" CssClass="file-upload btn btn-primary"><i class="fa fa-camera"></i></asp:LinkButton>               
    
-
+                                               <br />
+   <asp:Label ID="lblR5" runat="server" CssClass="small text-success"></asp:Label>
                                         </div>
                                     </div>       
 
@@ -377,7 +381,8 @@
                                                 <button class="btn-icon btn-icon-only btn-link no-border ico-info small" type="button" data-title="Note" data-toggle="popover-custom-bg" data-bg-class="text-white small bg-primary" data-content="ไฟล์นามสกุล .jpg, .jpeg, .gif, .png เท่านั้น ,ขนาดไฟล์ไม่เกิน 1024 Kb. เพิ่มได้ไม่เกิน 4 รูป" data-original-title="" title=""><i class="fa fa-info-circle btn-icon-wrapper"> </i></button>                                                
                                               </label> 
                                              <asp:LinkButton ID="imgRisk6" runat="server" CssClass="file-upload btn btn-primary"><i class="fa fa-camera"></i></asp:LinkButton>                 
-   
+      <br />
+   <asp:Label ID="lblR6" runat="server" CssClass="small text-success"></asp:Label>
 
                                         </div>
                                     </div>       
@@ -399,7 +404,8 @@
                                               </label> 
                                             <asp:LinkButton ID="imgRisk7" runat="server" CssClass="file-upload btn btn-primary"><i class="fa fa-camera"></i></asp:LinkButton>               
    
-
+                                               <br />
+   <asp:Label ID="lblR7" runat="server" CssClass="small text-success"></asp:Label>
                                         </div>
                                     </div>       
 
@@ -419,7 +425,8 @@
                                               </label> 
                                              <asp:LinkButton ID="imgRisk8" runat="server" CssClass="file-upload btn btn-primary"><i class="fa fa-camera"></i></asp:LinkButton>              
    
-
+                                               <br />
+   <asp:Label ID="lblR8" runat="server" CssClass="small text-success"></asp:Label>
                                         </div>
                                     </div>       
 
@@ -439,7 +446,8 @@
                                               </label> 
                                             <asp:LinkButton ID="imgRisk9" runat="server" CssClass="file-upload btn btn-primary"><i class="fa fa-camera"></i></asp:LinkButton>              
    
-
+                                               <br />
+   <asp:Label ID="lblR9" runat="server" CssClass="small text-success"></asp:Label>
                                         </div>
                                     </div>       
 
@@ -459,7 +467,8 @@
                                               </label> 
                                             <asp:LinkButton ID="imgRisk10" runat="server" CssClass="file-upload btn btn-primary"><i class="fa fa-camera"></i></asp:LinkButton>                
    
-
+                                               <br />
+   <asp:Label ID="lblR10" runat="server" CssClass="small text-success"></asp:Label>
                                         </div>
                                     </div>       
 
@@ -556,7 +565,8 @@
                                             <label>รูปภาพ 
                                                 <button class="btn-icon btn-icon-only btn-link no-border ico-info small" type="button" data-title="Note" data-toggle="popover-custom-bg" data-bg-class="text-white small bg-primary" data-content="ไฟล์นามสกุล .jpg, .jpeg, .gif, .png เท่านั้น ,ขนาดไฟล์ไม่เกิน 1024 Kb. เพิ่มได้ไม่เกิน 4 รูป" data-original-title="" title=""><i class="fa fa-info-circle btn-icon-wrapper"> </i></button>                                                
                                               </label> 
-                                             <asp:LinkButton ID="imgQ2" runat="server" CssClass="file-upload btn btn-primary"><i class="fa fa-camera"></i></asp:LinkButton>        
+                                             <asp:LinkButton ID="imgQ2" runat="server" CssClass="file-upload btn btn-primary"><i class="fa fa-camera"></i></asp:LinkButton>        <br />
+                                              <asp:Label ID="lblQ2" runat="server" CssClass="small text-success"></asp:Label>
                                            </div>
                                     </div>       
 
@@ -573,7 +583,8 @@
                                             <label>รูปภาพ 
                                                 <button class="btn-icon btn-icon-only btn-link no-border ico-info small" type="button" data-title="Note" data-toggle="popover-custom-bg" data-bg-class="text-white small bg-primary" data-content="ไฟล์นามสกุล .jpg, .jpeg, .gif, .png เท่านั้น ,ขนาดไฟล์ไม่เกิน 1024 Kb. เพิ่มได้ไม่เกิน 4 รูป" data-original-title="" title=""><i class="fa fa-info-circle btn-icon-wrapper"> </i></button>                                                
                                               </label> 
-                                             <asp:LinkButton ID="imgQ3" runat="server" CssClass="file-upload btn btn-primary"><i class="fa fa-camera"></i></asp:LinkButton>               
+                                             <asp:LinkButton ID="imgQ3" runat="server" CssClass="file-upload btn btn-primary"><i class="fa fa-camera"></i></asp:LinkButton>                <br />
+                                              <asp:Label ID="lblQ3" runat="server" CssClass="small text-success"></asp:Label>
    
 
                                         </div>
@@ -592,6 +603,8 @@
                                             <label>รูปภาพ<button class="btn-icon btn-icon-only btn-link no-border ico-info small" type="button" data-title="Note" data-toggle="popover-custom-bg" data-bg-class="text-white small bg-primary" data-content="ไฟล์นามสกุล .jpg, .jpeg, .gif, .png เท่านั้น ,ขนาดไฟล์ไม่เกิน 1024 Kb. เพิ่มได้ไม่เกิน 4 รูป" data-original-title="" title=""><i class="fa fa-info-circle btn-icon-wrapper"> </i></button>                                                
                                               </label> 
                                             <asp:LinkButton ID="imgQ6" runat="server" CssClass="file-upload btn btn-primary"><i class="fa fa-camera"></i></asp:LinkButton>
+                                             <br />
+                                              <asp:Label ID="lblQ6" runat="server" CssClass="small text-success"></asp:Label>
                                         </div>
                                     </div>
                     </div>    
@@ -600,6 +613,7 @@
                                         <div class="form-group">
                                             <label>5.  ท่านมีcase ที่ประทับใจในการเป็น “ เภสัชกรชุมชน “  ที่ผ่านมา ( Case Report ) (0.5 คะแนน)</label>
                                              <asp:TextBox ID="txtQ4" runat="server" TextMode="MultiLine" Height="150px" cssclass="form-control"></asp:TextBox>
+                                     
                                         </div>     
                                     </div> 
                                    <div class="col-md-4">
@@ -608,7 +622,8 @@
                                                 <button class="btn-icon btn-icon-only btn-link no-border ico-info small" type="button" data-title="Note" data-toggle="popover-custom-bg" data-bg-class="text-white small bg-primary" data-content="ไฟล์นามสกุล .jpg, .jpeg, .gif, .png เท่านั้น ,ขนาดไฟล์ไม่เกิน 1024 Kb. เพิ่มได้ไม่เกิน 4 รูป" data-original-title="" title=""><i class="fa fa-info-circle btn-icon-wrapper"> </i></button>                                                
                                               </label> 
                                               <asp:LinkButton ID="imgQ4" runat="server" CssClass="file-upload btn btn-primary"><i class="fa fa-camera"></i></asp:LinkButton>              
-   
+           <br />
+         <asp:Label ID="lblQ4" runat="server" CssClass="small text-success"></asp:Label>
 
                                         </div>
                                     </div>       
@@ -630,7 +645,8 @@
                                               </label> 
                                             <asp:LinkButton ID="imgQ5" runat="server" CssClass="file-upload btn btn-primary"><i class="fa fa-camera"></i></asp:LinkButton>           
    
-
+                                                    <br />
+         <asp:Label ID="lblQ5" runat="server" CssClass="small text-success"></asp:Label>
                                         </div>
                                     </div>       
 

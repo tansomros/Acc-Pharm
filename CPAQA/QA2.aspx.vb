@@ -150,16 +150,21 @@ Public Class QA2
         End If
     End Sub
     Private Sub StatusUpload()
-        'lblR1.Text = ctlM.Media_GetStatus(StrNull2Zero(Request("id")), hdLocationUID.Value, "R", 1)
-        'lblQ2.Text = ctlM.Media_GetStatus(StrNull2Zero(Request("id")), hdLocationUID.Value, "A", 2)
-        'lblQ3.Text = ctlM.Media_GetStatus(StrNull2Zero(Request("id")), hdLocationUID.Value, "A", 3)
-        'lblQ4.Text = ctlM.Media_GetStatus(StrNull2Zero(Request("id")), hdLocationUID.Value, "A", 4)
-        'lblQ5.Text = ctlM.Media_GetStatus(StrNull2Zero(Request("id")), hdLocationUID.Value, "A", 5)
-        'lblQ6.Text = ctlM.Media_GetStatus(StrNull2Zero(Request("id")), hdLocationUID.Value, "A", 6)
-        'lblQ7.Text = ctlM.Media_GetStatus(StrNull2Zero(Request("id")), hdLocationUID.Value, "A", 7)
-        'lblQ8.Text = ctlM.Media_GetStatus(StrNull2Zero(Request("id")), hdLocationUID.Value, "A", 8)
-        'lblQ9.Text = ctlM.Media_GetStatus(StrNull2Zero(Request("id")), hdLocationUID.Value, "A", 9)
-        'lblQ10.Text = ctlM.Media_GetStatus(StrNull2Zero(Request("id")), hdLocationUID.Value, "A", 10)
+        lblR1.Text = ctlM.Media_GetStatus(StrNull2Zero(Request("id")), hdLocationUID.Value, "R", 1)
+        lblR2.Text = ctlM.Media_GetStatus(StrNull2Zero(Request("id")), hdLocationUID.Value, "R", 2)
+        lblR3.Text = ctlM.Media_GetStatus(StrNull2Zero(Request("id")), hdLocationUID.Value, "R", 3)
+        lblR4.Text = ctlM.Media_GetStatus(StrNull2Zero(Request("id")), hdLocationUID.Value, "R", 4)
+        lblR5.Text = ctlM.Media_GetStatus(StrNull2Zero(Request("id")), hdLocationUID.Value, "R", 5)
+        lblR6.Text = ctlM.Media_GetStatus(StrNull2Zero(Request("id")), hdLocationUID.Value, "R", 6)
+        lblR7.Text = ctlM.Media_GetStatus(StrNull2Zero(Request("id")), hdLocationUID.Value, "R", 7)
+        lblR8.Text = ctlM.Media_GetStatus(StrNull2Zero(Request("id")), hdLocationUID.Value, "R", 8)
+        lblR9.Text = ctlM.Media_GetStatus(StrNull2Zero(Request("id")), hdLocationUID.Value, "R", 9)
+        lblR10.Text = ctlM.Media_GetStatus(StrNull2Zero(Request("id")), hdLocationUID.Value, "R", 10)
+
+        lblQ2.Text = ctlM.Media_GetStatus(StrNull2Zero(Request("id")), hdLocationUID.Value, "Q", 2)
+        lblQ3.Text = ctlM.Media_GetStatus(StrNull2Zero(Request("id")), hdLocationUID.Value, "Q", 3)
+        lblQ4.Text = ctlM.Media_GetStatus(StrNull2Zero(Request("id")), hdLocationUID.Value, "Q", 4)
+        lblQ5.Text = ctlM.Media_GetStatus(StrNull2Zero(Request("id")), hdLocationUID.Value, "Q", 5)
 
     End Sub
     Private Sub CheckStatusAssessment()
@@ -439,6 +444,7 @@ Public Class QA2
     Protected Sub cmdUpImg_Click(sender As Object, e As EventArgs) Handles cmdUpImg.Click
         UploadFiles(FileUpload1, hdAccID.Value, lblTCode.Text)
         LoadImg()
+        StatusUpload()
     End Sub
 
     Protected Sub cmdClearProject_Click(sender As Object, e As EventArgs) Handles cmdClearProject.Click

@@ -275,6 +275,15 @@ Partial Public Class QA2
     Protected WithEvents imgRisk2 As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
+    '''lblR2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblR2 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''txtRisk3 control.
     '''</summary>
     '''<remarks>
@@ -291,6 +300,15 @@ Partial Public Class QA2
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents imgRisk3 As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''lblR3 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblR3 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''txtRisk4 control.
@@ -311,6 +329,15 @@ Partial Public Class QA2
     Protected WithEvents imgRisk4 As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
+    '''lblR4 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblR4 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''txtRisk5 control.
     '''</summary>
     '''<remarks>
@@ -327,6 +354,15 @@ Partial Public Class QA2
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents imgRisk5 As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''lblR5 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblR5 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''txtRisk6 control.
@@ -347,6 +383,15 @@ Partial Public Class QA2
     Protected WithEvents imgRisk6 As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
+    '''lblR6 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblR6 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''txtRisk7 control.
     '''</summary>
     '''<remarks>
@@ -363,6 +408,15 @@ Partial Public Class QA2
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents imgRisk7 As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''lblR7 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblR7 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''txtRisk8 control.
@@ -383,6 +437,15 @@ Partial Public Class QA2
     Protected WithEvents imgRisk8 As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
+    '''lblR8 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblR8 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''txtRisk9 control.
     '''</summary>
     '''<remarks>
@@ -401,6 +464,15 @@ Partial Public Class QA2
     Protected WithEvents imgRisk9 As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
+    '''lblR9 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblR9 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''txtRisk10 control.
     '''</summary>
     '''<remarks>
@@ -417,6 +489,15 @@ Partial Public Class QA2
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents imgRisk10 As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''lblR10 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblR10 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''txtRiskScore control.
@@ -482,6 +563,15 @@ Partial Public Class QA2
     Protected WithEvents imgQ2 As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
+    '''lblQ2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblQ2 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''txtQ3 control.
     '''</summary>
     '''<remarks>
@@ -498,6 +588,15 @@ Partial Public Class QA2
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents imgQ3 As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''lblQ3 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblQ3 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''txtQ6 control.
@@ -518,6 +617,15 @@ Partial Public Class QA2
     Protected WithEvents imgQ6 As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
+    '''lblQ6 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblQ6 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''txtQ4 control.
     '''</summary>
     '''<remarks>
@@ -536,6 +644,15 @@ Partial Public Class QA2
     Protected WithEvents imgQ4 As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
+    '''lblQ4 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblQ4 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''txtQ5 control.
     '''</summary>
     '''<remarks>
@@ -552,6 +669,15 @@ Partial Public Class QA2
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents imgQ5 As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''lblQ5 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblQ5 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''txtQAScore control.
