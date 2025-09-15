@@ -555,10 +555,14 @@ Public Class LocationModify
         End If
 
         Dim StatusFlag As String = "A"
-        If chkStatus.Checked Then
-            StatusFlag = "A"
+        If chkStatus.Visible = True Then
+            If chkStatus.Checked Then
+                StatusFlag = "A"
+            Else
+                StatusFlag = "D"
+            End If
         Else
-            StatusFlag = "D"
+            StatusFlag = "A"
         End If
 
         Dim IsPPHealth As String = "Y"

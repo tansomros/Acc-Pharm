@@ -64,6 +64,15 @@
     <!-- Main content -->
     <section class="content">     
         
+                    <div class="row">
+<section class="col-lg-12 connectedSortable">
+    <div class="main-card mb-3 card text-center">
+        <a href="images/picError.jpg" target="_blank">
+            <img src="images/picError.jpg" width="50%" /></a>
+    </div>
+</section>
+                </div>
+
 
         <% If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) <> 1 Then %>
         <h5>จำนวนร้านยา</h5>

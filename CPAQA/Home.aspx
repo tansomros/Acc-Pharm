@@ -70,28 +70,43 @@
 
 
                 </div>
+                     <div class="row">
+         <section class="col-lg-12 connectedSortable">
+             <div class="main-card mb-3 card text-center">
+                 <a href="images/picError.jpg" target="_blank">
+                     <img src="images/picError.jpg" width="50%" /></a>
+             </div>
+         </section>
+                         </div>
+                   <div class="row">
+                       <section class="col-lg-6 connectedSortable">
+                           <div class="main-card mb-3 card text-center">
+                               <a href="https://www.acc-pharm.com/Documents/การขอร้านยาคุณภาพ25072025.pdf?v=1" target="_blank">
+                                   <img src="slide/cpareg.jpg?v=01" width="100%" alt="" /></a>
+                           </div>
+                       </section>
+                       <section class="col-lg-6 connectedSortable">
 
-                <div class="row">
-                     <section class="col-lg-6 connectedSortable">
+                           <div class="main-card mb-3 card">
+                               <a href="https://www.acc-pharm.com/Documents/การขอร้านยาคุณภาพ25072025.pdf?v=1" target="_blank">
+                                   <img src="slide/slide15.jpg?v=4" width="100%" /></a></div>
+                       </section>
+                      
 
-     <div class="main-card mb-3 card">
-         <img src="slide/slide13.jpg?v=01" width="100%" />
-     </div>
- </section>
-                    <section class="col-lg-6 connectedSortable">
-                        <div class="main-card mb-3 card text-center">
-                          <a href="https://www.acc-pharm.com/Documents/ร้านยาคุณภาพ.pdf" target="_blank">
-    <img src="slide/cpareg.jpg?v=01" width="100%" alt="" />
-</a>
-                        </div>
+                       <section class="col-lg-6 connectedSortable">
 
-                    </section>
-                    <section class="col-lg-6 connectedSortable">
+                           <div class="main-card mb-3 card">
+                               <a href="https://www.acc-pharm.com/Documents/การขอร้านยาคุณภาพ.pdf" target="_blank">
+                                   <img src="slide/slide18.jpg?v=02" width="100%" /></a>
+                           </div>
+                       </section>
+                       <section class="col-lg-6 connectedSortable">
 
-                        <div class="main-card mb-3 card">
-                            <img src="slide/slide2.jpg?v=02" width="100%" />
-                        </div>
-                    </section>
+                           <div class="main-card mb-3 card">
+                               <a href="https://www.acc-pharm.com/Documents/การขอร้านยาคุณภาพ.pdf" target="_blank">
+                                   <img src="slide/slide17.jpg?v=01" width="100%" /></a>
+                           </div>
+                       </section>
                 </div>
 
           <!--      <div class="row">
@@ -110,6 +125,7 @@
                         </div>
                     </section>
                 </div> -->
+
                 <% If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) <> 1 Then %>
                     <h5 class="mt-0">จำนวนร้านยาคุณภาพ</h5>
                     <div class="row">

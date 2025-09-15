@@ -396,17 +396,17 @@
                                 <li class="app-sidebar__heading">Menu</li>
 
                                 <% If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) >= 4 And Convert.ToInt32(Request.Cookies("ROLE_ID").Value) <= 7 Then %>
-                                <% If Request("m") = "h"  %>
-                                <li><a class="mm-active" href="Dashboard.aspx?m=h"><i class="metismenu-icon pe-7s-keypad"></i>Dashboard</a></li>
+                                    <% If Request("m") = "h"  %>
+                                    <li><a class="mm-active" href="Dashboard.aspx?m=h"><i class="metismenu-icon pe-7s-keypad"></i>หน้าแรก</a></li>
+                                    <% Else %>
+                                    <li><a href="Dashboard.aspx?m=h"><i class="metismenu-icon pe-7s-keypad"></i>หน้าแรก</a></li>
+                                    <% End If %>
                                 <% Else %>
-                                <li><a href="Dashboard.aspx?m=h"><i class="metismenu-icon pe-7s-keypad"></i>Dashboard</a></li>
-                                <% End If %>
-                                <% Else %>
-                                <% If Request("m") = "h"  %>
-                                <li><a class="mm-active" href="Home.aspx?m=h"><i class="metismenu-icon pe-7s-keypad"></i>Dashboard</a></li>
-                                <% Else %>
-                                <li><a href="Home.aspx?m=h"><i class="metismenu-icon pe-7s-keypad"></i>Dashboard</a></li>
-                                <% End If %>
+                                    <% If Request("m") = "h"  %>
+                                    <li><a class="mm-active" href="Home.aspx?m=h"><i class="metismenu-icon pe-7s-keypad"></i>หน้าแรก</a></li>
+                                    <% Else %>
+                                    <li><a href="Home.aspx?m=h"><i class="metismenu-icon pe-7s-keypad"></i>หน้าแรก</a></li>
+                                    <% End If %>
                                 <% End If %>
 
                                 <% If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = 3 Or Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = 9 Then %>
