@@ -111,7 +111,7 @@
                                   <div class="main-card mb-3 card">    
         <div class="card-body">
              <h3 class="mt-0 text-bold">
-                รายชื่อร้านยา</h3>
+                รายชื่อร้านยาคุณภาพ</h3>
        <div class="table-responsive">  
             <table id="tbdata" class="table table-hover table-bordered">
                     <thead>

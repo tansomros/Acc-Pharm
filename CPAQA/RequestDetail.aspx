@@ -501,11 +501,15 @@
                             <div id="pnAsmChange4N" runat="server" class="row">
                                 <div class="col-md-9">
                                     <label>ชื่อผู้มีหน้าที่ปฏิบัติการ (ใหม่) : </label>
-                                    <asp:TextBox ID="txtPharmacistNew" runat="server" CssClass="form-control"></asp:TextBox>
+                                    <asp:TextBox ID="txtPharmacistNewChg" runat="server" CssClass="form-control"></asp:TextBox>
                                 </div>
                                 <div class="col-md-3">
                                     <label>เลขที่ใบอนุญาต: </label>
-                                    <asp:TextBox ID="txtPharmacistLicenseNew" runat="server" CssClass="form-control"></asp:TextBox>
+                                    <asp:TextBox ID="txtPharmacistLicenseNewChg" runat="server" CssClass="form-control"></asp:TextBox>
+                                </div>
+                                <div class="col-md-12">
+                                    <label>เวลาปฏิบัติการ: </label>
+                                    <asp:TextBox ID="txtPharmacistTimeNewChg" runat="server" CssClass="form-control"></asp:TextBox>
                                 </div>
                             </div>
                             <div id="pnAsmChange9" runat="server" class="row">
@@ -519,7 +523,7 @@
                                 </div>
                                 <div class="col-md-12">
                                     <label>เวลาปฏิบัติการ: </label>
-                                    <asp:TextBox ID="txtPharmacistTimeNew" runat="server" CssClass="form-control"></asp:TextBox>
+                                    <asp:TextBox ID="txtPharmacistTimeNewAdd" runat="server" CssClass="form-control"></asp:TextBox>
                                 </div>
                             </div>
                             <div id="pnAsmChange5N" runat="server" class="row">

@@ -224,11 +224,22 @@ Public Class LocationController
         Return ds.Tables(0)
     End Function
 
-
-
     Public Function Location_GetNotNewCode() As DataTable
         ds = SqlHelper.ExecuteDataset(ConnectionString, "Location_GetNotNewCode")
         Return ds.Tables(0)
+    End Function
+
+    Public Function Location_UpdatePharmacistLicense(ByVal LocationUID As Integer, ByVal Pharmacist As String, ByVal LicenseNo As Integer, PharmacistTime As String) As Integer
+        Return SqlHelper.ExecuteNonQuery(ConnectionString, GetFullyQualifiedName("Location_UpdatePharmacistLicense"), LocationUID, Pharmacist, LicenseNo, PharmacistTime)
+    End Function
+    Public Function Location_UpdatePharmacistNew(ByVal LocationUID As Integer, ByVal Pharmacist As String, ByVal LicenseNo As Integer, ByVal PharmacistTime As String) As Integer
+        Return SqlHelper.ExecuteNonQuery(ConnectionString, GetFullyQualifiedName("Location_UpdatePharmacistNew"), LocationUID, Pharmacist, LicenseNo, PharmacistTime)
+    End Function
+    Public Function Location_UpdateLicensee(ByVal LocationUID As Integer, ByVal Licensee_New As String, ByVal LicenseeType_New As Integer) As Integer
+        Return SqlHelper.ExecuteNonQuery(ConnectionString, GetFullyQualifiedName("Location_UpdateLicensee"), LocationUID, Licensee_New, LicenseeType_New)
+    End Function
+    Public Function Location_UpdateLocationName(ByVal LocationUID As Integer, ByVal LocationName As String) As Integer
+        Return SqlHelper.ExecuteNonQuery(ConnectionString, GetFullyQualifiedName("Location_UpdateLocationName"), LocationUID, LocationName)
     End Function
 
 #End Region

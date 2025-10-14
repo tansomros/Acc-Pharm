@@ -563,22 +563,31 @@ Partial Public Class RequestDetail
     Protected WithEvents pnAsmChange4N As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
-    '''txtPharmacistNew control.
+    '''txtPharmacistNewChg control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtPharmacistNew As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtPharmacistNewChg As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''txtPharmacistLicenseNew control.
+    '''txtPharmacistLicenseNewChg control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtPharmacistLicenseNew As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtPharmacistLicenseNewChg As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtPharmacistTimeNewChg control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtPharmacistTimeNewChg As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''pnAsmChange9 control.
@@ -608,13 +617,13 @@ Partial Public Class RequestDetail
     Protected WithEvents txtPharmacistLicenseNewAdd As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''txtPharmacistTimeNew control.
+    '''txtPharmacistTimeNewAdd control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtPharmacistTimeNew As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtPharmacistTimeNewAdd As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''pnAsmChange5N control.

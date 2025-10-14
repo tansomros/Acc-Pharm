@@ -236,8 +236,8 @@ Public Class RequestController
     Public Function Request_UpdateActivityQA(ByVal UID As Integer, ActivityQA As String) As Integer
         Return SqlHelper.ExecuteNonQuery(ConnectionString, GetFullyQualifiedName("Request_UpdateActivityQA"), UID, ActivityQA)
     End Function
-    Public Function Request_UpdatePharmacistLicense(ByVal RequestUID As Integer, ByVal Pharmacist_Old As String, ByVal Pharmacist_New As String, ByVal LicenseNO_Old As String, ByVal LicenseNo_New As Integer) As Integer
-        Return SqlHelper.ExecuteNonQuery(ConnectionString, GetFullyQualifiedName("Request_UpdatePharmacistLicense"), RequestUID, Pharmacist_Old, Pharmacist_New, LicenseNO_Old, LicenseNo_New)
+    Public Function Request_UpdatePharmacistLicense(ByVal RequestUID As Integer, ByVal Pharmacist_Old As String, ByVal Pharmacist_New As String, ByVal LicenseNO_Old As String, ByVal LicenseNo_New As Integer, PharmacistTime_New As String) As Integer
+        Return SqlHelper.ExecuteNonQuery(ConnectionString, GetFullyQualifiedName("Request_UpdatePharmacistLicense"), RequestUID, Pharmacist_Old, Pharmacist_New, LicenseNO_Old, LicenseNo_New, PharmacistTime_New)
     End Function
     Public Function Request_UpdatePharmacistNew(ByVal RequestUID As Integer, ByVal Pharmacist_New As String, ByVal LicenseNo_New As Integer, ByVal PharmacistTime_New As String) As Integer
         Return SqlHelper.ExecuteNonQuery(ConnectionString, GetFullyQualifiedName("Request_UpdatePharmacistNew"), RequestUID, Pharmacist_New, LicenseNo_New, PharmacistTime_New)

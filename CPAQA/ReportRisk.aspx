@@ -39,8 +39,7 @@
                             <label>ความเสี่ยง</label>
                             <br />
                             <asp:DropDownList ID="ddlStatus" runat="server" CssClass="form-control select2" Width="100%">
-                                <asp:ListItem Text="ทั้งหมด" Value="9" Selected="True"></asp:ListItem>
-                                <asp:ListItem Text="ไม่เสี่ยง" Value="0"></asp:ListItem>
+                                <asp:ListItem Text="ทั้งหมด" Value="9" Selected="True"></asp:ListItem>                             
                                 <asp:ListItem Text="1" Value="1"></asp:ListItem>
                                 <asp:ListItem Text="2" Value="2"></asp:ListItem>
                                 <asp:ListItem Text="3" Value="3"></asp:ListItem>

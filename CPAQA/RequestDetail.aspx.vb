@@ -398,9 +398,10 @@ Public Class RequestDetail
                             pnAsmChange4N.Visible = True
                             pnAsmChange4O.Visible = True
                             lblPharmacistOld.Text = String.Concat(.Item("Pharmacist_Old"))
-                            txtPharmacistNew.Text = String.Concat(.Item("Pharmacist_New"))
+                            txtPharmacistNewChg.Text = String.Concat(.Item("Pharmacist_New"))
                             lblPharmacistLicenseOld.Text = String.Concat(.Item("PharmacistLicenseNo_Old"))
-                            txtPharmacistLicenseNew.Text = String.Concat(.Item("PharmacistLicenseNo_New"))
+                            txtPharmacistLicenseNewChg.Text = String.Concat(.Item("PharmacistLicenseNo_New"))
+                            txtPharmacistTimeNewChg.Text = String.Concat(.Item("PharmacistTime_New"))
                         Case 5
                             pnAsmChange.Visible = True
                             pnAsmChange5N.Visible = True
@@ -433,10 +434,10 @@ Public Class RequestDetail
                             pnAsmChange.Visible = True
                             pnAsmChange9.Visible = True
                             'lblPharmacistOld.Text = String.Concat(.Item("Pharmacist_Old"))
-                            txtPharmacistNewAdd.Text = String.Concat(.Item("Pharmacist_New"))
+                            txtPharmacistNewAdd.Text = String.Concat(.Item("Pharmacist_Add"))
                             'lblPharmacistLicenseOld.Text = String.Concat(.Item("PharmacistLicenseNo_Old"))
-                            txtPharmacistLicenseNewAdd.Text = String.Concat(.Item("PharmacistLicenseNo_New"))
-                            txtPharmacistTimeNew.Text = String.Concat(.Item("PharmacistTime_New"))
+                            txtPharmacistLicenseNewAdd.Text = String.Concat(.Item("PharmacistLicenseNo_Add"))
+                            txtPharmacistTimeNewAdd.Text = String.Concat(.Item("PharmacistTime_Add"))
                     End Select
                 Next
 
@@ -671,6 +672,11 @@ Public Class RequestDetail
         'LoadRequestData()
         'LoadAssessmentData()
         CheckStatusAssessment(StrNull2Long(hdRequestUID.Value))
+
+        If ddlStatus.SelectedValue >= 70 Then
+            SaveChangeDataAfterFinal()
+        End If
+
         ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalSuccess(this,'Success','บันทึกการตรวจประเมินเรียบร้อย');", True)
     End Sub
 
@@ -1029,19 +1035,19 @@ Public Class RequestDetail
         End If
 
         If pnAsmChange4N.Visible Then
-            If txtPharmacistNew.Text = "" Or txtPharmacistLicenseNew.Text = "" Then
+            If txtPharmacistNewChg.Text = "" Or txtPharmacistLicenseNewChg.Text = "" Then
                 ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalWarningInfo(this,'ผลการตรวจสอบ','กรุณาระบุข้อมูลที่ต้องการเปลี่ยนให้ครบถ้วน');", True)
                 Exit Sub
             End If
-            ctlR.Request_UpdatePharmacistLicense(hdRequestUID.Value, lblPharmacistOld.Text, txtPharmacistNew.Text, lblPharmacistLicenseOld.Text, txtPharmacistLicenseNew.Text)
+            ctlR.Request_UpdatePharmacistLicense(hdRequestUID.Value, lblPharmacistOld.Text, txtPharmacistNewChg.Text, lblPharmacistLicenseOld.Text, txtPharmacistLicenseNewChg.Text, txtPharmacistTimeNewChg.Text)
         End If
 
         If pnAsmChange9.Visible Then
-            If txtPharmacistNewAdd.Text = "" Or txtPharmacistLicenseNewAdd.Text = "" Or txtPharmacistTimeNew.Text = "" Then
+            If txtPharmacistNewAdd.Text = "" Or txtPharmacistLicenseNewAdd.Text = "" Or txtPharmacistTimeNewAdd.Text = "" Then
                 ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalWarningInfo(this,'ผลการตรวจสอบ','กรุณาระบุข้อมูลที่ต้องการให้ครบถ้วน');", True)
                 Exit Sub
             End If
-            ctlR.Request_UpdatePharmacistNew(hdRequestUID.Value, txtPharmacistNewAdd.Text, txtPharmacistLicenseNewAdd.Text, txtPharmacistTimeNew.Text)
+            ctlR.Request_UpdatePharmacistNew(hdRequestUID.Value, txtPharmacistNewAdd.Text, txtPharmacistLicenseNewAdd.Text, txtPharmacistTimeNewAdd.Text)
         End If
 
         If pnAsmChange5N.Visible Then
@@ -1129,4 +1135,40 @@ Public Class RequestDetail
     Protected Sub cmdEdit_Click(sender As Object, e As EventArgs) Handles cmdEdit.Click
         Response.Redirect("Request.aspx?m=req&rid=" & hdRequestUID.Value)
     End Sub
+
+    Private Sub SaveChangeDataAfterFinal()
+        Dim ctlL As New LocationController
+        If pnAsmChangeNameN.Visible Then
+            If txtLocationName.Text = "" Then
+                ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalWarningInfo(this,'ผลการตรวจสอบ','กรุณาระบุชื่อร้านยาใหม่ที่ต้องการเปลี่ยน');", True)
+                Exit Sub
+            End If
+            ctlL.Location_UpdateLocationName(hdLocationUID.Value, txtLocationName.Text)
+        End If
+
+        If pnAsmChange4N.Visible Then
+            If txtPharmacistNewChg.Text = "" Or txtPharmacistLicenseNewChg.Text = "" Then
+                ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalWarningInfo(this,'ผลการตรวจสอบ','กรุณาระบุข้อมูลที่ต้องการเปลี่ยนให้ครบถ้วน');", True)
+                Exit Sub
+            End If
+            ctlL.Location_UpdatePharmacistLicense(hdLocationUID.Value, txtPharmacistNewChg.Text, txtPharmacistLicenseNewChg.Text, txtPharmacistTimeNewChg.Text)
+        End If
+
+        If pnAsmChange9.Visible Then
+            If txtPharmacistNewAdd.Text = "" Or txtPharmacistLicenseNewAdd.Text = "" Or txtPharmacistTimeNewAdd.Text = "" Then
+                ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalWarningInfo(this,'ผลการตรวจสอบ','กรุณาระบุข้อมูลที่ต้องการให้ครบถ้วน');", True)
+                Exit Sub
+            End If
+            ctlL.Location_UpdatePharmacistNew(hdLocationUID.Value, txtPharmacistNewAdd.Text, txtPharmacistLicenseNewAdd.Text, txtPharmacistTimeNewAdd.Text)
+        End If
+
+        If pnAsmChange5N.Visible Then
+            If txtLicensee.Text = "" Or optLicenseeType.SelectedValue = Nothing Then
+                ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalWarningInfo(this,'ผลการตรวจสอบ','กรุณาระบุข้อมูลที่ต้องการเปลี่ยนให้ครบถ้วน');", True)
+                Exit Sub
+            End If
+            ctlL.Location_UpdateLicensee(hdLocationUID.Value, txtLicensee.Text, optLicenseeType.SelectedValue)
+        End If
+    End Sub
+
 End Class
