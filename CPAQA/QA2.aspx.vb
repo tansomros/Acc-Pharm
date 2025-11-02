@@ -235,7 +235,7 @@ Public Class QA2
         Dim sfileName As String = ""
         UploadDirectory = Server.MapPath("~/imageUploads/" & hdLocationUID.Value & "/QA/")
 
-        ctlL.LocationProject_Save(StrNull2Long(hdProjectUID.Value), StrNull2Zero(hdLocationUID.Value), txtProjectName.Text, txtProjectAction.Text, txtProjectNumber.Text, StrNull2Zero(Request.Cookies("UserID").Value))
+        ctlL.LocationProject_Save(StrNull2Long(hdProjectUID.Value), StrNull2Long(hdRequestUID.Value), StrNull2Zero(hdLocationUID.Value), txtProjectName.Text, txtProjectAction.Text, txtProjectNumber.Text, StrNull2Zero(Request.Cookies("UserID").Value))
         SoftID = ctlL.LocationProject_GetLastUID(StrNull2Zero(hdLocationUID.Value)).ToString
 
         If FileUploadA.HasFiles Then

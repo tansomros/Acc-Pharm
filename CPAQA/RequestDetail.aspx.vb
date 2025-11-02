@@ -390,7 +390,7 @@ Public Class RequestDetail
 
                 For n = 0 To sType.Length - 1
                     Select Case DBNull2Zero(sType(n))
-                        Case 1, 2, 3, 7
+                        Case 1, 2, 3, 7, 10, 11
                             pnAsmAll.Visible = True
                         Case 4
                             pnAsmAll.Visible = True

@@ -457,8 +457,8 @@ Public Class LocationController
         Return ds.Tables(0)
     End Function
 
-    Public Function LocationSoftware_Save(ByVal UID As Long, ByVal LocationUID As Integer, Name As String, Desc As String, ByVal MUser As Integer) As Integer
-        Return SqlHelper.ExecuteNonQuery(ConnectionString, GetFullyQualifiedName("LocationSoftware_Save"), UID, LocationUID, Name, Desc, MUser)
+    Public Function LocationSoftware_Save(ByVal UID As Long, ByVal ReqUID As Integer, ByVal LocationUID As Integer, Name As String, Desc As String, ByVal MUser As Integer) As Integer
+        Return SqlHelper.ExecuteNonQuery(ConnectionString, GetFullyQualifiedName("LocationSoftware_Save"), UID, ReqUID, LocationUID, Name, Desc, MUser)
     End Function
 
     Public Function LocationSoftware_Update(ByVal pID_old As String, ByVal pID_new As String, ByVal pName As String, desc As String, ByVal pStatus As Integer) As Integer
@@ -491,8 +491,8 @@ Public Class LocationController
         Return ds.Tables(0)
     End Function
 
-    Public Function LocationProject_Save(ByVal UID As Long, ByVal LocationUID As Integer, Name As String, Desc As String, Acction As String, ByVal MUser As Integer) As Integer
-        Return SqlHelper.ExecuteNonQuery(ConnectionString, GetFullyQualifiedName("LocationProject_Save"), UID, LocationUID, Name, Desc, Acction, MUser)
+    Public Function LocationProject_Save(ByVal UID As Long, ByVal RequestUID As Integer, ByVal LocationUID As Integer, Name As String, Desc As String, Acction As String, ByVal MUser As Integer) As Integer
+        Return SqlHelper.ExecuteNonQuery(ConnectionString, GetFullyQualifiedName("LocationProject_Save"), UID, RequestUID, LocationUID, Name, Desc, Acction, MUser)
     End Function
 
     Public Function LocationProject_Update(ByVal pID_old As String, ByVal pID_new As String, ByVal pName As String, desc As String, Acction As String, ByVal pStatus As Integer) As Integer
