@@ -125,13 +125,13 @@
                                            <i class="fa fa-mobile px-3"></i>0 2591 9992-5 กด 6 <br />	
  	<i class="fa fa-fax px-3"></i>0 2591 9996
  <br />	<i class="fa fa-envelope px-3"></i>papc@pharmacycouncil.org
-                                             <br />	<i class="fa fa-qrcode px-3"></i><a href="https://line.me/ti/g/B8JVsnP_QI">line.me/ti/g/B8JVsnP_QI</a>
+                                           
                                         </div>
                                     </div>
                  <div class="col-md-2">
                                         <div class="form-group">
                                             <label>@Line group.</label><br />
-                                            <img src="images/lineid.jpg?v=01" height="150" />
+                                            <img src="images/LineGroup.jpg?v=01" height="150" />
                                         </div>
                                     </div>
 

@@ -728,8 +728,8 @@ Public Class RequestDetail
        
         โทร. 0 2591 9992-5 กด 6 <br />
         อีเมลล์ <a href='mailto:papc@pharmacycouncil.org'>papc@pharmacycouncil.org</a> <br />
-         Line id : <a href='https://line.me/ti/g/B8JVsnP_QI'>line.me/ti/g/B8JVsnP_QI</a> หรือ แสกน QR Code นี้ <br /><br />
-         <img src='https://www.acc-pharm.com/images/lineid.jpg?v=01' height='250' />
+         Line : <a href='https://line.me/ti/g2/NZXGUIMDSNgEMtcVmpgc6DRVYIplQtFjdNurLQ?utm_source=invitation&utm_medium=link_copy&utm_campaign=default'>คลิกที่นี่</a> หรือ แสกน QR Code นี้ <br /><br />
+         <img src='https://www.acc-pharm.com/images/LineGroup.jpg?v=01' height='250' />
 
         <br /><br />
 
@@ -875,8 +875,8 @@ Public Class RequestDetail
        
         โทร. 0 2591 9992-5 กด 6 <br />
         อีเมลล์ <a href='mailto:papc@pharmacycouncil.org'>papc@pharmacycouncil.org</a> <br />
-         Line id : <a href='https://line.me/ti/g/B8JVsnP_QI'>line.me/ti/g/B8JVsnP_QI</a> หรือ แสกน QR Code นี้ <br /><br />
-         <img src='https://www.acc-pharm.com/images/lineid.jpg?v=01' height='250' />
+         Line : <a href='https://line.me/ti/g2/NZXGUIMDSNgEMtcVmpgc6DRVYIplQtFjdNurLQ?utm_source=invitation&utm_medium=link_copy&utm_campaign=default'>คลิกที่นี่</a> หรือ แสกน QR Code นี้ <br /><br />
+         <img src='https://www.acc-pharm.com/images/LineGroup.jpg?v=01' height='250' />
 
         <br /><br />
 

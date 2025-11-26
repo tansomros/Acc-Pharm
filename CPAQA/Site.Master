@@ -1242,7 +1242,7 @@
             $('#tbrequest').DataTable({
                 "order": [[0, "desc"]],
                 "columnDefs": [
-                    { "type": "date", "target": [5, 6] }
+                    { "type": "date", "target": [5, 6,9] }
                 ]
             })
             $('#tbaudit').DataTable({

@@ -598,7 +598,7 @@ Public Class Location
         If Not Directory.Exists(UploadDirectory) Then
             Directory.CreateDirectory(UploadDirectory)
         End If
-        ctlL.LocationSoftware_Save(StrNull2Long(hdSoftwareUID.Value), hdLocationUID.Value, txtSname.Text, txtSdesc.Text, Request.Cookies("UserID").Value)
+        ctlL.LocationSoftware_Save(StrNull2Long(hdSoftwareUID.Value), StrNull2Zero(Request("id")), hdLocationUID.Value, txtSname.Text, txtSdesc.Text, Request.Cookies("UserID").Value)
         If StrNull2Long(hdSoftwareUID.Value) = 0 Then
             SoftID = ctlL.LocationSoftware_GetLastUID(hdLocationUID.Value).ToString
         Else
