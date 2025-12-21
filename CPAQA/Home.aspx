@@ -78,33 +78,16 @@
              </div>
          </section>
                          </div>
-                   <div class="row">
+                   <div class="row">        
                        <section class="col-lg-6 connectedSortable">
-                           <div class="main-card mb-3 card text-center">
-                               <a href="https://www.acc-pharm.com/Documents/การขอร้านยาคุณภาพ25072025.pdf?v=1" target="_blank">
-                                   <img src="slide/cpareg.jpg?v=01" width="100%" alt="" /></a>
+
+                           <div class="main-card mb-3 card">                               
+                                   <img src="slide/slide18.jpg?v=02" width="100%" />
                            </div>
                        </section>
                        <section class="col-lg-6 connectedSortable">
-
                            <div class="main-card mb-3 card">
-                               <a href="https://www.acc-pharm.com/Documents/การขอร้านยาคุณภาพ25072025.pdf?v=1" target="_blank">
-                                   <img src="slide/slide15.jpg?v=4" width="100%" /></a></div>
-                       </section>
-                      
-
-                       <section class="col-lg-6 connectedSortable">
-
-                           <div class="main-card mb-3 card">
-                               <a href="https://www.acc-pharm.com/Documents/การขอร้านยาคุณภาพ.pdf" target="_blank">
-                                   <img src="slide/slide18.jpg?v=02" width="100%" /></a>
-                           </div>
-                       </section>
-                       <section class="col-lg-6 connectedSortable">
-
-                           <div class="main-card mb-3 card">
-                               <a href="https://www.acc-pharm.com/Documents/การขอร้านยาคุณภาพ.pdf" target="_blank">
-                                   <img src="slide/slide17.jpg?v=01" width="100%" /></a>
+                                   <img src="slide/slide17.jpg?v=01" width="100%" />
                            </div>
                        </section>
                 </div>

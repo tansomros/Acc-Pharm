@@ -140,89 +140,14 @@
 
                                              <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                                                 <ol class="carousel-indicators">
-                                                    <li data-target="#carousel-example-generic" data-slide-to="0"></li>
-                                                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                                                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                                                    <li data-target="#carousel-example-generic" data-slide-to="3"></li>
-                                                    <li data-target="#carousel-example-generic" data-slide-to="4"></li>
-                                                    <li data-target="#carousel-example-generic" data-slide-to="5"></li>
-                                                    <li data-target="#carousel-example-generic" data-slide-to="6"></li>
-                                                    <li data-target="#carousel-example-generic" data-slide-to="7"></li>
-                                                    <li data-target="#carousel-example-generic" data-slide-to="8"></li>
-                                                    <li data-target="#carousel-example-generic" data-slide-to="9"></li>
-                                                    <li data-target="#carousel-example-generic" data-slide-to="10" class="active"></li>
-                                                    <li data-target="#carousel-example-generic" data-slide-to="11"></li>
+                                                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
                                                 </ol>
                                                 <div class="carousel-inner">
-                                                    <div class="item">
-                                                        <img src="slide/slide15.jpg?v=1" width="100%" alt="" />
+                                                    <div class="item active">
+                                                        <img src="slide/slide.jpg" width="100%" alt="" />
                                                         <div class="carousel-caption">
                                                         </div>
                                                     </div>
-                                                    <div class="item">
-                                                        <a href="https://www.acc-pharm.com/slide/slide10A.jpg" target="_blank">
-                                                            <img src="slide/slide10.jpg?v=1" width="100%" alt="" /></a>
-                                                        <div class="carousel-caption">
-                                                        </div>
-                                                    </div>
-                                                    <div class="item">
-                                                        <a href="https://www.acc-pharm.com/Documents/การขอร้านยาคุณภาพ25072025.pdf" target="_blank">
-                                                            <img src="slide/cpareg.jpg?v=1" width="100%" alt="" /></a>
-                                                        <div class="carousel-caption">
-                                                        </div>
-                                                    </div>
-                                                    <div class="item">
-                                                        <a href="slide/slide19.jpg" target="_blank">
-                                                            <img src="slide/slide19.png?v=1" width="100%" alt="" /></a>
-                                                        <div class="carousel-caption">
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="item">
-                                                        <img src="slide/slide18.jpg?v=2" alt="" />
-                                                        <div class="carousel-caption">
-                                                        </div>
-                                                    </div>
-                                                    <div class="item">
-                                                        <img src="slide/slide17.jpg?v=2" alt="" />
-                                                        <div class="carousel-caption">
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="item">
-                                                        <a href="slide/slide3-1.png" target="_blank">
-                                                            <img src="slide/slide3.jpg?v=1" alt="" />
-                                                            <div class="carousel-caption btn btn-blue">
-                                                                คลิกเพื่อดูรูปใหญ่
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                    <div class="item">
-                                                        <a href="slide/slide4-1.jpg" target="_blank">
-                                                            <img src="slide/slide4.jpg?v=1" alt="" />
-                                                            <div class="carousel-caption btn btn-blue">
-                                                                คลิกเพื่อดูรูปใหญ่
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                    <div class="item">
-                                                        <img src="slide/slide14.jpg?v=1" width="100%" alt="" />
-                                                        <div class="carousel-caption">
-                                                        </div>
-                                                    </div>
-                                                     <div class="item active">
-                                                        <a href="slide/slide19.png" target="_blank">
-                                                            <img src="slide/slide19.png?v=1" width="100%" alt="" /></a>
-                                                        <div class="carousel-caption">
-                                                        </div>
-                                                    </div>
-                                                     <div class="item">
-                                                        <a href="slide/slide20.png" target="_blank">
-                                                            <img src="slide/slide20.png?v=1" width="100%" alt="" /></a>
-                                                        <div class="carousel-caption">
-                                                        </div>
-                                                    </div>
-
                                                 </div>
                                                 <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
                                                     <span class="fa fa-angle-left"></span>
