@@ -395,7 +395,7 @@
                             <ul class="vertical-nav-menu metismenu">
                                 <li class="app-sidebar__heading">Menu</li>
 
-                                <% If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) >= 4 And Convert.ToInt32(Request.Cookies("ROLE_ID").Value) <= 7 Then %>
+                                <% If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) >= BigLion.ROLE_DataCollector And Convert.ToInt32(Request.Cookies("ROLE_ID").Value) <= BigLion.ROLE_FDA Then %>
                                     <% If Request("m") = "h"  %>
                                     <li><a class="mm-active" href="Dashboard.aspx?m=h"><i class="metismenu-icon pe-7s-keypad"></i>หน้าแรก</a></li>
                                     <% Else %>
@@ -409,7 +409,7 @@
                                     <% End If %>
                                 <% End If %>
 
-                                <% If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = 3 Or Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = 9 Then %>
+                                <% If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = BigLion.ROLE_Admin Or Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = 9 Then %>
                                 <% If Request("m") = "d2"  %>
                                 <li><a class="mm-active" href="Dashboard2.aspx?m=d2"><i class="metismenu-icon pe-7s-graph"></i>Dashboard 2</a></li>
                                 <% Else %>
@@ -447,7 +447,7 @@
 
                                 <% End If %>
 
-                                <% If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = 1 Then %>
+                                <% If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = BigLion.ROLE_Shop Then %>
                                 <% If Request("m") = "l" Then  %>
                                 <li><a class="mm-active" href="LocationModify.aspx?m=l&lid=<% =String.Concat(Request.Cookies("LoginLocationUID").Value) %>"><i class="metismenu-icon lnr-store"></i>ข้อมูลร้านยา</a></li>
                                 <% Else %>
@@ -473,7 +473,7 @@
 
                                 <% End If %>
 
-                                <% If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = 2 Then %>
+                                <% If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = BigLion.ROLE_Serveyor Then %>
                                 <% If Request("m") = "l" Then  %>
                                 <li><a class="mm-active" href="LocationList.aspx?m=l"><i class="metismenu-icon lnr-store"></i>ข้อมูลร้านยา</a></li>
                                 <% Else %>
@@ -487,7 +487,7 @@
                                 <% End If %>                           
                                 <% End If %>
 
-                           <% If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = 2 Or (Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = 3 Or Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = 9) And String.Concat(Request.Cookies("AdminAcc").Value) = "Y" Then%>   
+                           <% If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = BigLion.ROLE_Serveyor Or (Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = BigLion.ROLE_Admin Or Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = 9) And String.Concat(Request.Cookies("AdminAcc").Value) = "Y" Then%>   
 
                                 <% If Request("m") = "car" Then  %>
                                 <li class="mm-active">
@@ -526,7 +526,7 @@
                                 </li>
                              <% End If %>
 
-                                <% If (Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = 3 Or Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = 9) And String.Concat(Request.Cookies("AdminAcc").Value) = "Y" Then%>                            
+                                <% If (Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = BigLion.ROLE_Admin Or Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = 9) And String.Concat(Request.Cookies("AdminAcc").Value) = "Y" Then%>                            
 
                                 <% If Request("m") = "req" Then  %>
                                 <li><a class="mm-active" href="RequestList.aspx?m=req&s=asm"><i class="metismenu-icon pe-7s-note"></i>รายการคำขอ</a></li>
@@ -536,7 +536,7 @@
                                 <% End If %>
 
 
-                                <% If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = 3 Or Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = 9 Then%>
+                                <% If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = BigLion.ROLE_Admin Or Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = 9 Then%>
                                 <% If Request("m") = "l" Then  %>
                                 <li><a class="mm-active" href="LocationList.aspx?m=l"><i class="metismenu-icon lnr-store"></i>ข้อมูลร้านยา</a></li>
                                 <% Else %>
@@ -590,7 +590,7 @@
                                 <% End If %>
 
 
-                                <% If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = 2 Or Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = 3 Or Convert.ToInt32(Request.Cookies("ROLE_ID").Value) >= 7 Then%>
+                                <% If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = BigLion.ROLE_Serveyor Or Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = BigLion.ROLE_Admin Or Convert.ToInt32(Request.Cookies("ROLE_ID").Value) >= BigLion.ROLE_FDA Then%>
                                 <% If Request("m") = "po" Then  %>
                                 <li class="mm-active">
                                     <% Else %>
@@ -607,7 +607,7 @@
                                         <% Else %>
                                         <li><a href="PostList.aspx?m=po&s=list"><i class="metismenu-icon"></i>บันทึการตรวจรักษาคุณภาพ</a></li>
                                         <% End If %>
-                                        <% If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = 3 Or Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = 9 Then%>
+                                        <% If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = BigLion.ROLE_Admin Or Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = 9 Then%>
                                         <% If Request("s") = "ap"  %>
                                         <li><a class="mm-active" href="AllocatePost.aspx?m=po&s=ap"><i class="metismenu-icon"></i>Assign ผู้ตรวจ</a></li>
                                         <% Else %>
@@ -626,12 +626,13 @@
                                 <% End If %>
 
 
-                                <% If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) >= 4 Then%>
-                                <% If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = 9 Then%>
+                                <% If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) >= BigLion.ROLE_DataCollector Then%>
+
+                                <% If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = BigLion.ROLE_SuperAdmin Then%>
                                 <li class="app-sidebar__heading">สสจ.</li>
                                 <% End If %>
 
-                                <% If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) >= 4 Then %>
+                                <% If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) >= BigLion.ROLE_DataCollector Then %>
                                 <% If Request("m") = "l2" Then  %>
                                 <li><a class="mm-active" href="PharmacyList.aspx?m=l2"><i class="metismenu-icon lnr-store"></i>ร้านยา</a></li>
                                 <% Else %>
@@ -641,7 +642,7 @@
 
                                 <% End If %>
 
-                                <% If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = 4 Then %>
+                                <% If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = BigLion.ROLE_DataCollector Then %>
                                 <% If Request("m") = "g" Then  %>
                                 <li><a class="mm-active" href="PharmacyGPPList.aspx?m=g"><i class="metismenu-icon pe-7s-clock"></i>ประเมิน GPP</a></li>
                                 <% Else %>
@@ -649,7 +650,7 @@
                                 <% End If %>
                                 <% End If %>
 
-                                <% If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) >= 5 And Convert.ToInt32(Request.Cookies("ROLE_ID").Value) <= 7 Then %>
+                                <% If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) >= BigLion.ROLE_ProvinceAdmin And Convert.ToInt32(Request.Cookies("ROLE_ID").Value) <= BigLion.ROLE_FDA Then %>
                                 <% If Request("m") = "g" Then  %>
                                 <li><a class="mm-active" href="PharmacyGPPListAdmin.aspx?m=g"><i class="metismenu-icon pe-7s-clock"></i>รายการประเมิน GPP</a></li>
                                 <% Else %>
@@ -657,7 +658,7 @@
                                 <% End If %>
                                 <% End If %>
 
-                                <% If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = 9 Then%>
+                                <% If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = BigLion.ROLE_SuperAdmin Then%>
                                 <% If Request("m") = "cls" Then  %>
                                 <li><a class="mm-active" href="GPPClose.aspx?m=cls"><i class="metismenu-icon lnr-cross-circle"></i>ปิดการประเมิน</a></li>
                                 <% Else %>
@@ -676,7 +677,7 @@
 											            <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                                     </a>
                                     <ul class="mm-collapse">
-                                        <% If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) >= 5 Then%>
+                                        <% If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) >= BigLion.ROLE_ProvinceAdmin Then%>
                                         <% If Request("s") = "L1"  %>
                                         <li><a class="mm-active" href="ReportCompanyPPH.aspx?m=rpt2&s=L1"><i class="metismenu-icon"></i>รายงานร้านยา สสจ.</a></li>
                                         <% Else %>
@@ -703,7 +704,7 @@
                                 </li>
                                 <% End If %>
 
-                                <% If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = 9 Then%>
+                                <% If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = BigLion.ROLE_SuperAdmin Or Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = BigLion.ROLE_ProvinceAdmin Then%>
                                 <% If Request("m") = "asg" Then  %>
                                 <li><a class="mm-active" href="Allocate.aspx?m=asg"><i class="metismenu-icon lnr-gift"></i>Assign ร้านยา</a></li>
                                 <% Else %>
@@ -715,6 +716,9 @@
                                 <% Else %>
                                 <li><a href="AllocateDC.aspx?m=asgdc"><i class="metismenu-icon lnr-gift"></i>Assign ผู้ตรวจ</a></li>
                                 <% End If %>
+                             <% End If %>
+
+                                  <% If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = BigLion.ROLE_SuperAdmin Then%>
 
                                 <% If Request("m") = "asg2" Then  %>
                                 <li><a class="mm-active" href="AllocateProvince.aspx?m=asg2"><i class="metismenu-icon lnr-gift"></i>Assign จังหวัด</a></li>
@@ -722,10 +726,11 @@
                                 <li><a href="AllocateProvince.aspx?m=asg2"><i class="metismenu-icon lnr-gift"></i>Assign จังหวัด</a></li>
                                 <% End If %>
 
+
                                 <% End If %>
 
 
-                                <% If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = 3 Or Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = 9 Then%>
+                                <% If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = BigLion.ROLE_Admin Or Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = BigLion.ROLE_SuperAdmin Then%>
                                 <li class="app-sidebar__heading">Admin</li>
 
                                 <% If Request("s") = "u" Then%>
@@ -814,7 +819,7 @@
                                         <% End If %>
 
 
-                                        <% If (Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = 3 Or Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = 9) And String.Concat(Request.Cookies("AdminAcc").Value) = "Y" Then%>
+                                        <% If (Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = BigLion.ROLE_Admin Or Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = BigLion.ROLE_SuperAdmin) And String.Concat(Request.Cookies("AdminAcc").Value) = "Y" Then%>
 
                                         <% If Request("s") = "R1"  %>
                                         <li><a class="mm-active" href="ReportRequest.aspx?m=rpt&s=R1"><i class="metismenu-icon"></i>รายงานคำขอแยกตามสถานะ</a></li>
@@ -854,7 +859,7 @@
 
                                 <% End If %>
 
-                                <% If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = 2 Then%>
+                                <% If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = BigLion.ROLE_Serveyor Then%>
                                 <% If Request("m") = "rpt"  %>
                                 <li class="mm-active">
                                     <% Else %>

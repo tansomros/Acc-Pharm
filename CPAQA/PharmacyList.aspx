@@ -54,7 +54,7 @@
                             <th class="text-center">วันที่อนุญาต</th>
                             <th class="text-center">ปีที่หมดอายุ</th>
                             <th class="text-center">Assign ผู้ตรวจ</th>
-                            <% If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) >= 5 Then%>
+                            <% If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) >= BigLion.ROLE_DataCollector Then%>
                             <th class="sorting_asc_disabled sorting_desc_disabled text-center"></th>
                             <% End If %>
                         </tr>
@@ -70,7 +70,7 @@
                             <td class="text-center"><% =String.Concat(row("StartDtt")) %></td>
                             <td class="text-center"><% =String.Concat(row("ExpYear")) %></td>
                             <td><% =String.Concat(row("DCName")) %></td>
-                            <% If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) >= 5 Then%>
+                            <% If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) >= BigLion.ROLE_DataCollector Then%>
                             <td width="180" class="text-center">  
                                 <a href="LocationModify?m=l2&lid=<% =String.Concat(row("UID")) %>" class="btn btn-primary" data-toggle="tooltip" data-placement="top" data-original-title="ข้อมูลร้านยา"><i class="fa fa-edit" aria-hidden="true"></i></a>
 

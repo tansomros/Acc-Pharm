@@ -83,10 +83,13 @@ Public Module modGlobal
     'Public Const ACTION_REJECT As String = "5" 'ไม่อนุมัติ ส่งกลับให้ประเมินใหม่
 
 
-    'Public Const LEGAL_REG As String = "1" ' ลงทะเบียน
-    'Public Const LEGAL_WAIT As String = "2" 'รอการอนุมัติ 
-    'Public Const LEGAL_APPROVED As String = "3" 'อนุมัติแล้ว  
-    'Public Const LEGAL_DONE As String = "4"  ' ดำเนินการประเมินแล้ว 
+    Public Const ROLE_Shop As Integer = 1 ' ร้านยา
+    Public Const ROLE_Serveyor As Integer = 2 'ผู้ตรวจร้านยาคุณภาพ 
+    Public Const ROLE_Admin As Integer = 3 'แอดมิน  
+    Public Const ROLE_DataCollector As Integer = 4  ' ผู้ตรวจ GPP 
+    Public Const ROLE_ProvinceAdmin As Integer = 5
+    Public Const ROLE_FDA As Integer = 7
+    Public Const ROLE_SuperAdmin As Integer = 9
 
 
 #Region "Running Code"
