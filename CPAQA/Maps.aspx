@@ -36,7 +36,7 @@
 	<link rel="stylesheet" href="bower_components/select2/assets/css/select2.min.css">
 
       <!-- Maps -->
-         <script async defer  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfMj6L9aj4d2o6a_vxYVLYC2nrwnCjXFg&callback=initMap"></script>
+         <script async defer  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGzC-L42RZFiCHVKaHMvlDCKaNUrTngK8&callback=initMap"></script>
 	<style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */

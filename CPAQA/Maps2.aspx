@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="Maps2.aspx.vb" Inherits="CPAQA.Maps2" %> 
 <%@ Import Namespace="System.Data" %>  
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server"> 
-	  <script async defer  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfMj6L9aj4d2o6a_vxYVLYC2nrwnCjXFg&callback=initMap"></script>
+	  <script async defer  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGzC-L42RZFiCHVKaHMvlDCKaNUrTngK8&callback=initMap"></script>
 	<style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */

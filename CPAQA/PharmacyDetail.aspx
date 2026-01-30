@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="PharmacyDetail.aspx.vb" Inherits="CPAQA.PharmacyDetail" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">  
-     <script async defer  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfMj6L9aj4d2o6a_vxYVLYC2nrwnCjXFg&callback=initMap"></script> 
+     <script async defer  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGzC-L42RZFiCHVKaHMvlDCKaNUrTngK8&callback=initMap&v=weekly&libraries=marker"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="app-page-title">

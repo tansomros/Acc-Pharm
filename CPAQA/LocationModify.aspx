@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="LocationModify.aspx.vb" Inherits="CPAQA.LocationModify" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfMj6L9aj4d2o6a_vxYVLYC2nrwnCjXFg&callback=initMap"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGzC-L42RZFiCHVKaHMvlDCKaNUrTngK8&callback=initMap"></script>
     <script type="text/javascript">          
         function openModalUploadCCR(sender, id) {
             $('#modal-window-ccr').modal('show');
