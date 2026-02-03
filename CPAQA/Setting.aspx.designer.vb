@@ -50,6 +50,15 @@ Partial Public Class Setting
     Protected WithEvents lblDanger As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''cmdCertName control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents cmdCertName As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
     '''cmdRequestNewFDA control.
     '''</summary>
     '''<remarks>
@@ -57,6 +66,33 @@ Partial Public Class Setting
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents cmdRequestNewFDA As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''cmdUpdateLicenseLast control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents cmdUpdateLicenseLast As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''cmdUpdatePharm2Location control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents cmdUpdatePharm2Location As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''cmdUpdateNewCode control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents cmdUpdateNewCode As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
     '''cmdLicenseUpdate control.
@@ -84,31 +120,4 @@ Partial Public Class Setting
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents cmdPharmacist As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
-    '''cmdCertName control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents cmdCertName As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
-    '''cmdUpdateLicenseLast control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents cmdUpdateLicenseLast As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
-    '''cmdUpdateNewCode control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents cmdUpdateNewCode As Global.System.Web.UI.WebControls.Button
 End Class

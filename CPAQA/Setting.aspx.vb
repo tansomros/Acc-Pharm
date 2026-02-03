@@ -48,8 +48,6 @@ Public Class Setting
             pnSuccess.Visible = False
             pnDanger.Visible = False
         End If
-
-        'cmdDelete.Attributes.Add("onClick", "javascript:return confirm(""ต้องการลบรายการนี้ใช่หรือไม่?"");")
     End Sub
     Function checkField(tD As DataTable, ColumnName As String) As String
         If tD.Columns(ColumnName) IsNot Nothing Then
@@ -70,14 +68,13 @@ Public Class Setting
             Else
                 dtt = ConvertDate2DBString(tD.Rows(0)(ColumnName))
             End If
-
-
             Return dtt 'y + "-" + m + "-" + d
         Else
             Return Nothing
         End If
     End Function
 
+    'Step 1
     Private Sub cmdRequestNewFDA_Click(sender As Object, e As EventArgs) Handles cmdRequestNewFDA.Click
         Dim dtP As New DataTable
         dt = ctlL.Location_GetForNewFDA
@@ -126,7 +123,7 @@ Public Class Setting
                                 Newcode_not = checkField(dtResult, "Newcode_not")
                                 LICENSE_NO_SEARCH2 = checkField(dtResult, "LICENSE_NO_SEARCH2")
 
-                                ctlL.PhamacyLicense_Save(DBNull2Zero(dt.Rows(i)("UID")), dt.Rows(i)("LicenseNo1"), NewCode, pvncd, lcnno_noo, lcnno_not_pvnabbr, licen, licen_time, grannm_lo, thanm, thaaddr, tharoom, thafloor, thabuilding, thasoi, tharoad, thamu, thathmblnm, zipcode, tel, thanm_address, thaamphrnm, thachngwtnm, cncnm, appdate, expyear, lmdfdate, Newcode_not, LICENSE_NO_SEARCH2)
+                                ctlL.PharmacyLicense_Save(DBNull2Zero(dt.Rows(i)("UID")), dt.Rows(i)("LicenseNo1"), NewCode, pvncd, lcnno_noo, lcnno_not_pvnabbr, licen, licen_time, grannm_lo, thanm, thaaddr, tharoom, thafloor, thabuilding, thasoi, tharoad, thamu, thathmblnm, zipcode, tel, thanm_address, thaamphrnm, thachngwtnm, cncnm, appdate, expyear, lmdfdate, Newcode_not, LICENSE_NO_SEARCH2)
 
                                 pnDanger.Visible = False
                                 pnSuccess.Visible = True
@@ -142,6 +139,98 @@ Public Class Setting
             End With
         Next
 
+        ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalSuccess(this,'Success','บันทึกเรียบร้อย');", True)
+    End Sub
+
+    'Step 2
+    Private Sub cmdUpdateLicenseLast_Click(sender As Object, e As EventArgs) Handles cmdUpdateLicenseLast.Click
+        Dim dtP As New DataTable
+        Dim PharmLastUpdate As Integer
+        Dim FDALastUpdate As Integer
+        dt = ctlL.PharmacyLicense_GetForUpdate()
+        If dt.Rows.Count = 0 Then
+            ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalWarningAlert(this,'Success','No data update.');", True)
+            Exit Sub
+        End If
+        PharmLastUpdate = dt.Rows(0)("LastUpdate")
+        For i = 0 To dt.Rows.Count - 1
+            With dt.Rows(i)
+                If String.Concat(.Item("LicenseNo")) <> "" Then
+                    NewCode = ctlFDA.ConvertLicenseToNewCode(dt.Rows(i)("LicenseNo"))
+                    dtP = ctlFDA.GET_DRUG_LCN_INFORMATION(NewCode)
+                    If Not dtP Is Nothing Then
+                        'lblthanm.Text = "ไม่พบเลข ขย.นี้ในฐานข้อมูล อย. กรุณาตรวจสอบ"
+                        'Exit sub
+                        If dtP.Rows.Count > 0 Then
+                            If checkField(dtP, "appdate") = "" Then
+                                dtP.DefaultView.Sort = "lcnno desc"
+                            Else
+                                dtP.DefaultView.Sort = "appdate desc,lcnno desc"
+                            End If
+
+                            Dim dtResult As DataTable = dtP.DefaultView.ToTable()
+
+                            pvncd = checkField(dtResult, "pvncd")
+                            lcnno_noo = checkField(dtResult, "lcnno_noo")
+                            lcnno_not_pvnabbr = checkField(dtResult, "lcnno_not_pvnabbr")
+                            licen = checkField(dtResult, "licen")
+                            licen_time = checkField(dtResult, "licen_time")
+                            grannm_lo = checkField(dtResult, "grannm_lo")
+                            thanm = checkField(dtResult, "thanm")
+                            thaaddr = checkField(dtResult, "thaaddr")
+                            tharoom = checkField(dtResult, "tharoom")
+                            thafloor = checkField(dtResult, "thafloor")
+                            thabuilding = checkField(dtResult, "thabuilding")
+                            thasoi = checkField(dtResult, "thasoi")
+                            tharoad = checkField(dtResult, "tharoad")
+                            thamu = checkField(dtResult, "thamu")
+                            thathmblnm = checkField(dtResult, "thathmblnm")
+                            zipcode = checkField(dtResult, "zipcode")
+                            tel = checkField(dtResult, "tel")
+                            thanm_address = checkField(dtResult, "thanm_address")
+                            thaamphrnm = checkField(dtResult, "thaamphrnm")
+                            thachngwtnm = checkField(dtResult, "thachngwtnm")
+                            cncnm = checkField(dtResult, "cncnm")
+                            appdate = checkField(dtResult, "appdate")
+                            expyear = checkField(dtResult, "expyear")
+                            lmdfdate = checkField(dtResult, "lmdfdate")
+                            Newcode_not = checkField(dtResult, "Newcode_not")
+                            LICENSE_NO_SEARCH2 = checkField(dtResult, "LICENSE_NO_SEARCH2")
+
+                            If lmdfdate <> "" Then
+                                FDALastUpdate = checkFieldDtt(dtResult, "lmdfdate")
+                                If FDALastUpdate >= PharmLastUpdate Then
+                                    Try
+                                        ctlL.PharmacyLicense_Save(DBNull2Zero(dt.Rows(i)("LocationUID")), dt.Rows(i)("LicenseNo"), NewCode, pvncd, lcnno_noo, lcnno_not_pvnabbr, licen, licen_time, grannm_lo, thanm, thaaddr, tharoom, thafloor, thabuilding, thasoi, tharoad, thamu, thathmblnm, zipcode, tel, thanm_address, thaamphrnm, thachngwtnm, cncnm, appdate, expyear, lmdfdate, Newcode_not, LICENSE_NO_SEARCH2)
+
+                                        pnDanger.Visible = False
+                                        pnSuccess.Visible = True
+                                        lblSuccess.Text = "Success."
+                                    Catch ex As Exception
+                                        pnSuccess.Visible = False
+                                        pnDanger.Visible = True
+                                        lblDanger.Text = "Warning!! " & ex.Message
+                                    End Try
+                                Else
+                                    'ctlL.PharmacyLicense_UpdateMWhen(dt.Rows(i)("LicenseNo"))
+                                End If
+                            Else
+                                ctlL.PharmacyLicense_Save(DBNull2Zero(dt.Rows(i)("LocationUID")), dt.Rows(i)("LicenseNo"), NewCode, pvncd, lcnno_noo, lcnno_not_pvnabbr, licen, licen_time, grannm_lo, thanm, thaaddr, tharoom, thafloor, thabuilding, thasoi, tharoad, thamu, thathmblnm, zipcode, tel, thanm_address, thaamphrnm, thachngwtnm, cncnm, appdate, expyear, lmdfdate, Newcode_not, LICENSE_NO_SEARCH2)
+                            End If
+                        End If
+                    End If
+                End If
+            End With
+        Next
+
+        ctlL.PharmacyLicense_SaveLastUpdate()
+
+        ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalSuccess(this,'Success','บันทึกเรียบร้อย');", True)
+    End Sub
+
+    'Step 3
+    Private Sub cmdUpdatePharm2Location_Click(sender As Object, e As EventArgs) Handles cmdUpdatePharm2Location.Click
+        ctlL.Location_UpdateFDALicense()
         ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalSuccess(this,'Success','บันทึกเรียบร้อย');", True)
     End Sub
 
@@ -197,7 +286,7 @@ Public Class Setting
                                 'Newcode_not = checkField(dtResult, "Newcode_not")
                                 'LICENSE_NO_SEARCH2 = checkField(dtResult, "LICENSE_NO_SEARCH2")
 
-                                ctlL.PhamacyLicense_UpdateLicen(NewCode, licen)
+                                ctlL.PharmacyLicense_UpdateLicen(NewCode, licen)
 
                                 pnDanger.Visible = False
                                 pnSuccess.Visible = True
@@ -238,7 +327,7 @@ Public Class Setting
 
                             Try
                                 licen = checkField(dtResult, "licen")
-                                ctlL.PhamacyLicense_UpdateLicen(NewCode, licen)
+                                ctlL.PharmacyLicense_UpdateLicen(NewCode, licen)
                                 pnDanger.Visible = False
                                 pnSuccess.Visible = True
                                 lblSuccess.Text = "Update ชื่อผู้ได้รับอนุญาต 2 Success."
@@ -281,7 +370,7 @@ Public Class Setting
                                 phrnm = checkField(dtResult, "phrnm")
                                 pharmacy_name = checkField(dtResult, "pharmacy_name")
 
-                                ctlL.PhamacyLicense_Update(NewCode, phrno, phrnm, pharmacy_name)
+                                ctlL.PharmacyLicense_Update(NewCode, phrno, phrnm, pharmacy_name)
 
                                 pnDanger.Visible = False
                                 pnSuccess.Visible = True
@@ -299,87 +388,6 @@ Public Class Setting
 
         ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalSuccess(this,'Success','Update ชื่อผู้มีหน้าที่ปฏิบัติการ เรียบร้อย');", True)
 
-    End Sub
-
-    Private Sub cmdUpdateLicenseLast_Click(sender As Object, e As EventArgs) Handles cmdUpdateLicenseLast.Click
-        Dim dtP As New DataTable
-        Dim LastReq As Integer
-        Dim LastUpdate As Integer
-        dt = ctlL.Location_GetForUpdateFDA2
-        If dt.Rows.Count = 0 Then
-            ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalWarningAlert(this,'Success','No data update.');", True)
-            Exit Sub
-        End If
-        LastReq = dt.Rows(0)("LastRequest")
-        For i = 0 To dt.Rows.Count - 1
-            With dt.Rows(i)
-                If String.Concat(.Item("LicenseNo1")) <> "" Then
-                    'NewCode = ctlFDA.ConvertLicenseToNewCode(dt.Rows(i)("LicenseNo1"))
-                    dtP = ctlFDA.GET_DRUG_LCN_INFORMATION(NewCode)
-                    If Not dtP Is Nothing Then
-                        'lblthanm.Text = "ไม่พบเลข ขย.นี้ในฐานข้อมูล อย. กรุณาตรวจสอบ"
-                        'Exit sub
-                        If dtP.Rows.Count > 0 Then
-                            If checkField(dtP, "appdate") = "" Then
-                                dtP.DefaultView.Sort = "lcnno desc"
-                            Else
-                                dtP.DefaultView.Sort = "appdate desc,lcnno desc"
-                            End If
-
-                            Dim dtResult As DataTable = dtP.DefaultView.ToTable()
-
-                            pvncd = checkField(dtResult, "pvncd")
-                            lcnno_noo = checkField(dtResult, "lcnno_noo")
-                            lcnno_not_pvnabbr = checkField(dtResult, "lcnno_not_pvnabbr")
-                            licen = checkField(dtResult, "licen")
-                            licen_time = checkField(dtResult, "licen_time")
-                            grannm_lo = checkField(dtResult, "grannm_lo")
-                            thanm = checkField(dtResult, "thanm")
-                            thaaddr = checkField(dtResult, "thaaddr")
-                            tharoom = checkField(dtResult, "tharoom")
-                            thafloor = checkField(dtResult, "thafloor")
-                            thabuilding = checkField(dtResult, "thabuilding")
-                            thasoi = checkField(dtResult, "thasoi")
-                            tharoad = checkField(dtResult, "tharoad")
-                            thamu = checkField(dtResult, "thamu")
-                            thathmblnm = checkField(dtResult, "thathmblnm")
-                            zipcode = checkField(dtResult, "zipcode")
-                            tel = checkField(dtResult, "tel")
-                            thanm_address = checkField(dtResult, "thanm_address")
-                            thaamphrnm = checkField(dtResult, "thaamphrnm")
-                            thachngwtnm = checkField(dtResult, "thachngwtnm")
-                            cncnm = checkField(dtResult, "cncnm")
-                            appdate = checkField(dtResult, "appdate")
-                            expyear = checkField(dtResult, "expyear")
-                            lmdfdate = checkField(dtResult, "lmdfdate")
-                            Newcode_not = checkField(dtResult, "Newcode_not")
-                            LICENSE_NO_SEARCH2 = checkField(dtResult, "LICENSE_NO_SEARCH2")
-
-                            If lmdfdate <> "" Then
-                                LastUpdate = checkFieldDtt(dtResult, "lmdfdate")
-                                If LastUpdate >= LastReq Then
-                                    Try
-                                        ctlL.PhamacyLicense_Save(DBNull2Zero(dt.Rows(i)("UID")), dt.Rows(i)("LicenseNo1"), NewCode, pvncd, lcnno_noo, lcnno_not_pvnabbr, licen, licen_time, grannm_lo, thanm, thaaddr, tharoom, thafloor, thabuilding, thasoi, tharoad, thamu, thathmblnm, zipcode, tel, thanm_address, thaamphrnm, thachngwtnm, cncnm, appdate, expyear, lmdfdate, Newcode_not, LICENSE_NO_SEARCH2)
-
-                                        pnDanger.Visible = False
-                                        pnSuccess.Visible = True
-                                        lblSuccess.Text = "Success."
-                                    Catch ex As Exception
-                                        pnSuccess.Visible = False
-                                        pnDanger.Visible = True
-                                        lblDanger.Text = "Warning!! " & ex.Message
-                                    End Try
-                                End If
-                            Else
-                                ctlL.PhamacyLicense_Save(DBNull2Zero(dt.Rows(i)("UID")), dt.Rows(i)("LicenseNo1"), NewCode, pvncd, lcnno_noo, lcnno_not_pvnabbr, licen, licen_time, grannm_lo, thanm, thaaddr, tharoom, thafloor, thabuilding, thasoi, tharoad, thamu, thathmblnm, zipcode, tel, thanm_address, thaamphrnm, thachngwtnm, cncnm, appdate, expyear, lmdfdate, Newcode_not, LICENSE_NO_SEARCH2)
-                            End If
-                        End If
-                    End If
-                End If
-            End With
-        Next
-
-        ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalSuccess(this,'Success','บันทึกเรียบร้อย');", True)
     End Sub
 
     Private Sub cmdCertName_Click(sender As Object, e As EventArgs) Handles cmdCertName.Click

@@ -33,6 +33,10 @@ Public Class LocationController
         ds = SqlHelper.ExecuteDataset(ConnectionString, ("PharmacyLicense_GetForUpdateLicen"))
         Return ds.Tables(0)
     End Function
+    Public Function PharmacyLicense_GetForUpdate() As DataTable
+        ds = SqlHelper.ExecuteDataset(ConnectionString, ("PharmacyLicense_GetForUpdate"))
+        Return ds.Tables(0)
+    End Function
     Public Function Location_GetForUpdateFDA2() As DataTable
         ds = SqlHelper.ExecuteDataset(ConnectionString, ("Location_GetForUpdateFDA2"))
         Return ds.Tables(0)
@@ -196,15 +200,21 @@ Public Class LocationController
         Return SqlHelper.ExecuteNonQuery(ConnectionString, GetFullyQualifiedName("Pharmacy_Update"), UID, NewCode, LocationID, Code, LocationName, AddressNo, Moo, Road, Subdistrict, District, ProvinceID, ZipCode, Tel, Email, LineID, WorkTime, Lat, Lng, Facebook, LicenseNo1, LicenseNo2, LicenseNo3, Licensee, LicenseeType, Area1, Area2, LocationGroupUID, LocationChainUID, StatusFlag, Muser, NHSOCode)
     End Function
 
-    Public Function PhamacyLicense_Save(ByVal LocationUID As Integer, ByVal LicenseNo As String, ByVal NewCode As String, ByVal pvncd As String, ByVal lcnno_noo As String, ByVal lcnno_not_pvnabbr As String, ByVal licen As String, ByVal licen_time As String, ByVal grannm_lo As String, ByVal thanm As String, ByVal thaaddr As String, ByVal tharoom As String, ByVal thafloor As String, ByVal thabuilding As String, ByVal thasoi As String, ByVal tharoad As String, ByVal thamu As String, ByVal thathmblnm As String, ByVal zipcode As String, ByVal tel As String, ByVal thanm_address As String, ByVal thaamphrnm As String, ByVal thachngwtnm As String, ByVal ncnm As String, ByVal appdate As String, ByVal expyear As String, ByVal lmdfdate As String, ByVal Newcode_not As String, ByVal LICENSE_NO_SEARCH2 As String) As Integer
+    Public Function PharmacyLicense_Save(ByVal LocationUID As Integer, ByVal LicenseNo As String, ByVal NewCode As String, ByVal pvncd As String, ByVal lcnno_noo As String, ByVal lcnno_not_pvnabbr As String, ByVal licen As String, ByVal licen_time As String, ByVal grannm_lo As String, ByVal thanm As String, ByVal thaaddr As String, ByVal tharoom As String, ByVal thafloor As String, ByVal thabuilding As String, ByVal thasoi As String, ByVal tharoad As String, ByVal thamu As String, ByVal thathmblnm As String, ByVal zipcode As String, ByVal tel As String, ByVal thanm_address As String, ByVal thaamphrnm As String, ByVal thachngwtnm As String, ByVal ncnm As String, ByVal appdate As String, ByVal expyear As String, ByVal lmdfdate As String, ByVal Newcode_not As String, ByVal LICENSE_NO_SEARCH2 As String) As Integer
 
-        Return SqlHelper.ExecuteNonQuery(ConnectionString, GetFullyQualifiedName("PhamacyLicense_Save"), LocationUID, LicenseNo, NewCode, pvncd, lcnno_noo, lcnno_not_pvnabbr, licen, licen_time, grannm_lo, thanm, thaaddr, tharoom, thafloor, thabuilding, thasoi, tharoad, thamu, thathmblnm, zipcode, tel, thanm_address, thaamphrnm, thachngwtnm, ncnm, appdate, expyear, lmdfdate, Newcode_not, LICENSE_NO_SEARCH2)
+        Return SqlHelper.ExecuteNonQuery(ConnectionString, GetFullyQualifiedName("PharmacyLicense_Save"), LocationUID, LicenseNo, NewCode, pvncd, lcnno_noo, lcnno_not_pvnabbr, licen, licen_time, grannm_lo, thanm, thaaddr, tharoom, thafloor, thabuilding, thasoi, tharoad, thamu, thathmblnm, zipcode, tel, thanm_address, thaamphrnm, thachngwtnm, ncnm, appdate, expyear, lmdfdate, Newcode_not, LICENSE_NO_SEARCH2)
     End Function
-    Public Function PhamacyLicense_Update(ByVal NewCode As String, phrno As String, phrnm As String, pharmacy_name As String) As Integer
-        Return SqlHelper.ExecuteNonQuery(ConnectionString, GetFullyQualifiedName("PhamacyLicense_Update"), NewCode, phrno, phrnm, pharmacy_name)
+    Public Function PharmacyLicense_Update(ByVal NewCode As String, phrno As String, phrnm As String, pharmacy_name As String) As Integer
+        Return SqlHelper.ExecuteNonQuery(ConnectionString, GetFullyQualifiedName("PharmacyLicense_Update"), NewCode, phrno, phrnm, pharmacy_name)
     End Function
-    Public Function PhamacyLicense_UpdateLicen(ByVal NewCode As String, ByVal licen As String) As Integer
-        Return SqlHelper.ExecuteNonQuery(ConnectionString, GetFullyQualifiedName("PhamacyLicense_UpdateLicen"), NewCode, licen)
+    Public Function PharmacyLicense_UpdateLicen(ByVal NewCode As String, ByVal licen As String) As Integer
+        Return SqlHelper.ExecuteNonQuery(ConnectionString, GetFullyQualifiedName("PharmacyLicense_UpdateLicen"), NewCode, licen)
+    End Function
+    Public Function PharmacyLicense_UpdateMWhen(ByVal LicenseNo As String) As Integer
+        Return SqlHelper.ExecuteNonQuery(ConnectionString, GetFullyQualifiedName("PharmacyLicense_UpdateMWhen"), LicenseNo)
+    End Function
+    Public Function PharmacyLicense_SaveLastUpdate() As Integer
+        Return SqlHelper.ExecuteNonQuery(ConnectionString, GetFullyQualifiedName("PharmacyLicense_SaveLastUpdate"))
     End Function
 
     Public Function auto_UpdatePharmacyName_Certificate() As Integer
@@ -228,6 +238,10 @@ Public Class LocationController
         ds = SqlHelper.ExecuteDataset(ConnectionString, "Location_GetNotNewCode")
         Return ds.Tables(0)
     End Function
+    Public Function Location_UpdateFDALicense() As Integer
+        Return SqlHelper.ExecuteNonQuery(ConnectionString, GetFullyQualifiedName("Location_UpdateFDALicense"))
+    End Function
+
 
     Public Function Location_UpdatePharmacistLicense(ByVal LocationUID As Integer, ByVal Pharmacist As String, ByVal LicenseNo As Integer, PharmacistTime As String) As Integer
         Return SqlHelper.ExecuteNonQuery(ConnectionString, GetFullyQualifiedName("Location_UpdatePharmacistLicense"), LocationUID, Pharmacist, LicenseNo, PharmacistTime)
