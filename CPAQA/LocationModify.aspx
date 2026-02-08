@@ -644,8 +644,7 @@
                                         </div>
                                     </ContentTemplate>
                                     <Triggers>
-
-                                        <asp:AsyncPostBackTrigger ControlID="cmdAddPharmacist" EventName="Click" />
+                                        <asp:PostBackTrigger ControlID="cmdAddPharmacist" />
                                         <asp:AsyncPostBackTrigger ControlID="grdPharmacist" EventName="RowCommand" />
 
                                     </Triggers>
@@ -701,8 +700,7 @@
                                                 </asp:GridView>
                                             </ContentTemplate>
                                             <Triggers>
-
-                                                <asp:AsyncPostBackTrigger ControlID="cmdAddPharmacist" EventName="Click" />
+                                                 <asp:PostBackTrigger ControlID="cmdAddPharmacist" />
                                                 <asp:AsyncPostBackTrigger ControlID="grdPharmacist" EventName="RowCommand" />
                                                 <asp:AsyncPostBackTrigger ControlID="grdImgPharmacist" EventName="RowCommand" />
                                             </Triggers>

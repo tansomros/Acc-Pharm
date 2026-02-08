@@ -883,7 +883,7 @@ Public Class LocationModify
         txtPLicense.Text = ""
         ddlPType.SelectedIndex = 1
         grdTime.DataSource = Nothing
-        grdTime.Visible = True
+        grdTime.Visible = False
         chkDay.ClearSelection()
         chkAll.Checked = False
         chkNon.Checked = False
@@ -1116,7 +1116,6 @@ Public Class LocationModify
         If e.Row.RowType = DataControlRowType.DataRow Then
             e.Row.Attributes.Add("onmouseover", "this.originalcolor=this.style.backgroundColor;" + " this.style.backgroundColor='#d0e8ff';")
             e.Row.Attributes.Add("onmouseout", "this.style.backgroundColor=this.originalcolor;")
-
         End If
     End Sub
 
