@@ -653,7 +653,7 @@
                             </tr>
                              <tr>
                                 <td>9.</td>
-                                <td>มี App My Pharmacist ของสภาเภสัชกรรม</td>
+                                <td>TeleHealth Thailand ของสภาเภสัชกรรม</td>
                                 <td><asp:LinkButton ID="imgQ9" runat="server" CssClass="file-upload btn btn-primary"><i class="fa fa-camera"></i></asp:LinkButton></td>
                                 <td>
                                     <asp:Label ID="lblQ9" runat="server" CssClass="small text-success"></asp:Label>

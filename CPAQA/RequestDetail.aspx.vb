@@ -342,10 +342,12 @@ Public Class RequestDetail
                 btnAsmLocation.NavigateUrl = "~/Location.aspx?lid=" & String.Concat(.Item("LocationUID")) & "&id=" & String.Concat(.Item("UID"))
                 btnAsmGPP.NavigateUrl = "~/GPP.aspx?lid=" & String.Concat(.Item("LocationUID")) & "&id=" & String.Concat(.Item("UID"))
 
-                If DBNull2Zero(.Item("REQDTT")) >= 20240201 Then
+                If DBNull2Zero(.Item("REQDTT")) < 20240201 Then
+                    btnAsmQA.NavigateUrl = "~/QA.aspx?lid=" & String.Concat(.Item("LocationUID")) & "&id=" & String.Concat(.Item("UID"))
+                ElseIf DBNull2Zero(.Item("REQDTT")) >= 20240201 And DBNull2Zero(.Item("REQDTT")) < 20260101 Then
                     btnAsmQA.NavigateUrl = "~/QA2.aspx?lid=" & String.Concat(.Item("LocationUID")) & "&id=" & String.Concat(.Item("UID"))
                 Else
-                    btnAsmQA.NavigateUrl = "~/QA.aspx?lid=" & String.Concat(.Item("LocationUID")) & "&id=" & String.Concat(.Item("UID"))
+                    btnAsmQA.NavigateUrl = "~/QA3.aspx?lid=" & String.Concat(.Item("LocationUID")) & "&id=" & String.Concat(.Item("UID"))
                 End If
 
                 btnAsmSelf.NavigateUrl = "~/Self.aspx?lid=" & String.Concat(.Item("LocationUID")) & "&id=" & String.Concat(.Item("UID"))

@@ -487,6 +487,11 @@ Public Class LocationController
 
 #Region "Location Project"
 
+    Public Function Project_Get() As DataTable
+        ds = SqlHelper.ExecuteDataset(ConnectionString, GetFullyQualifiedName("Project_Get"))
+        Return ds.Tables(0)
+    End Function
+
     Public Function LocationProject_Get(LocationUID As Integer) As DataTable
         ds = SqlHelper.ExecuteDataset(ConnectionString, GetFullyQualifiedName("LocationProject_Get"), LocationUID)
         Return ds.Tables(0)

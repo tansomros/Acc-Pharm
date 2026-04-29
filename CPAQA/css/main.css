@@ -39,6 +39,12 @@ body {
     border-radius: 6px;
     min-height: 50px;
 }
+.app-success {
+    color: #0c5460;
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+    
+}
 
 .app-page-header .page-title-heading,
 .app-page-header .page-title-subheading {

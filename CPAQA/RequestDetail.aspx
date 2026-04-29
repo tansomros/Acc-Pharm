@@ -389,7 +389,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>ส่วนที่ 2 : การตรวจ  GPP</td>
+                                    <td>ส่วนที่ 2 : การตรวจ  GPP (30%)</td>
                                     <td class="text-center">
                                         <asp:Label ID="lblGPPScore" runat="server" Text=""></asp:Label>
                                     </td>
@@ -400,7 +400,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>ส่วนที่ 3 : การประเมิน “ งานคุณภาพ ”</td>
+                                    <td>ส่วนที่ 3 : การประเมิน “ งานคุณภาพ ” (70%)</td>
                                     <td class="text-center">&nbsp;</td>
                                     <td class="text-center">&nbsp;</td>
                                     <td class="text-center">
@@ -408,7 +408,7 @@
                                 </tr>
 
                                 <tr>
-                                    <td style="padding-left: 30px;">3.1. สิ่งที่ทำ/โครงการที่ร่วมงาน (เต็ม 10 คะแนน)</td>
+                                    <td style="padding-left: 30px;">3.1. สิ่งที่ทำ/โครงการที่ร่วมงาน (40 คะแนน)</td>
                                     <td class="text-center">
                                         <asp:Label ID="lblQAScore1" runat="server"></asp:Label>
                                     </td>
@@ -416,7 +416,7 @@
                                     <td class="text-center">&nbsp;</td>
                                 </tr>
                                 <tr>
-                                    <td style="padding-left: 30px;">3.2. การจัดการความเสี่ยง (เต็ม 10 คะแนน)</td>
+                                    <td style="padding-left: 30px;">3.2. การจัดการความเสี่ยง (20 คะแนน)</td>
                                     <td class="text-center">
                                         <asp:Label ID="lblQAScore2" runat="server"></asp:Label>
                                     </td>
@@ -424,7 +424,7 @@
                                     <td class="text-center">&nbsp;</td>
                                 </tr>
                                 <tr>
-                                    <td style="padding-left: 30px;">3.3. งานคุณภาพ (เพิ่มพิเศษ 5 คะแนน)</td>
+                                    <td style="padding-left: 30px;">3.3. งานคุณภาพเพิ่มเติม (10 คะแนน)</td>
                                     <td class="text-center">
                                         <asp:Label ID="lblQAScore3" runat="server"></asp:Label>
                                     </td>

@@ -196,6 +196,7 @@
     <Content Include="DocumentList.aspx" />
     <Content Include="PostList.aspx" />
     <Content Include="PostAudit.aspx" />
+    <Content Include="QA3.aspx" />
     <Content Include="ReportWarning.aspx" />
     <Content Include="Self.aspx" />
     <Content Include="Regulations.aspx" />
@@ -418,6 +419,13 @@
     </Compile>
     <Compile Include="PostAudit.aspx.vb">
       <DependentUpon>PostAudit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="QA3.aspx.designer.vb">
+      <DependentUpon>QA3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="QA3.aspx.vb">
+      <DependentUpon>QA3.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ReportWarning.aspx.designer.vb">
