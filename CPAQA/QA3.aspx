@@ -292,7 +292,7 @@
                      <div class="col-md-1 app-success">
      <div class="form-group">
          <label>คะแนน</label>
-            <asp:DropDownList ID="ddlRiskScore1" runat="server" cssclass="form-control text-center">
+            <asp:DropDownList ID="ddlRiskScore1" runat="server" cssclass="form-control text-center" AutoPostBack="True">
       <asp:ListItem Value="0" Text="0" Selected="True"></asp:ListItem>
       <asp:ListItem Value="1" Text="1"></asp:ListItem>
       <asp:ListItem Value="2" Text="2"></asp:ListItem>
@@ -323,7 +323,7 @@
                                           <div class="col-md-1 app-success">
     <div class="form-group">
         <label>คะแนน</label>
-           <asp:DropDownList ID="ddlRiskScore2" runat="server" cssclass="form-control text-center">
+           <asp:DropDownList ID="ddlRiskScore2" runat="server" cssclass="form-control text-center" AutoPostBack="True">
      <asp:ListItem Value="0" Text="0" Selected="True"></asp:ListItem>
      <asp:ListItem Value="1" Text="1"></asp:ListItem>
      <asp:ListItem Value="2" Text="2"></asp:ListItem>
@@ -352,7 +352,7 @@
                                         <div class="col-md-1 app-success">
     <div class="form-group">
         <label>คะแนน</label>
-           <asp:DropDownList ID="ddlRiskScore3" runat="server" cssclass="form-control text-center">
+           <asp:DropDownList ID="ddlRiskScore3" runat="server" cssclass="form-control text-center" AutoPostBack="True">
      <asp:ListItem Value="0" Text="0" Selected="True"></asp:ListItem>
      <asp:ListItem Value="1" Text="1"></asp:ListItem>
      <asp:ListItem Value="2" Text="2"></asp:ListItem>
@@ -381,7 +381,7 @@
                                          <div class="col-md-1 app-success">
     <div class="form-group">
         <label>คะแนน</label>
-           <asp:DropDownList ID="ddlRiskScore4" runat="server" cssclass="form-control text-center">
+           <asp:DropDownList ID="ddlRiskScore4" runat="server" cssclass="form-control text-center" AutoPostBack="True">
      <asp:ListItem Value="0" Text="0" Selected="True"></asp:ListItem>
      <asp:ListItem Value="1" Text="1"></asp:ListItem>
      <asp:ListItem Value="2" Text="2"></asp:ListItem>
@@ -411,7 +411,7 @@
                                           <div class="col-md-1 app-success">
     <div class="form-group">
         <label>คะแนน</label>
-           <asp:DropDownList ID="ddlRiskScore5" runat="server" cssclass="form-control text-center">
+           <asp:DropDownList ID="ddlRiskScore5" runat="server" cssclass="form-control text-center" AutoPostBack="True">
      <asp:ListItem Value="0" Text="0" Selected="True"></asp:ListItem>
      <asp:ListItem Value="1" Text="1"></asp:ListItem>
      <asp:ListItem Value="2" Text="2"></asp:ListItem>
@@ -440,7 +440,7 @@
                                           <div class="col-md-1 app-success">
     <div class="form-group">
         <label>คะแนน</label>
-           <asp:DropDownList ID="ddlRiskScore6" runat="server" cssclass="form-control text-center">
+           <asp:DropDownList ID="ddlRiskScore6" runat="server" cssclass="form-control text-center" AutoPostBack="True">
      <asp:ListItem Value="0" Text="0" Selected="True"></asp:ListItem>
      <asp:ListItem Value="1" Text="1"></asp:ListItem>
      <asp:ListItem Value="2" Text="2"></asp:ListItem>
@@ -471,7 +471,7 @@
                                          <div class="col-md-1 app-success">
     <div class="form-group">
         <label>คะแนน</label>
-           <asp:DropDownList ID="ddlRiskScore7" runat="server" cssclass="form-control text-center">
+           <asp:DropDownList ID="ddlRiskScore7" runat="server" cssclass="form-control text-center" AutoPostBack="True">
      <asp:ListItem Value="0" Text="0" Selected="True"></asp:ListItem>
      <asp:ListItem Value="1" Text="1"></asp:ListItem>
      <asp:ListItem Value="2" Text="2"></asp:ListItem>
@@ -501,7 +501,7 @@
                                          <div class="col-md-1 app-success">
     <div class="form-group">
         <label>คะแนน</label>
-           <asp:DropDownList ID="ddlRiskScore8" runat="server" cssclass="form-control text-center">
+           <asp:DropDownList ID="ddlRiskScore8" runat="server" cssclass="form-control text-center" AutoPostBack="True">
      <asp:ListItem Value="0" Text="0" Selected="True"></asp:ListItem>
      <asp:ListItem Value="1" Text="1"></asp:ListItem>
      <asp:ListItem Value="2" Text="2"></asp:ListItem>
@@ -531,7 +531,7 @@
                                          <div class="col-md-1 app-success">
     <div class="form-group">
         <label>คะแนน</label>
-           <asp:DropDownList ID="ddlRiskScore9" runat="server" cssclass="form-control text-center">
+           <asp:DropDownList ID="ddlRiskScore9" runat="server" cssclass="form-control text-center" AutoPostBack="True">
      <asp:ListItem Value="0" Text="0" Selected="True"></asp:ListItem>
      <asp:ListItem Value="1" Text="1"></asp:ListItem>
      <asp:ListItem Value="2" Text="2"></asp:ListItem>
@@ -561,7 +561,7 @@
                                          <div class="col-md-1 app-success">
     <div class="form-group">
         <label>คะแนน</label>
-           <asp:DropDownList ID="ddlRiskScore10" runat="server" cssclass="form-control text-center">
+           <asp:DropDownList ID="ddlRiskScore10" runat="server" cssclass="form-control text-center" AutoPostBack="True">
      <asp:ListItem Value="0" Text="0" Selected="True"></asp:ListItem>
      <asp:ListItem Value="1" Text="1"></asp:ListItem>
      <asp:ListItem Value="2" Text="2"></asp:ListItem>
@@ -582,7 +582,25 @@
 				 <div class="col-md-2">
                                         <div class="form-group">
                                             <label>คะแนนที่ได้ (เต็ม 20)</label>
-                                             <asp:TextBox ID="txtRiskScore" runat="server" cssclass="form-control text-center" ReadOnly="true" ></asp:TextBox>
+                                              <asp:UpdatePanel ID="UpdatePanelRiskScore" runat="server">
+                                <ContentTemplate>   
+                                 <asp:TextBox ID="txtRiskScore" runat="server" cssclass="form-control text-center" ReadOnly="true" ></asp:TextBox>
+                                </ContentTemplate>
+                                <Triggers>                                  
+                                    <asp:AsyncPostBackTrigger ControlID="ddlRiskScore1" EventName="SelectedIndexChanged" />
+                                    <asp:AsyncPostBackTrigger ControlID="ddlRiskScore2" EventName="SelectedIndexChanged" />
+                                     <asp:AsyncPostBackTrigger ControlID="ddlRiskScore3" EventName="SelectedIndexChanged" />
+                                    <asp:AsyncPostBackTrigger ControlID="ddlRiskScore4" EventName="SelectedIndexChanged" />
+                                     <asp:AsyncPostBackTrigger ControlID="ddlRiskScore5" EventName="SelectedIndexChanged" />
+                                     <asp:AsyncPostBackTrigger ControlID="ddlRiskScore6" EventName="SelectedIndexChanged" />
+                                     <asp:AsyncPostBackTrigger ControlID="ddlRiskScore7" EventName="SelectedIndexChanged" />
+                                     <asp:AsyncPostBackTrigger ControlID="ddlRiskScore8" EventName="SelectedIndexChanged" />
+                                     <asp:AsyncPostBackTrigger ControlID="ddlRiskScore9" EventName="SelectedIndexChanged" />
+                                     <asp:AsyncPostBackTrigger ControlID="ddlRiskScore10" EventName="SelectedIndexChanged" />
+                                  
+                                </Triggers>
+                            </asp:UpdatePanel>   
+                                           
                                         </div>     
                                     </div> 								
      <div class="col-md-10">
@@ -590,8 +608,7 @@
                                             <label>ความเห็นอื่นๆของผู้ประเมิน</label>
                                              <asp:TextBox ID="txtRiskComment" runat="server" cssclass="form-control"  TextMode="MultiLine" Height="60" ></asp:TextBox>
                                         </div>     
-                                    </div> 	
-    
+                                    </div> 
 
 </div>
 								 
@@ -601,7 +618,7 @@
             <div class="box box-solid">
             <div class="box-header">
               <i class="fa fa-grear"></i>
-              <h3 class="box-title">3.3  งานคุณภาพ ( ที่ควรได้รับการยกย่อง / ได้คะแนนเพิ่ม เป็นกรณีพิเศษ 5 คะแนน )   </h3>        
+              <h3 class="box-title">3.3  งานคุณภาพ ( ที่ควรได้รับการยกย่อง / ได้คะแนนเพิ่ม เป็นกรณีพิเศษ 10 คะแนน )   </h3>        
                  <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                 </button>
@@ -609,9 +626,9 @@
             </div>
             <div class="box-body"> 
                    <div class="row">
-                      <div class="col-md-11">
+                      <div class="col-md-3">
                                         <div class="form-group">
-                                            <label>1.  ท่านมีระบบ Telepharmacy  หรือไม่ ทำอย่างไร       ( Telepharmacy  หมายถึง .... กระบวนการให้ข้อมูล คำแนะนำ คำปรึกษา จากเภสัชกรโดยผู้รับบริการไม่ต้องมาที่ร้าน  ) (1 คะแนน)</label> 
+                                            <label>1. การให้บริการเภสัชกรรมทางไกล (1 คะแนน)</label> 
                                              <div class="input-group">                                             
                                                  <asp:RadioButtonList ID="optTelepharmacy" runat="server" RepeatDirection="Horizontal">
                                                      <asp:ListItem Value="Y">มี</asp:ListItem>
@@ -623,46 +640,42 @@
 
                                         </div>
                                     </div>
-                                                                <div class="col-md-1 app-success">
-    <div class="form-group">
-        <label>คะแนน</label>
-           <asp:DropDownList ID="ddlScoreQ1" runat="server" cssclass="form-control text-center">
-     <asp:ListItem Value="0" Text="0" Selected="True"></asp:ListItem>
-     <asp:ListItem Value="1" Text="1"></asp:ListItem>
-     <asp:ListItem Value="2" Text="2"></asp:ListItem>
- </asp:DropDownList>
-    </div>     
-</div>
-                  <div class="col-md-12">
+      <div class="col-md-5">
                                         <div class="form-group">
-                                            <label>ถ้ามี ระบุ Platform     ระบุการใช้ระบบทางไกล  </label> 
+                                            <label>ถ้ามี ระบุ Platform และแนบรูปภาพ  </label> 
                                              <div class="input-group">  
-                                                 <table>
-                                                     <tr>                                            
-                                                         <!--   
-        <td> <asp:CheckBoxList ID="chkTeleTools" runat="server" RepeatDirection="Horizontal">
-     <asp:ListItem Value="1">โทรศัพท์</asp:ListItem>
-     <asp:ListItem Value="2">Line</asp:ListItem>
-     <asp:ListItem Value="3">VDO Call</asp:ListItem>
-     <asp:ListItem Value="4">อื่นๆ</asp:ListItem>
- </asp:CheckBoxList></td> 
-        -->                                              
-                                                         <td>ระบุชื่อ Platform </td>
-                                                         <td><asp:TextBox ID="txtTeleOther" runat="server" Width="500" cssclass="form-control"></asp:TextBox></td>
-                                                     </tr>                                                      
-                                                 </table>
-                                                
-       
+                                               <asp:TextBox ID="txtTeleOther" runat="server"  cssclass="form-control"></asp:TextBox>                
                                             </div>
 
 
                                         </div>
                                     </div>
+                          <div class="col-md-3">
+        <div class="form-group">
+            <label>รูปภาพ 
+                <button class="btn-icon btn-icon-only btn-link no-border ico-info small" type="button" data-title="Note" data-toggle="popover-custom-bg" data-bg-class="text-white small bg-primary" data-content="ไฟล์นามสกุล .jpg, .jpeg, .gif, .png เท่านั้น ,ขนาดไฟล์ไม่เกิน 1024 Kb. เพิ่มได้ไม่เกิน 4 รูป" data-original-title="" title=""><i class="fa fa-info-circle btn-icon-wrapper"> </i></button>                                                
+              </label> 
+             <asp:LinkButton ID="imgQ1" runat="server" CssClass="file-upload btn btn-primary"><i class="fa fa-camera"></i></asp:LinkButton>        <br />
+              <asp:Label ID="lblQ1" runat="server" CssClass="small text-success"></asp:Label>
+           </div>
+    </div>
+
+                          <div class="col-md-1 app-success">
+    <div class="form-group">
+        <label>คะแนน</label>
+           <asp:DropDownList ID="ddlScoreQ1" runat="server" cssclass="form-control text-center" AutoPostBack="True">
+     <asp:ListItem Value="0" Text="0" Selected="True"></asp:ListItem>
+     <asp:ListItem Value="1" Text="1"></asp:ListItem> 
+ </asp:DropDownList>
+    </div>     
+</div>
+            
+                     
                        </div>
                     <div class="row">
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            <label>2.  ท่านมีกิจกรรม หรือ ทำอะไรตามมาตรฐาน 5  ( กิจกรรม / บริการสู่ชุมชนภายนอก ) อธิบาย (0.5 คะแนน)</label>
+                                            <label>2.  ท่านมีกิจกรรม หรือ ทำอะไรตามมาตรฐาน 5  ( กิจกรรม / บริการสู่ชุมชนภายนอก ) อธิบาย (2 คะแนน)</label>
                                              <asp:TextBox ID="txtQ2" runat="server" TextMode="MultiLine" Height="150px" cssclass="form-control"></asp:TextBox>
                                         </div>     
                                     </div> 
@@ -679,18 +692,46 @@
                                                                 <div class="col-md-1 app-success">
     <div class="form-group">
         <label>คะแนน</label>
-           <asp:DropDownList ID="ddlScoreQ2" runat="server" cssclass="form-control text-center">
+           <asp:DropDownList ID="ddlScoreQ2" runat="server" cssclass="form-control text-center" AutoPostBack="True">
      <asp:ListItem Value="0" Text="0" Selected="True"></asp:ListItem>
      <asp:ListItem Value="1" Text="1"></asp:ListItem>
      <asp:ListItem Value="2" Text="2"></asp:ListItem>
  </asp:DropDownList>
     </div>     
 </div>
-                    </div>                   
+                    </div>    
+                      <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label>3. กิจกรรมส่งเสริมสุขภาพภายในร้านและผ่านสื่อสังคมออนไลน์ (1 คะแนน)</label>
+                                             <asp:TextBox ID="txtQ7" runat="server" TextMode="MultiLine" Height="150px" cssclass="form-control"></asp:TextBox>
+                                        </div>     
+                                    </div> 
+                                   <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>รูปภาพ<button class="btn-icon btn-icon-only btn-link no-border ico-info small" type="button" data-title="Note" data-toggle="popover-custom-bg" data-bg-class="text-white small bg-primary" data-content="ไฟล์นามสกุล .jpg, .jpeg, .gif, .png เท่านั้น ,ขนาดไฟล์ไม่เกิน 1024 Kb. เพิ่มได้ไม่เกิน 4 รูป" data-original-title="" title=""><i class="fa fa-info-circle btn-icon-wrapper"> </i></button>                                                
+                                              </label> 
+                                            <asp:LinkButton ID="imgQ7" runat="server" CssClass="file-upload btn btn-primary"><i class="fa fa-camera"></i></asp:LinkButton>
+                                             <br />
+                                              <asp:Label ID="lblQ7" runat="server" CssClass="small text-success"></asp:Label>
+                                        </div>
+                                    </div>
+                       
+                                                                <div class="col-md-1 app-success">
+    <div class="form-group">
+        <label>คะแนน</label>
+           <asp:DropDownList ID="ddlScoreQ7" runat="server" cssclass="form-control text-center" AutoPostBack="True">
+     <asp:ListItem Value="0" Text="0" Selected="True"></asp:ListItem>
+     <asp:ListItem Value="1" Text="1"></asp:ListItem> 
+ </asp:DropDownList>
+    </div>     
+</div>
+                    </div>   
+
                 <div class="row">
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            <label>3. ท่านมีระบบการส่งต่อ  กรณีที่จำเป็นหรือไม่...อธิบาย (1 คะแนน)</label>
+                                            <label>4. ท่านมีระบบการส่งต่อ  กรณีที่จำเป็นหรือไม่...อธิบาย (2 คะแนน)</label>
                                              <asp:TextBox ID="txtQ3" runat="server" TextMode="MultiLine" Height="150px" cssclass="form-control"></asp:TextBox>
                                         </div>     
                                     </div> 
@@ -709,7 +750,7 @@
                                                                 <div class="col-md-1 app-success">
     <div class="form-group">
         <label>คะแนน</label>
-           <asp:DropDownList ID="ddlScoreQ3" runat="server" cssclass="form-control text-center">
+           <asp:DropDownList ID="ddlScoreQ3" runat="server" cssclass="form-control text-center" AutoPostBack="True">
      <asp:ListItem Value="0" Text="0" Selected="True"></asp:ListItem>
      <asp:ListItem Value="1" Text="1"></asp:ListItem>
      <asp:ListItem Value="2" Text="2"></asp:ListItem>
@@ -717,38 +758,12 @@
     </div>     
 </div>
                     </div>   
-                   <div class="row">
+              
+             
+                <div class="row">
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            <label>4. มีรายงานอาการไม่พึงประสงค์ในการใช้ยา  ย้อนหลัง 2 ปี อย่างไร  (1 คะแนน)</label>
-                                             <asp:TextBox ID="txtQ6" runat="server" TextMode="MultiLine" Height="150px" cssclass="form-control"></asp:TextBox>
-                                        </div>     
-                                    </div> 
-                                   <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label>รูปภาพ<button class="btn-icon btn-icon-only btn-link no-border ico-info small" type="button" data-title="Note" data-toggle="popover-custom-bg" data-bg-class="text-white small bg-primary" data-content="ไฟล์นามสกุล .jpg, .jpeg, .gif, .png เท่านั้น ,ขนาดไฟล์ไม่เกิน 1024 Kb. เพิ่มได้ไม่เกิน 4 รูป" data-original-title="" title=""><i class="fa fa-info-circle btn-icon-wrapper"> </i></button>                                                
-                                              </label> 
-                                            <asp:LinkButton ID="imgQ6" runat="server" CssClass="file-upload btn btn-primary"><i class="fa fa-camera"></i></asp:LinkButton>
-                                             <br />
-                                              <asp:Label ID="lblQ6" runat="server" CssClass="small text-success"></asp:Label>
-                                        </div>
-                                    </div>
-                       
-                                                                <div class="col-md-1 app-success">
-    <div class="form-group">
-        <label>คะแนน</label>
-           <asp:DropDownList ID="ddlScoreQ4" runat="server" cssclass="form-control text-center">
-     <asp:ListItem Value="0" Text="0" Selected="True"></asp:ListItem>
-     <asp:ListItem Value="1" Text="1"></asp:ListItem>
-     <asp:ListItem Value="2" Text="2"></asp:ListItem>
- </asp:DropDownList>
-    </div>     
-</div>
-                    </div>    
-                 <div class="row">
-                                    <div class="col-md-8">
-                                        <div class="form-group">
-                                            <label>5.  ท่านมีcase ที่ประทับใจในการเป็น “ เภสัชกรชุมชน “  ที่ผ่านมา ( Case Report ) (0.5 คะแนน)</label>
+                                            <label>5.  ท่านมีcase ที่ประทับใจในการเป็น “ เภสัชกรชุมชน “  ที่ผ่านมา ( Case Report ) (2 คะแนน)</label>
                                              <asp:TextBox ID="txtQ4" runat="server" TextMode="MultiLine" Height="150px" cssclass="form-control"></asp:TextBox>
                                      
                                         </div>     
@@ -768,7 +783,7 @@
                                                                 <div class="col-md-1 app-success">
     <div class="form-group">
         <label>คะแนน</label>
-           <asp:DropDownList ID="ddlScoreQ5" runat="server" cssclass="form-control text-center">
+           <asp:DropDownList ID="ddlScoreQ4" runat="server" cssclass="form-control text-center" AutoPostBack="True">
      <asp:ListItem Value="0" Text="0" Selected="True"></asp:ListItem>
      <asp:ListItem Value="1" Text="1"></asp:ListItem>
      <asp:ListItem Value="2" Text="2"></asp:ListItem>
@@ -780,7 +795,7 @@
                                     <div class="col-md-8">
                                         <div class="form-group">
                                             <label>6. กิจกรรมทางวิชาชีพเภสัชกรรมชุมชน เช่น  การเป็นพี่เลี้ยงร้านยาคุณภาพ  การเป็นอาจารย์แหล่งฝึก  
-      หรือได้รับรางวัลทางวิชาชีพ  ( ย้อนหลังไม่เกิน 3 ปี ) (1 คะแนน)
+      หรือได้รับรางวัลทางวิชาชีพ  ( ย้อนหลังไม่เกิน 3 ปี ) (2 คะแนน)
 
  </label>
                                              <asp:TextBox ID="txtQ5" runat="server" TextMode="MultiLine" Height="150px" cssclass="form-control"></asp:TextBox>
@@ -800,7 +815,7 @@
                                                                 <div class="col-md-1 app-success">
     <div class="form-group">
         <label>คะแนน</label>
-           <asp:DropDownList ID="ddlScoreQ6" runat="server" cssclass="form-control text-center">
+           <asp:DropDownList ID="ddlScoreQ5" runat="server" cssclass="form-control text-center" AutoPostBack="True">
      <asp:ListItem Value="0" Text="0" Selected="True"></asp:ListItem>
      <asp:ListItem Value="1" Text="1"></asp:ListItem>
      <asp:ListItem Value="2" Text="2"></asp:ListItem>
@@ -820,7 +835,22 @@
 				 <div class="col-md-2">
                                         <div class="form-group">
                                             <label>คะแนนที่ได้ (เต็ม 10)</label>
-                                             <asp:TextBox ID="txtQAScore" runat="server" cssclass="form-control text-center" ></asp:TextBox>
+
+                                                              <asp:UpdatePanel ID="UpdatePanelQAScore" runat="server">
+    <ContentTemplate>   
+     <asp:TextBox ID="txtQAScore" runat="server" cssclass="form-control text-center" ReadOnly="true"></asp:TextBox>
+    </ContentTemplate>
+    <Triggers>                                  
+        <asp:AsyncPostBackTrigger ControlID="ddlScoreQ1" EventName="SelectedIndexChanged" />
+        <asp:AsyncPostBackTrigger ControlID="ddlScoreQ2" EventName="SelectedIndexChanged" />
+         <asp:AsyncPostBackTrigger ControlID="ddlScoreQ3" EventName="SelectedIndexChanged" />
+        <asp:AsyncPostBackTrigger ControlID="ddlScoreQ4" EventName="SelectedIndexChanged" />
+         <asp:AsyncPostBackTrigger ControlID="ddlScoreQ5" EventName="SelectedIndexChanged" /> 
+         <asp:AsyncPostBackTrigger ControlID="ddlScoreQ7" EventName="SelectedIndexChanged" />      
+    </Triggers>
+</asp:UpdatePanel>   
+
+                                            
                                         </div>     
                                     </div> 								
      <div class="col-md-10">

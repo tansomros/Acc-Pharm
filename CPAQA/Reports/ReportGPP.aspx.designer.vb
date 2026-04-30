@@ -32,6 +32,15 @@ Partial Public Class ReportGPP1
     Protected WithEvents lblDate As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''lblTime control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblTime As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''lblLocationName control.
     '''</summary>
     '''<remarks>

@@ -136,18 +136,67 @@ Public Class QA3
             txtQ3.Text = String.Concat(dt.Rows(0)("Q3"))
             txtQ4.Text = String.Concat(dt.Rows(0)("Q4"))
             txtQ5.Text = String.Concat(dt.Rows(0)("Q5"))
-            txtQ6.Text = String.Concat(dt.Rows(0)("Q6"))
+            txtQ7.Text = String.Concat(dt.Rows(0)("Q7"))
             txtQAScore.Text = String.Concat(dt.Rows(0)("Score3"))
             txtQAComment.Text = String.Concat(dt.Rows(0)("AuditorComment3"))
+
+            ddlRiskScore1.SelectedValue = DBNull2Zero(dt.Rows(0)("ScoreRisk1"))
+            ddlRiskScore2.SelectedValue = DBNull2Zero(dt.Rows(0)("ScoreRisk2"))
+            ddlRiskScore3.SelectedValue = DBNull2Zero(dt.Rows(0)("ScoreRisk3"))
+            ddlRiskScore4.SelectedValue = DBNull2Zero(dt.Rows(0)("ScoreRisk4"))
+            ddlRiskScore5.SelectedValue = DBNull2Zero(dt.Rows(0)("ScoreRisk5"))
+            ddlRiskScore6.SelectedValue = DBNull2Zero(dt.Rows(0)("ScoreRisk6"))
+            ddlRiskScore7.SelectedValue = DBNull2Zero(dt.Rows(0)("ScoreRisk7"))
+            ddlRiskScore8.SelectedValue = DBNull2Zero(dt.Rows(0)("ScoreRisk8"))
+            ddlRiskScore9.SelectedValue = DBNull2Zero(dt.Rows(0)("ScoreRisk9"))
+            ddlRiskScore10.SelectedValue = DBNull2Zero(dt.Rows(0)("ScoreRisk10"))
+
+            ddlScoreQ1.SelectedValue = DBNull2Zero(dt.Rows(0)("ScoreQ1"))
+            ddlScoreQ2.SelectedValue = DBNull2Zero(dt.Rows(0)("ScoreQ2"))
+            ddlScoreQ3.SelectedValue = DBNull2Zero(dt.Rows(0)("ScoreQ3"))
+            ddlScoreQ4.SelectedValue = DBNull2Zero(dt.Rows(0)("ScoreQ4"))
+            ddlScoreQ5.SelectedValue = DBNull2Zero(dt.Rows(0)("ScoreQ5"))
+            'ddlscoreq6.SelectedValue = DBNull2Zero(dt.Rows(0)("ScoreQ6"))
+            ddlScoreQ7.SelectedValue = DBNull2Zero(dt.Rows(0)("ScoreQ7"))
+
 
             If dt.Rows(0)("AsmStatus") = "Y" Then
                 chkStatus.Checked = True
             Else
                 chkStatus.Checked = False
             End If
-
+            CalculateRiskScore()
+            CalculateQAScore()
             StatusUpload()
         End If
+    End Sub
+    Private Sub CalculateRiskScore()
+        Dim sumRiskScore As Integer
+        sumRiskScore = StrNull2Zero(ddlRiskScore1.SelectedValue) +
+                        StrNull2Zero(ddlRiskScore2.SelectedValue) +
+                        StrNull2Zero(ddlRiskScore3.SelectedValue) +
+                        StrNull2Zero(ddlRiskScore4.SelectedValue) +
+                        StrNull2Zero(ddlRiskScore5.SelectedValue) +
+                        StrNull2Zero(ddlRiskScore6.SelectedValue) +
+                        StrNull2Zero(ddlRiskScore7.SelectedValue) +
+                        StrNull2Zero(ddlRiskScore8.SelectedValue) +
+                        StrNull2Zero(ddlRiskScore9.SelectedValue) +
+                        StrNull2Zero(ddlRiskScore10.SelectedValue)
+        txtRiskScore.Text = sumRiskScore
+
+    End Sub
+    Private Sub CalculateQAScore()
+        Dim sumQScore As Integer
+
+        sumQScore = StrNull2Zero(ddlScoreQ1.SelectedValue) +
+             StrNull2Zero(ddlScoreQ2.SelectedValue) +
+             StrNull2Zero(ddlScoreQ3.SelectedValue) +
+             StrNull2Zero(ddlScoreQ4.SelectedValue) +
+             StrNull2Zero(ddlScoreQ5.SelectedValue) +
+             StrNull2Zero(ddlScoreQ7.SelectedValue)
+
+        txtQAScore.Text = sumQScore
+
     End Sub
     Private Sub StatusUpload()
         lblR1.Text = ctlM.Media_GetStatus(StrNull2Zero(Request("id")), hdLocationUID.Value, "R", 1)
@@ -221,7 +270,7 @@ Public Class QA3
 
         Assessment_Save(StrNull2Zero(hdRequestUID.Value))
 
-        ctlA.QA_Assessment_Save2(StrNull2Long(hdQAUID.Value), StrNull2Zero(hdRequestUID.Value), StrNull2Zero(lblYear.Text), StrNull2Zero(hdLocationUID.Value), txtRisk1.Text, txtRisk2.Text, txtRisk3.Text, txtRisk4.Text, txtRisk5.Text, txtRisk6.Text, txtRisk7.Text, txtRisk8.Text, txtRisk9.Text, txtRisk10.Text, optTelepharmacy.SelectedValue, TeleTools, txtTeleOther.Text, txtQ2.Text, txtQ3.Text, txtQ4.Text, txtQ5.Text, txtQ6.Text, Request.Cookies("UserID").Value)
+        ctlA.QA_Assessment_Save2(StrNull2Long(hdQAUID.Value), StrNull2Zero(hdRequestUID.Value), StrNull2Zero(lblYear.Text), StrNull2Zero(hdLocationUID.Value), txtRisk1.Text, txtRisk2.Text, txtRisk3.Text, txtRisk4.Text, txtRisk5.Text, txtRisk6.Text, txtRisk7.Text, txtRisk8.Text, txtRisk9.Text, txtRisk10.Text, optTelepharmacy.SelectedValue, TeleTools, txtTeleOther.Text, txtQ2.Text, txtQ3.Text, txtQ4.Text, txtQ5.Text, txtQ7.Text, Request.Cookies("UserID").Value)
 
         ctlU.User_GenLogfile(Request.Cookies("UserID").Value, ACTTYPE_ADD, "QA_Assessment", "ประเมินงานคุณภาพ", "[LocationUID=" & hdLocationUID.Value & "][RequestUID=" & hdRequestUID.Value & "]", Environment.MachineName, GetIPAddress())
         ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalSuccess(this,'Success','บันทึกข้อมูลเรียบร้อย');", True)
@@ -235,7 +284,7 @@ Public Class QA3
         Dim sfileName As String = ""
         UploadDirectory = Server.MapPath("~/imageUploads/" & hdLocationUID.Value & "/QA/")
 
-        ctlL.LocationProject_Save(StrNull2Long(hdProjectUID.Value), StrNull2Long(hdRequestUID.Value), StrNull2Zero(hdLocationUID.Value), ddlProject.SelectedValue, txtProjectAction.Text, txtProjectNumber.Text, StrNull2Zero(Request.Cookies("UserID").Value))
+        ctlL.LocationProjectNew_Save(StrNull2Long(hdProjectUID.Value), StrNull2Long(hdRequestUID.Value), StrNull2Zero(hdLocationUID.Value), StrNull2Zero(ddlProject.SelectedValue), txtProjectAction.Text, txtProjectNumber.Text, StrNull2Zero(Request.Cookies("UserID").Value))
         SoftID = ctlL.LocationProject_GetLastUID(StrNull2Zero(hdLocationUID.Value)).ToString
 
         If FileUploadA.HasFiles Then
@@ -540,7 +589,7 @@ Public Class QA3
         Dim fPath As String = "imageUploads/" & hdLocationUID.Value & "/QA/"
         hdAccID.Value = "5"
         lblTCode.Text = "R"
-        lblTopic.Text = "5. ความเสี่ยงในการป้องกันการแพร่เชื้อ Covid 19 ในร้าน( ระหว่างลูกค้า กับ ลูกค้า , ระหว่าง ลูกค้า กับ เภสัช) ระบุแนวทางในการป้องกัน"
+        lblTopic.Text = "5. ความเสี่ยงในการป้องกันการแพร่เชื้อในร้าน (ระหว่าง ผู้ป่วยกับเภสัชกร) พร้อมระบุแนวทางป้องกัน"
         LoadImg()
         ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalUpload(this,'5');", True)
     End Sub
@@ -584,12 +633,19 @@ Public Class QA3
         LoadImg()
         ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalUpload(this,'10');", True)
     End Sub
-
+    Protected Sub imgQ1_Click(sender As Object, e As EventArgs) Handles imgQ1.Click
+        Dim fPath As String = "imageUploads/" & hdLocationUID.Value & "/QA/"
+        hdAccID.Value = "1"
+        lblTCode.Text = "Q"
+        lblTopic.Text = "1.การให้บริการเภสัชกรรมทางไกล"
+        LoadImg()
+        ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalUpload(this,'1');", True)
+    End Sub
     Protected Sub imgQ2_Click(sender As Object, e As EventArgs) Handles imgQ2.Click
         Dim fPath As String = "imageUploads/" & hdLocationUID.Value & "/QA/"
         hdAccID.Value = "2"
         lblTCode.Text = "Q"
-        lblTopic.Text = "2.ท่านมีกิจกรรม หรือ ทำอะไรตามมาตรฐาน 5 ( กิจกรรม / บริการสู่ชุมชนภายนอก )"
+        lblTopic.Text = "2.กิจกรรมหรือบริการสู่ชุมชนภายนอก"
         LoadImg()
         ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalUpload(this,'2');", True)
     End Sub
@@ -597,7 +653,7 @@ Public Class QA3
         Dim fPath As String = "imageUploads/" & hdLocationUID.Value & "/QA/"
         hdAccID.Value = "3"
         lblTCode.Text = "Q"
-        lblTopic.Text = "3.ท่านมีระบบการส่งต่อ กรณีที่จำเป็นหรือไม่"
+        lblTopic.Text = "4.ท่านมีระบบการส่งต่อ กรณีที่จำเป็นหรือไม่"
         LoadImg()
         ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalUpload(this,'3');", True)
     End Sub
@@ -605,7 +661,7 @@ Public Class QA3
         Dim fPath As String = "imageUploads/" & hdLocationUID.Value & "/QA/"
         hdAccID.Value = "4"
         lblTCode.Text = "Q"
-        lblTopic.Text = "5.ท่านมีcase ที่ประทับใจในการเป็น  เภสัชกรชุมชนที่ผ่านมา ( Case Report )"
+        lblTopic.Text = "5.Case ที่ประทับใจในการเป็น  เภสัชกรชุมชนที่ผ่านมา ( Case Report )"
         LoadImg()
         ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalUpload(this,'4');", True)
     End Sub
@@ -613,17 +669,17 @@ Public Class QA3
         Dim fPath As String = "imageUploads/" & hdLocationUID.Value & "/QA/"
         hdAccID.Value = "5"
         lblTCode.Text = "Q"
-        lblTopic.Text = "6.กิจกรรมทางวิชาชีพเภสัชกรรมชุมชน เช่น การเป็นพี่เลี้ยงร้านยาคุณภาพ การเป็นอาจารย์แหล่งฝึก หรือได้รับรางวัลทางวิชาชีพ ( ย้อนหลังไม่เกิน 3 ปี )"
+        lblTopic.Text = "6.การดำเนินกิจกรรมทางวิชาชีพเภสัชกรรมชุมชน ( ย้อนหลังไม่เกิน 3 ปี )"
         LoadImg()
         ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalUpload(this,'5');", True)
     End Sub
-    Protected Sub imgQ6_Click(sender As Object, e As EventArgs) Handles imgQ6.Click
+    Protected Sub imgQ7_Click(sender As Object, e As EventArgs) Handles imgQ7.Click
         Dim fPath As String = "imageUploads/" & hdLocationUID.Value & "/QA/"
-        hdAccID.Value = "6"
+        hdAccID.Value = "7"
         lblTCode.Text = "Q"
-        lblTopic.Text = "4.ท่านมีรายงานอาการไม่พึงประสงค์ในการใช้ยา  ย้อนหลัง 2 ปี อย่างไร "
+        lblTopic.Text = "3.กิจกรรมส่งเสริมสุขภาพภายในร้านและผ่านสื่อสังคมออนไลน์"
         LoadImg()
-        ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalUpload(this,'6');", True)
+        ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalUpload(this,'7');", True)
     End Sub
     Private Sub cmdApprove_Click(sender As Object, e As EventArgs) Handles cmdApprove.Click
         Dim Score1, Score2, Score3 As Double
@@ -639,7 +695,26 @@ Public Class QA3
         Score2 = StrNull2Double(txtRiskScore.Text)
         Score3 = StrNull2Double(txtQAScore.Text)
 
-        ctlA.QA_AssessmentScore_Save(StrNull2Long(hdQAUID.Value), StrNull2Long(hdRequestUID.Value), Score1, txtProjectComment.Text, Score2, txtRiskComment.Text, Score3, txtQAComment.Text, AsmStatus, StrNull2Zero(Request.Cookies("UserID").Value))
+        ctlA.QA_AssessmentScore_Save2(StrNull2Long(hdQAUID.Value), StrNull2Long(hdRequestUID.Value), Score1, txtProjectComment.Text, Score2, txtRiskComment.Text, Score3, txtQAComment.Text, AsmStatus,
+            StrNull2Zero(ddlRiskScore1.SelectedValue),
+                        StrNull2Zero(ddlRiskScore2.SelectedValue),
+                        StrNull2Zero(ddlRiskScore3.SelectedValue),
+                        StrNull2Zero(ddlRiskScore4.SelectedValue),
+                        StrNull2Zero(ddlRiskScore5.SelectedValue),
+                        StrNull2Zero(ddlRiskScore6.SelectedValue),
+                        StrNull2Zero(ddlRiskScore7.SelectedValue),
+                        StrNull2Zero(ddlRiskScore8.SelectedValue),
+                        StrNull2Zero(ddlRiskScore9.SelectedValue),
+                        StrNull2Zero(ddlRiskScore10.SelectedValue),
+                        StrNull2Zero(ddlScoreQ1.SelectedValue),
+                        StrNull2Zero(ddlScoreQ2.SelectedValue),
+                        StrNull2Zero(ddlScoreQ3.SelectedValue),
+                        StrNull2Zero(ddlScoreQ4.SelectedValue),
+                        StrNull2Zero(ddlScoreQ5.SelectedValue),
+                        0,
+                        StrNull2Zero(ddlScoreQ7.SelectedValue),
+                        StrNull2Zero(Request.Cookies("UserID").Value))
+
         ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalSuccess(this,'Success','บันทึกข้อมูลเรียบร้อย');", True)
 
     End Sub
@@ -692,5 +767,67 @@ Public Class QA3
         End If
     End Sub
 
+    Private Sub ddlRiskScore1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ddlRiskScore1.SelectedIndexChanged
+        CalculateRiskScore()
+    End Sub
+    Private Sub ddlRiskScore2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ddlRiskScore2.SelectedIndexChanged
+        CalculateRiskScore()
+    End Sub
+
+    Private Sub ddlRiskScore3_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ddlRiskScore3.SelectedIndexChanged
+        CalculateRiskScore()
+    End Sub
+
+    Private Sub ddlRiskScore4_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ddlRiskScore4.SelectedIndexChanged
+        CalculateRiskScore()
+    End Sub
+
+    Private Sub ddlRiskScore5_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ddlRiskScore5.SelectedIndexChanged
+        CalculateRiskScore()
+    End Sub
+
+    Private Sub ddlRiskScore6_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ddlRiskScore6.SelectedIndexChanged
+        CalculateRiskScore()
+    End Sub
+
+    Private Sub ddlRiskScore7_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ddlRiskScore7.SelectedIndexChanged
+        CalculateRiskScore()
+    End Sub
+
+    Private Sub ddlRiskScore8_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ddlRiskScore8.SelectedIndexChanged
+        CalculateRiskScore()
+    End Sub
+
+    Private Sub ddlRiskScore9_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ddlRiskScore9.SelectedIndexChanged
+        CalculateRiskScore()
+    End Sub
+
+    Private Sub ddlRiskScore10_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ddlRiskScore10.SelectedIndexChanged
+        CalculateRiskScore()
+    End Sub
+
+    Private Sub ddlScoreQ1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ddlScoreQ1.SelectedIndexChanged
+        CalculateQAScore()
+    End Sub
+
+    Private Sub ddlScoreQ2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ddlScoreQ2.SelectedIndexChanged
+        CalculateQAScore()
+    End Sub
+
+    Private Sub ddlScoreQ3_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ddlScoreQ3.SelectedIndexChanged
+        CalculateQAScore()
+    End Sub
+
+    Private Sub ddlScoreQ4_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ddlScoreQ4.SelectedIndexChanged
+        CalculateQAScore()
+    End Sub
+
+    Private Sub ddlScoreQ5_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ddlScoreQ5.SelectedIndexChanged
+        CalculateQAScore()
+    End Sub
+
+    Private Sub ddlScoreQ7_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ddlScoreQ7.SelectedIndexChanged
+        CalculateQAScore()
+    End Sub
 End Class
 

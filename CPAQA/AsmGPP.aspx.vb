@@ -17,9 +17,9 @@ Public Class AsmGPP
             Response.Redirect("Default.aspx")
         End If
 
-        Response.Cache.SetExpires(DateTime.Now.AddSeconds(60))
-        Response.Cache.SetCacheability(HttpCacheability.Public)
-        Response.Cache.SetValidUntilExpires(True)
+        'Response.Cache.SetExpires(DateTime.Now.AddSeconds(60))
+        'Response.Cache.SetCacheability(HttpCacheability.Public)
+        'Response.Cache.SetValidUntilExpires(True)
 
         If Not IsPostBack Then
             lblYear.Text = ctlA.GET_DATE_SERVER().Year
@@ -27,18 +27,22 @@ Public Class AsmGPP
                 Response.Redirect("ResultPage?p=NotAllow&y=" & lblYear.Text)
             End If
 
-            pnDoc.Visible = False
+            'pnDoc.Visible = False
+            pnDoc.Style("display") = "none"
             cmdReOpen.Visible = False
             cmdClose.Visible = False
             hdRequestUID.Value = 0
             hdLocationUID.Value = Request("lid")
+
+            alertDanger.Visible = False
+            alertSuccess.Visible = False
 
             LoadRiskGPP()
 
             If Not Request("id") = Nothing Then
                 LoadGPPAssessment()
             End If
-            LoadLocationDetail(hdLocationUID.Value)
+            LoadLocationDetail(StrNull2Zero(hdLocationUID.Value))
             UploadDirectory = Server.MapPath("~/imageUploads/" & hdLocationUID.Value & "/GPP/")
             If Not Directory.Exists(UploadDirectory) Then
                 Directory.CreateDirectory(UploadDirectory)
@@ -126,7 +130,8 @@ Public Class AsmGPP
 
         If dt.Rows.Count > 0 Then
             cmdClose.Visible = True
-            pnDoc.Visible = True
+            'pnDoc.Visible = True
+            pnDoc.Style("display") = "block"
 
             hdGPPUID.Value = String.Concat(dt.Rows(0)("UID"))
             hdLocationUID.Value = String.Concat(dt.Rows(0)("LocationUID"))
@@ -147,6 +152,9 @@ Public Class AsmGPP
             txtRemark4.Text = String.Concat(dt.Rows(0)("Remark4"))
             txtRemark5.Text = String.Concat(dt.Rows(0)("Remark5"))
             txtRemark.Text = String.Concat(dt.Rows(0)("Remark"))
+
+            txtAsmDate.Text = DisplayShortDateTH(String.Concat(dt.Rows(0)("AsmDate")))
+            txtAsmTime.Text = String.Concat(dt.Rows(0)("AsmTime"))
 
             txtRiskRemark.Text = String.Concat(dt.Rows(0)("RiskRemark"))
 
@@ -772,170 +780,187 @@ Public Class AsmGPP
     'End Sub
     Private Sub cmdSave_Click(sender As Object, e As EventArgs) Handles cmdSave.Click
 
+        alertDanger.Visible = False
+        alertSuccess.Visible = False
+        If txtAsmDate.Text = "" Or txtAsmTime.Text = "" Then
+            ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalWarningInfo(this,'ผลการตรวจสอบ','กรุณาระบุวัน-เวลาที่ตรวจให้ครบถ้วนก่อน');", True)
+            Exit Sub
+        End If
+
         'CalculateScore() 
         Dim NetScore, NetPercentage As Double
         'Dim FinalResult As String
-
-        NetScore = StrNull2Double(hdNetScore.Value)
-        NetPercentage = StrNull2Double(lblPercentage.Text)
-        'FinalResult = ddlFinalResult.SelectedValue
-
         Dim AsmStatus As String
-        If lblResult.Text = "ผ่าน" Then
-            AsmStatus = "Y"
-        Else
-            AsmStatus = "N"
-        End If
-
-        'Assessment_Save(StrNull2Long(hdRequestUID.Value))
-
-        ctlA.GPP_Assessment_Save(StrNull2Zero(hdGPPUID.Value), StrNull2Zero(hdRequestUID.Value), StrNull2Zero(lblYear.Text), StrNull2Zero(hdLocationUID.Value), StrNull2Double(hdTotalScore.Value), NetScore, NetPercentage, AsmStatus, txtRemark1.Text, txtRemark2.Text, txtRemark3.Text, txtRemark4.Text, txtRemark5.Text, txtRemark.Text, StrNull2Zero(Request.Cookies("userid").Value), StrNull2Double(lblPercentGroup1.Text), StrNull2Double(lblPercentGroup2.Text), StrNull2Double(lblPercentGroup3.Text), StrNull2Double(lblPercentGroup4.Text), StrNull2Double(lblPercentGroup5.Text), txtRiskRemark.Text)
-
         Dim S1Q2, S2Q1, S3Q2, S3Q4, S3Q5, S5Q7, S5Q10, S5Q11 As Double
 
-        If chkS1Q2.Checked = True Then 'ตอบว่าไม่มี
-            S1Q2 = -1
-        Else
-            If optS1Q2.SelectedValue = Nothing Then 'ไม่ตอบอะไรเลย
-                S1Q2 = -2
-            Else 'มีคะแนน
-                S1Q2 = StrNull2GPPVal(optS1Q2.SelectedValue)
-            End If
-        End If
+        Try
 
-        If chkS2Q1.Checked = True Then 'ตอบว่าไม่มี
-            S2Q1 = -1
-        Else
-            If optS2Q1.SelectedValue = Nothing Then 'ไม่ตอบอะไรเลย
-                S2Q1 = -2
-            Else 'มีคะแนน
-                S2Q1 = StrNull2GPPVal(optS2Q1.SelectedValue)
-            End If
-        End If
+            NetScore = StrNull2Double(hdNetScore.Value)
+            NetPercentage = StrNull2Double(lblPercentage.Text)
+            'FinalResult = ddlFinalResult.SelectedValue
 
 
-        If chkS3Q2.Checked = True Then 'ตอบว่าไม่มี
-            S3Q2 = -1
-        Else
-            If optS3Q2.SelectedValue = Nothing Then 'ไม่ตอบอะไรเลย
-                S3Q2 = -2
-            Else 'มีคะแนน
-                S3Q2 = StrNull2GPPVal(optS3Q2.SelectedValue)
-            End If
-        End If
-
-        If chkS3Q4.Checked = True Then 'ตอบว่าไม่มี
-            S3Q4 = -1
-        Else
-            If optS3Q4.SelectedValue = Nothing Then 'ไม่ตอบอะไรเลย
-                S3Q4 = -2
-            Else 'มีคะแนน
-                S3Q4 = StrNull2GPPVal(optS3Q4.SelectedValue)
-            End If
-        End If
-        If chkS3Q5.Checked = True Then 'ตอบว่าไม่มี
-            S3Q5 = -1
-        Else
-            If optS3Q5.SelectedValue = Nothing Then 'ไม่ตอบอะไรเลย
-                S3Q5 = -2
-            Else 'มีคะแนน
-                S3Q5 = StrNull2GPPVal(optS3Q5.SelectedValue)
-            End If
-        End If
-        If chkS5Q7.Checked = True Then 'ตอบว่าไม่มี
-            S5Q7 = -1
-        Else
-            If optS5Q7.SelectedValue = Nothing Then 'ไม่ตอบอะไรเลย
-                S5Q7 = -2
-            Else 'มีคะแนน
-                S5Q7 = StrNull2GPPVal(optS5Q7.SelectedValue)
-            End If
-        End If
-        If chkS5Q10.Checked = True Then 'ตอบว่าไม่มี
-            S5Q10 = -1
-        Else
-            If optS5Q10.SelectedValue = Nothing Then 'ไม่ตอบอะไรเลย
-                S5Q10 = -2
-            Else 'มีคะแนน
-                S5Q10 = StrNull2GPPVal(optS5Q10.SelectedValue)
-            End If
-        End If
-        If chkS5Q11.Checked = True Then 'ตอบว่าไม่มี
-            S5Q11 = -1
-        Else
-            If optS5Q11.SelectedValue = Nothing Then 'ไม่ตอบอะไรเลย
-                S5Q11 = -2
-            Else 'มีคะแนน
-                S5Q11 = StrNull2GPPVal(optS5Q11.SelectedValue)
-            End If
-        End If
-
-        If StrNull2Zero(hdGPPUID.Value) = 0 Then
-            hdGPPUID.Value = ctlA.GPP_Assessment_GetUID(StrNull2Zero(hdRequestUID.Value), StrNull2Zero(hdLocationUID.Value), StrNull2Zero(lblYear.Text)).ToString()
-            ctlD.GPPDocument_UpdateGPPUID(StrNull2Zero(hdGPPUID.Value), StrNull2Zero(hdLocationUID.Value))
-        End If
-
-        ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 1, StrNull2GPPVal(optS1Q1.SelectedValue), 2, StrNull2Double(lblScoreS1Q1.Text), txtRemark1Q1.Text, StrNull2Zero(Request.Cookies("userid").Value))
-        ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 2, S1Q2, 1, StrNull2Double(lblScoreS1Q2.Text), txtRemark1Q2.Text, StrNull2Zero(Request.Cookies("userid").Value))
-        ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 3, StrNull2GPPVal(optS1Q3.SelectedValue), 1, StrNull2Double(lblScoreS1Q3.Text), txtRemark1Q3.Text, StrNull2Zero(Request.Cookies("userid").Value))
-        ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 4, StrNull2GPPVal(optS1Q4.SelectedValue), 1, StrNull2Double(lblScoreS1Q4.Text), txtRemark1Q4.Text, StrNull2Zero(Request.Cookies("userid").Value))
-        ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 5, StrNull2GPPVal(optS1Q5.SelectedValue), 1, StrNull2Double(lblScoreS1Q5.Text), txtRemark1Q5.Text, StrNull2Zero(Request.Cookies("userid").Value))
-        ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 6, StrNull2GPPVal(optS1Q6.SelectedValue), 1, StrNull2Double(lblScoreS1Q6.Text), txtRemark1Q6.Text, StrNull2Zero(Request.Cookies("userid").Value))
-        ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 7, StrNull2GPPVal(optS1Q7.SelectedValue), 2, StrNull2Double(lblScoreS1Q7.Text), txtRemark1Q7.Text, StrNull2Zero(Request.Cookies("userid").Value))
-        ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 8, StrNull2GPPVal(optS1Q8.SelectedValue), 2, StrNull2Double(lblScoreS1Q8.Text), txtRemark1Q8.Text, StrNull2Zero(Request.Cookies("userid").Value))
-        ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 9, StrNull2GPPVal(optS1Q9.SelectedValue), 2, StrNull2Double(lblScoreS1Q9.Text), txtRemark1Q9.Text, StrNull2Zero(Request.Cookies("userid").Value))
-        ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 10, S2Q1, 2, StrNull2Double(lblScoreS2Q1.Text), txtRemark2Q1.Text, StrNull2Zero(Request.Cookies("userid").Value))
-        'ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 10, StrNull2GPPVal(optS2Q1.SelectedValue), 2, StrNull2Double(lblScoreS2Q1.Text), StrNull2Zero(Request.Cookies("userid").Value))
-        ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 11, StrNull2GPPVal(optS2Q2.SelectedValue), 2, StrNull2Double(lblScoreS2Q2.Text), txtRemark2Q2.Text, StrNull2Zero(Request.Cookies("userid").Value))
-        ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 12, StrNull2GPPVal(optS2Q3.SelectedValue), 1, StrNull2Double(lblScoreS2Q3.Text), txtRemark2Q3.Text, StrNull2Zero(Request.Cookies("userid").Value))
-        ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 13, StrNull2GPPVal(optS2Q4.SelectedValue), 1, StrNull2Double(lblScoreS2Q4.Text), txtRemark2Q4.Text, StrNull2Zero(Request.Cookies("userid").Value))
-        ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 14, StrNull2GPPVal(optS2Q5.SelectedValue), 1, StrNull2Double(lblScoreS2Q5.Text), txtRemark2Q5.Text, StrNull2Zero(Request.Cookies("userid").Value))
-        ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 15, StrNull2GPPVal(optS2Q6.SelectedValue), 1, StrNull2Double(lblScoreS2Q6.Text), txtRemark2Q6.Text, StrNull2Zero(Request.Cookies("userid").Value))
-        ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 16, StrNull2GPPVal(optS3Q1.SelectedValue), 2, StrNull2Double(lblScoreS3Q1.Text), txtRemark3Q1.Text, StrNull2Zero(Request.Cookies("userid").Value))
-
-        ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 17, S3Q2, 1, StrNull2Double(lblScoreS3Q2.Text), txtRemark3Q2.Text, StrNull2Zero(Request.Cookies("userid").Value))
-        ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 18, StrNull2GPPVal(optS3Q3.SelectedValue), 1, StrNull2Double(lblScoreS3Q3.Text), txtRemark3Q3.Text, StrNull2Zero(Request.Cookies("userid").Value))
-        ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 19, S3Q4, 1, StrNull2Double(lblScoreS3Q4.Text), txtRemark3Q4.Text, StrNull2Zero(Request.Cookies("userid").Value))
-        ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 20, S3Q5, 1, StrNull2Double(lblScoreS3Q5.Text), txtRemark3Q5.Text, StrNull2Zero(Request.Cookies("userid").Value))
-        ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 21, StrNull2GPPVal(optS4Q1.SelectedValue), 2, StrNull2Double(lblScoreS4Q1.Text), txtRemark4Q1.Text, StrNull2Zero(Request.Cookies("userid").Value))
-        ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 22, StrNull2GPPVal(optS4Q2.SelectedValue), 2, StrNull2Double(lblScoreS4Q2.Text), txtRemark4Q2.Text, StrNull2Zero(Request.Cookies("userid").Value))
-        ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 23, StrNull2GPPVal(optS4Q3.SelectedValue), 2, StrNull2Double(lblScoreS4Q3.Text), txtRemark4Q3.Text, StrNull2Zero(Request.Cookies("userid").Value))
-        ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 24, StrNull2GPPVal(optS4Q4.SelectedValue), 1, StrNull2Double(lblScoreS4Q4.Text), txtRemark4Q4.Text, StrNull2Zero(Request.Cookies("userid").Value))
-        ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 25, StrNull2GPPVal(optS4Q5.SelectedValue), 1, StrNull2Double(lblScoreS4Q5.Text), txtRemark4Q5.Text, StrNull2Zero(Request.Cookies("userid").Value))
-        ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 26, StrNull2GPPVal(optS4Q6.SelectedValue), 1, StrNull2Double(lblScoreS4Q6.Text), txtRemark4Q6.Text, StrNull2Zero(Request.Cookies("userid").Value))
-        ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 27, StrNull2GPPVal(optS4Q7.SelectedValue), 2, StrNull2Double(lblScoreS4Q7.Text), txtRemark4Q7.Text, StrNull2Zero(Request.Cookies("userid").Value))
-        ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 28, StrNull2GPPVal(optS5Q1.SelectedValue), 2, StrNull2Double(lblScoreS5Q1.Text), txtRemark5Q1.Text, StrNull2Zero(Request.Cookies("userid").Value))
-        ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 29, StrNull2GPPVal(optS5Q2.SelectedValue), 2, StrNull2Double(lblScoreS5Q2.Text), txtRemark5Q2.Text, StrNull2Zero(Request.Cookies("userid").Value))
-        ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 30, StrNull2GPPVal(optS5Q3.SelectedValue), 2, StrNull2Double(lblScoreS5Q3.Text), txtRemark5Q3.Text, StrNull2Zero(Request.Cookies("userid").Value))
-        ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 31, StrNull2GPPVal(optS5Q4.SelectedValue), 2, StrNull2Double(lblScoreS5Q4.Text), txtRemark5Q4.Text, StrNull2Zero(Request.Cookies("userid").Value))
-        ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 32, StrNull2GPPVal(optS5Q5.SelectedValue), 2, StrNull2Double(lblScoreS5Q5.Text), txtRemark5Q5.Text, StrNull2Zero(Request.Cookies("userid").Value))
-        ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 33, StrNull2GPPVal(optS5Q6.SelectedValue), 2, StrNull2Double(lblScoreS5Q6.Text), txtRemark5Q6.Text, StrNull2Zero(Request.Cookies("userid").Value))
-        ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 34, S5Q7, 2, StrNull2Double(lblScoreS5Q7.Text), txtRemark5Q7.Text, StrNull2Zero(Request.Cookies("userid").Value))
-        ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 35, StrNull2GPPVal(optS5Q8.SelectedValue), 1, StrNull2Double(lblScoreS5Q8.Text), txtRemark5Q8.Text, StrNull2Zero(Request.Cookies("userid").Value))
-        ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 36, StrNull2GPPVal(optS5Q9.SelectedValue), 1, StrNull2Double(lblScoreS5Q9.Text), txtRemark5Q9.Text, StrNull2Zero(Request.Cookies("userid").Value))
-        ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 37, S5Q10, 1, StrNull2Double(lblScoreS5Q10.Text), txtRemark5Q10.Text, StrNull2Zero(Request.Cookies("userid").Value))
-        ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 38, S5Q11, 1, StrNull2Double(lblScoreS5Q11.Text), txtRemark5Q11.Text, StrNull2Zero(Request.Cookies("userid").Value))
-        ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 39, StrNull2GPPVal(optS5Q12.SelectedValue), 1, StrNull2Double(lblScoreS5Q12.Text), txtRemark5Q12.Text, StrNull2Zero(Request.Cookies("userid").Value))
-
-
-        For i = 0 To chkRisk.Items.Count - 1
-            If chkRisk.Items(i).Selected Then
-                ctlA.GPPRisk_Add(StrNull2Zero(hdGPPUID.Value), chkRisk.Items(i).Value, Request.Cookies("userid").Value)
+            If lblResult.Text = "ผ่าน" Then
+                AsmStatus = "Y"
             Else
-                ctlA.GPPRisk_Delete(StrNull2Zero(hdGPPUID.Value), chkRisk.Items(i).Value)
+                AsmStatus = "N"
             End If
-        Next
 
-        pnDoc.Visible = True
+            'Assessment_Save(StrNull2Long(hdRequestUID.Value))
 
-        ctlU.User_GenLogfile(Request.Cookies("UserID").Value, ACTTYPE_ADD, "GPP", "ReqID=" & hdRequestUID.Value & ";UID=" & hdGPPUID.Value, "บันทึก GPP สสจ.", Environment.MachineName, GetIPAddress())
+            ctlA.GPP_Assessment_PPH_Save(StrNull2Zero(hdGPPUID.Value), StrNull2Zero(hdRequestUID.Value), StrNull2Zero(lblYear.Text), StrNull2Zero(hdLocationUID.Value), StrNull2Double(hdTotalScore.Value), NetScore, NetPercentage, AsmStatus, txtRemark1.Text, txtRemark2.Text, txtRemark3.Text, txtRemark4.Text, txtRemark5.Text, txtRemark.Text, StrNull2Zero(Request.Cookies("userid").Value), StrNull2Double(lblPercentGroup1.Text), StrNull2Double(lblPercentGroup2.Text), StrNull2Double(lblPercentGroup3.Text), StrNull2Double(lblPercentGroup4.Text), StrNull2Double(lblPercentGroup5.Text), txtRiskRemark.Text, ConvertStrDate2DBDate(txtAsmDate.Text), txtAsmTime.Text)
 
-        'If StrNull2Zero(hdGPPUID.Value) = 0 Then
-        '    Response.Redirect("PharmacyGPP?m=g&done=y&lid=" & hdLocationUID.Value)
-        'Else
-        ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalSuccess(this,'Success','บันทึกข้อมูลเรียบร้อย');", True)
-        'End If
+            If chkS1Q2.Checked = True Then 'ตอบว่าไม่มี
+                S1Q2 = -1
+            Else
+                If optS1Q2.SelectedValue = Nothing Then 'ไม่ตอบอะไรเลย
+                    S1Q2 = -2
+                Else 'มีคะแนน
+                    S1Q2 = StrNull2GPPVal(optS1Q2.SelectedValue)
+                End If
+            End If
 
+            If chkS2Q1.Checked = True Then 'ตอบว่าไม่มี
+                S2Q1 = -1
+            Else
+                If optS2Q1.SelectedValue = Nothing Then 'ไม่ตอบอะไรเลย
+                    S2Q1 = -2
+                Else 'มีคะแนน
+                    S2Q1 = StrNull2GPPVal(optS2Q1.SelectedValue)
+                End If
+            End If
+
+
+            If chkS3Q2.Checked = True Then 'ตอบว่าไม่มี
+                S3Q2 = -1
+            Else
+                If optS3Q2.SelectedValue = Nothing Then 'ไม่ตอบอะไรเลย
+                    S3Q2 = -2
+                Else 'มีคะแนน
+                    S3Q2 = StrNull2GPPVal(optS3Q2.SelectedValue)
+                End If
+            End If
+
+            If chkS3Q4.Checked = True Then 'ตอบว่าไม่มี
+                S3Q4 = -1
+            Else
+                If optS3Q4.SelectedValue = Nothing Then 'ไม่ตอบอะไรเลย
+                    S3Q4 = -2
+                Else 'มีคะแนน
+                    S3Q4 = StrNull2GPPVal(optS3Q4.SelectedValue)
+                End If
+            End If
+            If chkS3Q5.Checked = True Then 'ตอบว่าไม่มี
+                S3Q5 = -1
+            Else
+                If optS3Q5.SelectedValue = Nothing Then 'ไม่ตอบอะไรเลย
+                    S3Q5 = -2
+                Else 'มีคะแนน
+                    S3Q5 = StrNull2GPPVal(optS3Q5.SelectedValue)
+                End If
+            End If
+            If chkS5Q7.Checked = True Then 'ตอบว่าไม่มี
+                S5Q7 = -1
+            Else
+                If optS5Q7.SelectedValue = Nothing Then 'ไม่ตอบอะไรเลย
+                    S5Q7 = -2
+                Else 'มีคะแนน
+                    S5Q7 = StrNull2GPPVal(optS5Q7.SelectedValue)
+                End If
+            End If
+            If chkS5Q10.Checked = True Then 'ตอบว่าไม่มี
+                S5Q10 = -1
+            Else
+                If optS5Q10.SelectedValue = Nothing Then 'ไม่ตอบอะไรเลย
+                    S5Q10 = -2
+                Else 'มีคะแนน
+                    S5Q10 = StrNull2GPPVal(optS5Q10.SelectedValue)
+                End If
+            End If
+            If chkS5Q11.Checked = True Then 'ตอบว่าไม่มี
+                S5Q11 = -1
+            Else
+                If optS5Q11.SelectedValue = Nothing Then 'ไม่ตอบอะไรเลย
+                    S5Q11 = -2
+                Else 'มีคะแนน
+                    S5Q11 = StrNull2GPPVal(optS5Q11.SelectedValue)
+                End If
+            End If
+
+            If StrNull2Zero(hdGPPUID.Value) = 0 Then
+                hdGPPUID.Value = ctlA.GPP_Assessment_GetUID(StrNull2Zero(hdRequestUID.Value), StrNull2Zero(hdLocationUID.Value), StrNull2Zero(lblYear.Text)).ToString()
+                ctlD.GPPDocument_UpdateGPPUID(StrNull2Zero(hdGPPUID.Value), StrNull2Zero(hdLocationUID.Value))
+            End If
+
+            ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 1, StrNull2GPPVal(optS1Q1.SelectedValue), 2, StrNull2Double(lblScoreS1Q1.Text), txtRemark1Q1.Text, StrNull2Zero(Request.Cookies("userid").Value))
+            ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 2, S1Q2, 1, StrNull2Double(lblScoreS1Q2.Text), txtRemark1Q2.Text, StrNull2Zero(Request.Cookies("userid").Value))
+            ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 3, StrNull2GPPVal(optS1Q3.SelectedValue), 1, StrNull2Double(lblScoreS1Q3.Text), txtRemark1Q3.Text, StrNull2Zero(Request.Cookies("userid").Value))
+            ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 4, StrNull2GPPVal(optS1Q4.SelectedValue), 1, StrNull2Double(lblScoreS1Q4.Text), txtRemark1Q4.Text, StrNull2Zero(Request.Cookies("userid").Value))
+            ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 5, StrNull2GPPVal(optS1Q5.SelectedValue), 1, StrNull2Double(lblScoreS1Q5.Text), txtRemark1Q5.Text, StrNull2Zero(Request.Cookies("userid").Value))
+            ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 6, StrNull2GPPVal(optS1Q6.SelectedValue), 1, StrNull2Double(lblScoreS1Q6.Text), txtRemark1Q6.Text, StrNull2Zero(Request.Cookies("userid").Value))
+            ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 7, StrNull2GPPVal(optS1Q7.SelectedValue), 2, StrNull2Double(lblScoreS1Q7.Text), txtRemark1Q7.Text, StrNull2Zero(Request.Cookies("userid").Value))
+            ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 8, StrNull2GPPVal(optS1Q8.SelectedValue), 2, StrNull2Double(lblScoreS1Q8.Text), txtRemark1Q8.Text, StrNull2Zero(Request.Cookies("userid").Value))
+            ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 9, StrNull2GPPVal(optS1Q9.SelectedValue), 2, StrNull2Double(lblScoreS1Q9.Text), txtRemark1Q9.Text, StrNull2Zero(Request.Cookies("userid").Value))
+            ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 10, S2Q1, 2, StrNull2Double(lblScoreS2Q1.Text), txtRemark2Q1.Text, StrNull2Zero(Request.Cookies("userid").Value))
+            'ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 10, StrNull2GPPVal(optS2Q1.SelectedValue), 2, StrNull2Double(lblScoreS2Q1.Text), StrNull2Zero(Request.Cookies("userid").Value))
+            ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 11, StrNull2GPPVal(optS2Q2.SelectedValue), 2, StrNull2Double(lblScoreS2Q2.Text), txtRemark2Q2.Text, StrNull2Zero(Request.Cookies("userid").Value))
+            ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 12, StrNull2GPPVal(optS2Q3.SelectedValue), 1, StrNull2Double(lblScoreS2Q3.Text), txtRemark2Q3.Text, StrNull2Zero(Request.Cookies("userid").Value))
+            ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 13, StrNull2GPPVal(optS2Q4.SelectedValue), 1, StrNull2Double(lblScoreS2Q4.Text), txtRemark2Q4.Text, StrNull2Zero(Request.Cookies("userid").Value))
+            ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 14, StrNull2GPPVal(optS2Q5.SelectedValue), 1, StrNull2Double(lblScoreS2Q5.Text), txtRemark2Q5.Text, StrNull2Zero(Request.Cookies("userid").Value))
+            ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 15, StrNull2GPPVal(optS2Q6.SelectedValue), 1, StrNull2Double(lblScoreS2Q6.Text), txtRemark2Q6.Text, StrNull2Zero(Request.Cookies("userid").Value))
+            ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 16, StrNull2GPPVal(optS3Q1.SelectedValue), 2, StrNull2Double(lblScoreS3Q1.Text), txtRemark3Q1.Text, StrNull2Zero(Request.Cookies("userid").Value))
+
+            ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 17, S3Q2, 1, StrNull2Double(lblScoreS3Q2.Text), txtRemark3Q2.Text, StrNull2Zero(Request.Cookies("userid").Value))
+            ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 18, StrNull2GPPVal(optS3Q3.SelectedValue), 1, StrNull2Double(lblScoreS3Q3.Text), txtRemark3Q3.Text, StrNull2Zero(Request.Cookies("userid").Value))
+            ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 19, S3Q4, 1, StrNull2Double(lblScoreS3Q4.Text), txtRemark3Q4.Text, StrNull2Zero(Request.Cookies("userid").Value))
+            ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 20, S3Q5, 1, StrNull2Double(lblScoreS3Q5.Text), txtRemark3Q5.Text, StrNull2Zero(Request.Cookies("userid").Value))
+            ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 21, StrNull2GPPVal(optS4Q1.SelectedValue), 2, StrNull2Double(lblScoreS4Q1.Text), txtRemark4Q1.Text, StrNull2Zero(Request.Cookies("userid").Value))
+            ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 22, StrNull2GPPVal(optS4Q2.SelectedValue), 2, StrNull2Double(lblScoreS4Q2.Text), txtRemark4Q2.Text, StrNull2Zero(Request.Cookies("userid").Value))
+            ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 23, StrNull2GPPVal(optS4Q3.SelectedValue), 2, StrNull2Double(lblScoreS4Q3.Text), txtRemark4Q3.Text, StrNull2Zero(Request.Cookies("userid").Value))
+            ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 24, StrNull2GPPVal(optS4Q4.SelectedValue), 1, StrNull2Double(lblScoreS4Q4.Text), txtRemark4Q4.Text, StrNull2Zero(Request.Cookies("userid").Value))
+            ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 25, StrNull2GPPVal(optS4Q5.SelectedValue), 1, StrNull2Double(lblScoreS4Q5.Text), txtRemark4Q5.Text, StrNull2Zero(Request.Cookies("userid").Value))
+            ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 26, StrNull2GPPVal(optS4Q6.SelectedValue), 1, StrNull2Double(lblScoreS4Q6.Text), txtRemark4Q6.Text, StrNull2Zero(Request.Cookies("userid").Value))
+            ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 27, StrNull2GPPVal(optS4Q7.SelectedValue), 2, StrNull2Double(lblScoreS4Q7.Text), txtRemark4Q7.Text, StrNull2Zero(Request.Cookies("userid").Value))
+            ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 28, StrNull2GPPVal(optS5Q1.SelectedValue), 2, StrNull2Double(lblScoreS5Q1.Text), txtRemark5Q1.Text, StrNull2Zero(Request.Cookies("userid").Value))
+            ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 29, StrNull2GPPVal(optS5Q2.SelectedValue), 2, StrNull2Double(lblScoreS5Q2.Text), txtRemark5Q2.Text, StrNull2Zero(Request.Cookies("userid").Value))
+            ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 30, StrNull2GPPVal(optS5Q3.SelectedValue), 2, StrNull2Double(lblScoreS5Q3.Text), txtRemark5Q3.Text, StrNull2Zero(Request.Cookies("userid").Value))
+            ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 31, StrNull2GPPVal(optS5Q4.SelectedValue), 2, StrNull2Double(lblScoreS5Q4.Text), txtRemark5Q4.Text, StrNull2Zero(Request.Cookies("userid").Value))
+            ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 32, StrNull2GPPVal(optS5Q5.SelectedValue), 2, StrNull2Double(lblScoreS5Q5.Text), txtRemark5Q5.Text, StrNull2Zero(Request.Cookies("userid").Value))
+            ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 33, StrNull2GPPVal(optS5Q6.SelectedValue), 2, StrNull2Double(lblScoreS5Q6.Text), txtRemark5Q6.Text, StrNull2Zero(Request.Cookies("userid").Value))
+            ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 34, S5Q7, 2, StrNull2Double(lblScoreS5Q7.Text), txtRemark5Q7.Text, StrNull2Zero(Request.Cookies("userid").Value))
+            ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 35, StrNull2GPPVal(optS5Q8.SelectedValue), 1, StrNull2Double(lblScoreS5Q8.Text), txtRemark5Q8.Text, StrNull2Zero(Request.Cookies("userid").Value))
+            ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 36, StrNull2GPPVal(optS5Q9.SelectedValue), 1, StrNull2Double(lblScoreS5Q9.Text), txtRemark5Q9.Text, StrNull2Zero(Request.Cookies("userid").Value))
+            ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 37, S5Q10, 1, StrNull2Double(lblScoreS5Q10.Text), txtRemark5Q10.Text, StrNull2Zero(Request.Cookies("userid").Value))
+            ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 38, S5Q11, 1, StrNull2Double(lblScoreS5Q11.Text), txtRemark5Q11.Text, StrNull2Zero(Request.Cookies("userid").Value))
+            ctlA.GPP_AssessmentScore_SavePPH(StrNull2Zero(hdGPPUID.Value), 39, StrNull2GPPVal(optS5Q12.SelectedValue), 1, StrNull2Double(lblScoreS5Q12.Text), txtRemark5Q12.Text, StrNull2Zero(Request.Cookies("userid").Value))
+
+
+            For i = 0 To chkRisk.Items.Count - 1
+                If chkRisk.Items(i).Selected Then
+                    ctlA.GPPRisk_Add(StrNull2Zero(hdGPPUID.Value), chkRisk.Items(i).Value, Request.Cookies("userid").Value)
+                Else
+                    ctlA.GPPRisk_Delete(StrNull2Zero(hdGPPUID.Value), chkRisk.Items(i).Value)
+                End If
+            Next
+
+            'pnDoc.Visible = True
+            pnDoc.Style("display") = "block"
+
+            ctlU.User_GenLogfile(Request.Cookies("UserID").Value, ACTTYPE_ADD, "GPP", "ReqID=" & hdRequestUID.Value & ";UID=" & hdGPPUID.Value, "บันทึก GPP สสจ.", Environment.MachineName, GetIPAddress())
+
+            'If StrNull2Zero(hdGPPUID.Value) = 0 Then
+            '    Response.Redirect("PharmacyGPP?m=g&done=y&lid=" & hdLocationUID.Value)
+            'Else
+            lblSuccess.Text = "บันทึกข้อมูลเรียบร้อย"
+            alertSuccess.Visible = True
+            ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalSuccess(this,'Success','บันทึกข้อมูลเรียบร้อย');", True)
+            'End If
+
+        Catch ex As Exception
+            lblError.Text = ex.Message
+            alertDanger.Visible = True
+            ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalWarningAlert(this,'Error','เกิดข้อผิดพลาดกรุณาตรวจสอบ : '" & ex.Message & ");", True)
+        End Try
     End Sub
 
     Private Sub cmdBack_Click(sender As Object, e As EventArgs) Handles cmdBack.Click

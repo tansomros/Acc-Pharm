@@ -41,8 +41,10 @@
                 <div class="row">
                     <div class="col-md-6">
                         <label><b>วันที่ตรวจประเมิน</b></label>
-                        <asp:Label ID="lblDate" runat="server" CssClass="report-text"></asp:Label>
+                        <asp:Label ID="lblDate" runat="server" CssClass="report-text"></asp:Label>&nbsp;&nbsp;<b>เวลา</b>&nbsp;<asp:Label ID="lblTime" runat="server" CssClass="report-text"></asp:Label>
                     </div>
+                    
+
                     <div class="col-md-6">
                         <label><b>ผู้ตรวจประเมิน</b></label>
                          <table>

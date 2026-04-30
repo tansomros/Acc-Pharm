@@ -347,9 +347,8 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label>วัน</label>
-                                                        <asp:CheckBox ID="chkAll" runat="server" AutoPostBack="true" Text="ทุกวัน" />
+                                                    <div class="form-group"> 
+                                                        <asp:CheckBox ID="chkAll" runat="server" AutoPostBack="true" Text="ทุกวัน" /><br />
                                                         <asp:CheckBox ID="chkNon" runat="server" Text="เฉพาะวันที่เภสัชกรหยุด/ไม่แน่นอน (Part time)" />
                                                         <asp:CheckBoxList ID="chkDay" runat="server" RepeatDirection="Horizontal">
                                                             <asp:ListItem Text="อาทิตย์" Value="SUN"></asp:ListItem>

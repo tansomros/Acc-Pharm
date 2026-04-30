@@ -513,6 +513,9 @@ Public Class LocationController
     Public Function LocationProject_Save(ByVal UID As Long, ByVal RequestUID As Integer, ByVal LocationUID As Integer, Name As String, Desc As String, Acction As String, ByVal MUser As Integer) As Integer
         Return SqlHelper.ExecuteNonQuery(ConnectionString, GetFullyQualifiedName("LocationProject_Save"), UID, RequestUID, LocationUID, Name, Desc, Acction, MUser)
     End Function
+    Public Function LocationProjectNew_Save(ByVal UID As Long, ByVal RequestUID As Integer, ByVal LocationUID As Integer, ProjectUID As Integer, Desc As String, Acction As String, ByVal MUser As Integer) As Integer
+        Return SqlHelper.ExecuteNonQuery(ConnectionString, GetFullyQualifiedName("LocationProjectNew_Save"), UID, RequestUID, LocationUID, ProjectUID, Desc, Acction, MUser)
+    End Function
 
     Public Function LocationProject_Update(ByVal pID_old As String, ByVal pID_new As String, ByVal pName As String, desc As String, Acction As String, ByVal pStatus As Integer) As Integer
         Return SqlHelper.ExecuteNonQuery(ConnectionString, "LocationProject_Update", pID_old, pID_new, pName, desc, Acction, pStatus)

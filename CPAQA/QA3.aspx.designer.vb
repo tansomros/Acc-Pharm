@@ -590,6 +590,15 @@ Partial Public Class QA3
     Protected WithEvents ddlRiskScore10 As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
+    '''UpdatePanelRiskScore control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents UpdatePanelRiskScore As Global.System.Web.UI.UpdatePanel
+
+    '''<summary>
     '''txtRiskScore control.
     '''</summary>
     '''<remarks>
@@ -617,24 +626,6 @@ Partial Public Class QA3
     Protected WithEvents optTelepharmacy As Global.System.Web.UI.WebControls.RadioButtonList
 
     '''<summary>
-    '''ddlScoreQ1 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents ddlScoreQ1 As Global.System.Web.UI.WebControls.DropDownList
-
-    '''<summary>
-    '''chkTeleTools control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents chkTeleTools As Global.System.Web.UI.WebControls.CheckBoxList
-
-    '''<summary>
     '''txtTeleOther control.
     '''</summary>
     '''<remarks>
@@ -642,6 +633,33 @@ Partial Public Class QA3
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtTeleOther As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''imgQ1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents imgQ1 As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''lblQ1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblQ1 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''ddlScoreQ1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddlScoreQ1 As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
     '''txtQ2 control.
@@ -680,6 +698,42 @@ Partial Public Class QA3
     Protected WithEvents ddlScoreQ2 As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
+    '''txtQ7 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtQ7 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''imgQ7 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents imgQ7 As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''lblQ7 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblQ7 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''ddlScoreQ7 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddlScoreQ7 As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
     '''txtQ3 control.
     '''</summary>
     '''<remarks>
@@ -716,42 +770,6 @@ Partial Public Class QA3
     Protected WithEvents ddlScoreQ3 As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''txtQ6 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtQ6 As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''imgQ6 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents imgQ6 As Global.System.Web.UI.WebControls.LinkButton
-
-    '''<summary>
-    '''lblQ6 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lblQ6 As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''ddlScoreQ4 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents ddlScoreQ4 As Global.System.Web.UI.WebControls.DropDownList
-
-    '''<summary>
     '''txtQ4 control.
     '''</summary>
     '''<remarks>
@@ -779,13 +797,13 @@ Partial Public Class QA3
     Protected WithEvents lblQ4 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''ddlScoreQ5 control.
+    '''ddlScoreQ4 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ddlScoreQ5 As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents ddlScoreQ4 As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
     '''txtQ5 control.
@@ -815,13 +833,22 @@ Partial Public Class QA3
     Protected WithEvents lblQ5 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''ddlScoreQ6 control.
+    '''ddlScoreQ5 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ddlScoreQ6 As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents ddlScoreQ5 As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''UpdatePanelQAScore control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents UpdatePanelQAScore As Global.System.Web.UI.UpdatePanel
 
     '''<summary>
     '''txtQAScore control.

@@ -1438,7 +1438,7 @@
 
 
                         <div class="card-shadow-success border mb-3 card card-body border-success">
-                            <h5 class="card-title">สรุปคะแนนประเมิน</h5>
+                            <div class="card-title">สรุปคะแนนประเมิน</div>
 
                             <div class="col-lg-12">
                                 <table class="table table-no-bordered">
@@ -1476,7 +1476,7 @@
                     </section>
                     <section class="col-lg-6 connectedSortable">
                         <div class="card-shadow-success border mb-3 card card-body border-success">
-                            <h5 class="card-title">สรุปคะแนนประเมิน จากผู้ตรวจประเมิน</h5>
+                            <div class="card-title">สรุปคะแนนประเมิน จากผู้ตรวจประเมิน</div>
 
                             <div class="col-lg-12 app-page-header">
                                 <table class="table table-no-bordered">

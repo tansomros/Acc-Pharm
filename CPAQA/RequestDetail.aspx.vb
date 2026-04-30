@@ -344,7 +344,7 @@ Public Class RequestDetail
 
                 If DBNull2Zero(.Item("REQDTT")) < 20240201 Then
                     btnAsmQA.NavigateUrl = "~/QA.aspx?lid=" & String.Concat(.Item("LocationUID")) & "&id=" & String.Concat(.Item("UID"))
-                ElseIf DBNull2Zero(.Item("REQDTT")) >= 20240201 And DBNull2Zero(.Item("REQDTT")) < 20260101 Then
+                ElseIf DBNull2Zero(.Item("REQDTT")) >= 20240201 And DBNull2Zero(.Item("REQDTT")) < 20261001 Then
                     btnAsmQA.NavigateUrl = "~/QA2.aspx?lid=" & String.Concat(.Item("LocationUID")) & "&id=" & String.Concat(.Item("UID"))
                 Else
                     btnAsmQA.NavigateUrl = "~/QA3.aspx?lid=" & String.Concat(.Item("LocationUID")) & "&id=" & String.Concat(.Item("UID"))
@@ -489,14 +489,17 @@ Public Class RequestDetail
                 txtAccRemark.Text = String.Concat(.Item("LocationAccRemark"))
 
                 'lblLocScore.Text = ""
-                lblGPPScore.Text = String.Concat(.Item("GPP_Percentage")) & " %" ' String.Concat(.Item("GPP_Score")) 
+                'lblGPPScore.Text = ((DBNull2Dbl(.Item("GPP_Percentage")) * 30) / 100) & " %"
+                lblGPPScore.Text = String.Concat(.Item("GPP_Percentage")) & " %"
 
                 lblQAScore1.Text = String.Concat(.Item("QA_Score1"))
                 lblQAScore2.Text = String.Concat(.Item("QA_Score2"))
                 lblQAScore3.Text = String.Concat(.Item("QA_Score3"))
                 lblQAScore.Text = String.Concat(.Item("QA_Percentage")) & " %"  ' String.Concat(.Item("QA_Score"))
 
-                lblTotalAsmScore.Text = (StrNull2Double(lblLocScore.Text) + StrNull2Double(String.Concat(.Item("GPP_Score"))) + StrNull2Double(lblQAScore.Text)).ToString()
+                lblTotalAsmScore.Text = (((DBNull2Dbl(.Item("GPP_Percentage")) * 30) / 100) + (DBNull2Dbl(.Item("QA_Percentage")) * 70 / 100)).ToString("#.##") & " %"
+
+                'lblTotalAsmScore.Text = (((DBNull2Dbl(.Item("GPP_Percentage")) * 30) / 100) + DBNull2Dbl(.Item("QA_Percentage"))).ToString("#.##") & " %"
 
                 'If lblLocStatus.Text = "ผ่าน" Then
                 '    lblLocStatus.ForeColor = Color.Green

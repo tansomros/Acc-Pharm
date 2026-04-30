@@ -624,6 +624,19 @@ Public Class QA2
         Score2 = StrNull2Double(txtRiskScore.Text)
         Score3 = StrNull2Double(txtQAScore.Text)
 
+        If Score1 > 10 Then
+            ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalWarningInfo(this,'ผลการตรวจสอบ','ท่านให้คะแนน 3.1 มากกว่าคะแนนเต็ม กรุณาตรวจสอบและแก้ไข');", True)
+            Exit Sub
+        End If
+        If Score2 > 10 Then
+            ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalWarningInfo(this,'ผลการตรวจสอบ','ท่านให้คะแนน 3.2 มากกว่าคะแนนเต็ม กรุณาตรวจสอบและแก้ไข');", True)
+            Exit Sub
+        End If
+        If Score3 > 5 Then
+            ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalWarningInfo(this,'ผลการตรวจสอบ','ท่านให้คะแนน 3.3 มากกว่าคะแนนเต็ม กรุณาตรวจสอบและแก้ไข');", True)
+            Exit Sub
+        End If
+
         ctlA.QA_AssessmentScore_Save(StrNull2Long(hdQAUID.Value), StrNull2Long(hdRequestUID.Value), Score1, txtProjectComment.Text, Score2, txtRiskComment.Text, Score3, txtQAComment.Text, AsmStatus, StrNull2Zero(Request.Cookies("UserID").Value))
         ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalSuccess(this,'Success','บันทึกข้อมูลเรียบร้อย');", True)
 

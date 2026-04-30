@@ -1544,7 +1544,7 @@
                     </Triggers>
                 </asp:UpdatePanel>
          
-               <div id="pnDoc" runat="server" class="box box-solid">
+               <div id="pnDoc" runat="server" class="box box-solid" Style="display:none;">
                             <div class="box-header">
                                       อัพโหลดไฟล์เอกสารเพิ่มเติม
                 <div class="box-tools pull-right">
@@ -1675,8 +1675,7 @@
 
             </section>
         </div>
-
-      
+             
         <asp:UpdatePanel ID="UpdatePanel3" runat="server">
             <ContentTemplate>
                 <div class="row">
@@ -1754,16 +1753,36 @@
                                     <table class="table table-no-bordered">                                       
                                         <tr>
                                             <td width="100">สรุปผล</td>
-                                            <td colspan="2">
+                                            <td colspan="3">
                                                <asp:Label ID="lblResult" runat="server" CssClass="text-bold" Font-Size="20px"></asp:Label> &nbsp; <asp:Label ID="lblResultRemark" runat="server" CssClass="text-bold text-red"></asp:Label>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>ความคิดเห็น</td>
-                                            <td colspan="2">
+                                            <td colspan="3">
                                                 <asp:TextBox ID="txtRemark" runat="server" CssClass="form-control" TextMode="MultiLine" Height="50" MaxLength="4000"></asp:TextBox>
                                             </td>
                                         </tr>
+                                           <tr>
+       <td>วันที่ตรวจ</td>
+       <td width="200">
+            <div class="input-group">
+      <asp:TextBox ID="txtAsmDate" runat="server" CssClass="form-control text-center"
+          autocomplete="off" data-date-format="dd/mm/yyyy"
+          data-date-language="th-th" data-provide="datepicker"
+          onkeyup="chkstr(this,this.value)"></asp:TextBox>
+      <div class="input-group-append">
+          <span class="input-group-text"><i class="fa lnr-calendar-full"></i></span>
+      </div>
+  </div>
+
+       </td>
+                                                 <td  width="50">เวลา</td>
+  <td>
+      <asp:TextBox ID="txtAsmTime" runat="server" CssClass="form-control text-center" width="100" ></asp:TextBox>
+
+  </td>
+   </tr>
                                     </table>
 
                                 </div>
@@ -1815,6 +1834,26 @@
                  
             </Triggers>
         </asp:UpdatePanel>
+ 
+         <div class="row">    
+                <div class="col-md-12">
+
+                      <asp:UpdatePanel ID="UpdatePanelSave" runat="server">
+      <ContentTemplate>
+                  <div id="alertSuccess" class="alert alert-success fade show" role="alert" runat="server">
+                        <asp:Label ID="lblSuccess" runat="server" CssClass="h6 text-bold"></asp:Label>
+                  </div>      
+                    <div id="alertDanger" class="alert alert-danger fade show" role="alert" runat="server">
+                        <asp:Label ID="lblError" runat="server" CssClass="h6 text-bold"></asp:Label>
+                    </div>
+
+            </ContentTemplate>
+  <Triggers> 
+      <asp:AsyncPostBackTrigger ControlID="cmdSave" EventName="Click" /> 
+  </Triggers>
+</asp:UpdatePanel>
+                </div>
+         </div>
 
         <div class="row">
             <div class="col-md-12 text-center">
@@ -1827,6 +1866,15 @@
             </div>
 
         </div>
+         <div class="row">
+            <br />
+               <br />
+               <br />
+               <br />
+               <br />
+               <br />
+             </div>
+
         <!-- Modal HTML -->
         <div id="modal-window-upl" class="modal fade modal-window" role="dialog" data-backdrop="static" tabindex="-1" style="display: none;" aria-hidden="true">
             <div class="modal-dialog">

@@ -15,7 +15,7 @@ Public Class ReportGPP1
         If dt.Rows.Count > 0 Then
             With dt.Rows(0)
                 lblDate.Text = DisplayDateTH(.Item("AsmDate"))
-
+                lblTime.Text = String.Concat(.Item("AsmTime"))
                 dtAs = ctlA.RPT_Assessor(Request("id"))
                 dtPm = ctlP.Pharmacist_Get(.Item("LocationUID"))
                 lblPmCount.Text = StrNull2Zero(dtPm.Rows.Count)
