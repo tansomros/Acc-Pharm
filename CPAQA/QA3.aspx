@@ -102,7 +102,7 @@
                         </div>
 
                  <div class="main-card mb-3 card">
-                            <div class="card-header"> 3.1   “งานคุณภาพ ”ในร้านของท่านมีอะไรบ้าง  ( 35  คะแนน )
+                            <div class="card-header"> 3.1   “งานคุณภาพ ”ในร้านของท่านมีอะไรบ้าง  ( 40  คะแนน )
                             <asp:HiddenField ID="hdLocationUID" runat="server" />
                                    <asp:HiddenField ID="hdQAUID" runat="server" />
                                    <asp:HiddenField ID="hdRequestUID" runat="server" />

@@ -344,7 +344,7 @@ Public Class RequestDetail
 
                 If DBNull2Zero(.Item("REQDTT")) < 20240201 Then
                     btnAsmQA.NavigateUrl = "~/QA.aspx?lid=" & String.Concat(.Item("LocationUID")) & "&id=" & String.Concat(.Item("UID"))
-                ElseIf DBNull2Zero(.Item("REQDTT")) >= 20240201 And DBNull2Zero(.Item("REQDTT")) < 20261001 Then
+                ElseIf DBNull2Zero(.Item("REQDTT")) >= 20240201 And DBNull2Zero(.Item("REQDTT")) < 20260101 Then
                     btnAsmQA.NavigateUrl = "~/QA2.aspx?lid=" & String.Concat(.Item("LocationUID")) & "&id=" & String.Concat(.Item("UID"))
                 Else
                     btnAsmQA.NavigateUrl = "~/QA3.aspx?lid=" & String.Concat(.Item("LocationUID")) & "&id=" & String.Concat(.Item("UID"))
@@ -489,8 +489,8 @@ Public Class RequestDetail
                 txtAccRemark.Text = String.Concat(.Item("LocationAccRemark"))
 
                 'lblLocScore.Text = ""
-                'lblGPPScore.Text = ((DBNull2Dbl(.Item("GPP_Percentage")) * 30) / 100) & " %"
-                lblGPPScore.Text = String.Concat(.Item("GPP_Percentage")) & " %"
+                lblGPPScore.Text = ((DBNull2Dbl(.Item("GPP_Percentage")) * 30) / 100).ToString("#.##") & " %"
+                'lblGPPScore.Text = String.Concat(.Item("GPP_Percentage")) & " %"
 
                 lblQAScore1.Text = String.Concat(.Item("QA_Score1"))
                 lblQAScore2.Text = String.Concat(.Item("QA_Score2"))

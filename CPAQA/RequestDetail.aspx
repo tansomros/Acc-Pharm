@@ -389,7 +389,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>ส่วนที่ 2 : การตรวจ  GPP</td>
+                                    <td>ส่วนที่ 2 : การตรวจ  GPP (30%) </td>
                                     <td class="text-center">
                                         <asp:Label ID="lblGPPScore" runat="server" Text=""></asp:Label>
                                     </td>
@@ -400,7 +400,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>ส่วนที่ 3 : การประเมิน “ งานคุณภาพ ”</td>
+                                    <td>ส่วนที่ 3 : การประเมิน “ งานคุณภาพ ” (70%)</td>
                                     <td class="text-center">&nbsp;</td>
                                     <td class="text-center">&nbsp;</td>
                                     <td class="text-center">
