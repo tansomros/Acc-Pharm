@@ -53,9 +53,45 @@ Public Class QA3
                 cmdSave.Visible = False
                 cmdApprove.Visible = True
                 chkStatus.Checked = True
+
+                SetPanelVisible(pnRiskScore1, True)
+                SetPanelVisible(pnRiskScore2, True)
+                SetPanelVisible(pnRiskScore3, True)
+                SetPanelVisible(pnRiskScore4, True)
+                SetPanelVisible(pnRiskScore5, True)
+                SetPanelVisible(pnRiskScore6, True)
+                SetPanelVisible(pnRiskScore7, True)
+                SetPanelVisible(pnRiskScore8, True)
+                SetPanelVisible(pnRiskScore9, True)
+                SetPanelVisible(pnRiskScore10, True)
+
+                SetPanelVisible(pnQScore1, True)
+                SetPanelVisible(pnQScore2, True)
+                SetPanelVisible(pnQScore3, True)
+                SetPanelVisible(pnQScore4, True)
+                SetPanelVisible(pnQScore5, True)
+                SetPanelVisible(pnQScore7, True)
+
             Else
                 cmdApprove.Visible = False
                 cmdSave.Visible = True
+                SetPanelVisible(pnRiskScore1, False)
+                SetPanelVisible(pnRiskScore2, False)
+                SetPanelVisible(pnRiskScore3, False)
+                SetPanelVisible(pnRiskScore4, False)
+                SetPanelVisible(pnRiskScore5, False)
+                SetPanelVisible(pnRiskScore6, False)
+                SetPanelVisible(pnRiskScore7, False)
+                SetPanelVisible(pnRiskScore8, False)
+                SetPanelVisible(pnRiskScore9, False)
+                SetPanelVisible(pnRiskScore10, False)
+
+                SetPanelVisible(pnQScore1, False)
+                SetPanelVisible(pnQScore2, False)
+                SetPanelVisible(pnQScore3, False)
+                SetPanelVisible(pnQScore4, False)
+                SetPanelVisible(pnQScore5, False)
+                SetPanelVisible(pnQScore7, False)
             End If
 
             CheckStatusAssessment()
@@ -64,6 +100,11 @@ Public Class QA3
 
         'txtZipCode.Attributes.Add("OnKeyPress", "return AllowOnlyIntegers();")
     End Sub
+    Sub SetPanelVisible(p As HtmlGenericControl, isShow As Boolean)
+        p.Style("display") = If(isShow, "block", "none")
+    End Sub
+
+
     Private Sub LoadRequestDetail(RequestUID As Integer)
         Dim ctlR As New RequestController
         dt = ctlR.Request_GetByUID(RequestUID)

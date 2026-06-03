@@ -257,6 +257,15 @@ Partial Public Class QA3
     Protected WithEvents lblR1 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''pnRiskScore1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents pnRiskScore1 As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
     '''ddlRiskScore1 control.
     '''</summary>
     '''<remarks>
@@ -291,6 +300,15 @@ Partial Public Class QA3
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblR2 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''pnRiskScore2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents pnRiskScore2 As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
     '''ddlRiskScore2 control.
@@ -329,6 +347,15 @@ Partial Public Class QA3
     Protected WithEvents lblR3 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''pnRiskScore3 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents pnRiskScore3 As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
     '''ddlRiskScore3 control.
     '''</summary>
     '''<remarks>
@@ -363,6 +390,15 @@ Partial Public Class QA3
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblR4 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''pnRiskScore4 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents pnRiskScore4 As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
     '''ddlRiskScore4 control.
@@ -401,6 +437,15 @@ Partial Public Class QA3
     Protected WithEvents lblR5 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''pnRiskScore5 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents pnRiskScore5 As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
     '''ddlRiskScore5 control.
     '''</summary>
     '''<remarks>
@@ -435,6 +480,15 @@ Partial Public Class QA3
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblR6 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''pnRiskScore6 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents pnRiskScore6 As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
     '''ddlRiskScore6 control.
@@ -473,6 +527,15 @@ Partial Public Class QA3
     Protected WithEvents lblR7 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''pnRiskScore7 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents pnRiskScore7 As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
     '''ddlRiskScore7 control.
     '''</summary>
     '''<remarks>
@@ -507,6 +570,15 @@ Partial Public Class QA3
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblR8 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''pnRiskScore8 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents pnRiskScore8 As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
     '''ddlRiskScore8 control.
@@ -545,6 +617,15 @@ Partial Public Class QA3
     Protected WithEvents lblR9 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''pnRiskScore9 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents pnRiskScore9 As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
     '''ddlRiskScore9 control.
     '''</summary>
     '''<remarks>
@@ -579,6 +660,15 @@ Partial Public Class QA3
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblR10 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''pnRiskScore10 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents pnRiskScore10 As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
     '''ddlRiskScore10 control.
@@ -653,6 +743,15 @@ Partial Public Class QA3
     Protected WithEvents lblQ1 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''pnQScore1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents pnQScore1 As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
     '''ddlScoreQ1 control.
     '''</summary>
     '''<remarks>
@@ -687,6 +786,15 @@ Partial Public Class QA3
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblQ2 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''pnQScore2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents pnQScore2 As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
     '''ddlScoreQ2 control.
@@ -725,6 +833,15 @@ Partial Public Class QA3
     Protected WithEvents lblQ7 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''pnQScore7 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents pnQScore7 As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
     '''ddlScoreQ7 control.
     '''</summary>
     '''<remarks>
@@ -759,6 +876,15 @@ Partial Public Class QA3
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblQ3 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''pnQScore3 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents pnQScore3 As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
     '''ddlScoreQ3 control.
@@ -797,6 +923,15 @@ Partial Public Class QA3
     Protected WithEvents lblQ4 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''pnQScore4 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents pnQScore4 As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
     '''ddlScoreQ4 control.
     '''</summary>
     '''<remarks>
@@ -831,6 +966,15 @@ Partial Public Class QA3
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblQ5 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''pnQScore5 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents pnQScore5 As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
     '''ddlScoreQ5 control.
