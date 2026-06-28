@@ -572,10 +572,17 @@ Public Class LocationModify
             IsPPHealth = "N"
         End If
 
+        Dim districtName As String
+        If ddlDistrict.Visible = False Then
+            districtName = lblDistrict.Text
+        Else
+            districtName = ddlDistrict.SelectedItem.Text
+        End If
+
         Dim enc As New CryptographyEngine
 
         If StrNull2Zero(hdLocationUID.Value) = 0 Then
-            ctlL.Location_Register(hdNewCode.Value, txtLicenseNo1.Text, txtLicenseNo1.Text, enc.EncryptString("1234", True), txtLocationName.Text, txtAddressNo.Text, txtMoo.Text, txtRoad.Text, txtSubDistrict.Text, ddlDistrict.SelectedItem.Text, ddlProvince.SelectedValue, txtZipCode.Text, txtTel.Text, txtEmail.Text, txtLineID.Text, txtWorkTime.Text, sLat, sLng, txtFacebook.Text, StrNull2Zero(txtStartYear.Text), txtLicenseNo1.Text, txtLicenseNo2.Text, txtLicenseNo3.Text, txtLicensee.Text, StrNull2Zero(optLicenseeType.SelectedValue), StrNull2Zero(txtArea1.Text), StrNull2Double(txtArea2.Text), StrNull2Zero(ddlGroup.SelectedValue), StrNull2Zero(ddlChain.SelectedValue), Request.Cookies("userid").Value, IsAccPharm, txtNHSOCode.Text, IsPPHealth, txtAuthName.Text, txtPharmacist.Text, txtPharmacistLicenseNo.Text)
+            ctlL.Location_Register(hdNewCode.Value, txtLicenseNo1.Text, txtLicenseNo1.Text, enc.EncryptString("1234", True), txtLocationName.Text, txtAddressNo.Text, txtMoo.Text, txtRoad.Text, txtSubDistrict.Text, districtName, ddlProvince.SelectedValue, txtZipCode.Text, txtTel.Text, txtEmail.Text, txtLineID.Text, txtWorkTime.Text, sLat, sLng, txtFacebook.Text, StrNull2Zero(txtStartYear.Text), txtLicenseNo1.Text, txtLicenseNo2.Text, txtLicenseNo3.Text, txtLicensee.Text, StrNull2Zero(optLicenseeType.SelectedValue), StrNull2Zero(txtArea1.Text), StrNull2Double(txtArea2.Text), StrNull2Zero(ddlGroup.SelectedValue), StrNull2Zero(ddlChain.SelectedValue), Request.Cookies("userid").Value, IsAccPharm, txtNHSOCode.Text, IsPPHealth, txtAuthName.Text, txtPharmacist.Text, txtPharmacistLicenseNo.Text)
 
             hdLocationUID.Value = ctlL.Location_GetUID(txtLicenseNo1.Text).ToString()
             pnMember.Visible = True

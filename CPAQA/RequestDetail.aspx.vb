@@ -27,7 +27,7 @@ Public Class RequestDetail
             cmdCancel.Visible = False
             cmdChangeType.Visible = False
             cmdWorkFlow.Visible = False
-
+            cmdDelete.Visible = False
             pnDocument.Visible = False
             'pnPayment.Visible = False
             pnAudit.Visible = False
@@ -59,7 +59,7 @@ Public Class RequestDetail
             End If
 
             If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = 1 Then
-                cmdCancel.Visible = True
+
                 'pnFinal.Visible = False
                 pnLitigation.Visible = False
                 ddlStatus.Enabled = False
@@ -112,8 +112,8 @@ Public Class RequestDetail
                 cmdApprove.Visible = False
             End If
             If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) >= 3 Then
-                cmdCancel.Visible = True
-                cmdDelete.Visible = True
+                'cmdCancel.Visible = True
+                'cmdDelete.Visible = True
                 LoadSupervisorToDDL()
                 pnAssignment.Visible = True
                 LoadAssignSupervisorToGrid()
@@ -179,8 +179,12 @@ Public Class RequestDetail
             lblAssessmentStatus.Text = String.Concat(dt.Rows(0)("AssessmentStatusName"))
             lblStatusRemark.Text = String.Concat(dt.Rows(0)("AssessmentRemark"))
             pnCancel.Visible = False
-
+            cmdCancel.Visible = False
+            cmdDelete.Visible = False
             If iStatus >= 10 And iStatus <= 55 Then ' Processing
+                If iStatus <= 20 Then
+                    cmdCancel.Visible = True
+                End If
                 If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = 1 Then
                     btnAsmLocation.Visible = True
                     btnAsmGPP.Visible = True
@@ -229,8 +233,8 @@ Public Class RequestDetail
                     cmdSend.Text = "ส่งเรื่องพิจารณาอีกครั้ง"
                     cmdApprove.Visible = True
                     cmdApprove.Text = "บันทึก"
-                    cmdCancel.Visible = True
-                    cmdDelete.Visible = True
+                    'cmdCancel.Visible = True
+                    'cmdDelete.Visible = True
                     cmdSendBack.Visible = True
                     pnCancel.Visible = False
                     cmdSaveUpdate.Visible = True
@@ -336,7 +340,7 @@ Public Class RequestDetail
                 txtAmount.Text = StrNull2Double(String.Concat(.Item("AmountFee"))).ToString("#,###.##")
 
 
-                lblLocationName.Text = String.Concat(.Item("LocationName"))
+                lblLocationName.Text = String.Concat(.Item("LocationName")) & " (" & String.Concat(.Item("LicenseNo1")) & ")"
                 lblAddress.Text = String.Concat(.Item("LocationAddress"))
 
                 btnAsmLocation.NavigateUrl = "~/Location.aspx?lid=" & String.Concat(.Item("LocationUID")) & "&id=" & String.Concat(.Item("UID"))
@@ -344,7 +348,7 @@ Public Class RequestDetail
 
                 If DBNull2Zero(.Item("REQDTT")) < 20240201 Then
                     btnAsmQA.NavigateUrl = "~/QA.aspx?lid=" & String.Concat(.Item("LocationUID")) & "&id=" & String.Concat(.Item("UID"))
-                ElseIf DBNull2Zero(.Item("REQDTT")) >= 20240201 And DBNull2Zero(.Item("REQDTT")) < 20260101 Then
+                ElseIf DBNull2Zero(.Item("REQDTT")) >= 20240201 And DBNull2Zero(.Item("REQDTT")) < 20260701 Then
                     btnAsmQA.NavigateUrl = "~/QA2.aspx?lid=" & String.Concat(.Item("LocationUID")) & "&id=" & String.Concat(.Item("UID"))
                 Else
                     btnAsmQA.NavigateUrl = "~/QA3.aspx?lid=" & String.Concat(.Item("LocationUID")) & "&id=" & String.Concat(.Item("UID"))
@@ -519,7 +523,7 @@ Public Class RequestDetail
                         cmdCancel.Visible = False
                     End If
                 ElseIf DBNull2Zero(.Item("AssessmentStatus")) >= 60 Then
-                    pnAudit.Visible = True
+                    'pnAudit.Visible = True
                     pnFinal.Visible = True
 
                     If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = 1 Then

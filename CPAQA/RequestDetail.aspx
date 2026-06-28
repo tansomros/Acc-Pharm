@@ -277,90 +277,7 @@
                     </div>
 
                 </div>
-                <div id="pnPayment" runat="server" class="main-card mb-3 card">
-                    <div class="card-header">
-                        แนบหลักฐานการโอนเงิน
-                    </div>
-                    <div class="card-body">
-                        <div class="alert alert-primary text-center">
-                            โอนค่าธรรมเนียมเข้าบัญชี ธนาคารไทยพาณิชย์ เลขที่บัญชี <b>3402014548</b> ชื่อบัญชี สภาเภสัชกรรม&nbsp;
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label>จำนวนเงิน</label>
-                                    <div class="input-group">
-                                        <asp:TextBox ID="txtAmount" runat="server" CssClass="form-control text-bold text-center text-primary"></asp:TextBox>
-                                        <div class="input-group-append">
-                                            <span class="input-group-text">฿</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                            </div>
-                            <div class="col-md-8">
-                                <div class="form-group">
-                                    <label>
-                                        ไฟล์สลิปโอนเงิน 
-                                                <button class="btn-icon btn-icon-only btn-link no-border ico-info small" type="button" data-title="Note" data-toggle="popover-custom-bg" data-bg-class="text-white small bg-primary" data-content="ไฟล์นามสกุล .jpg, .jpeg, .gif, .png,.pdf เท่านั้น ,ขนาดไฟล์ไม่เกิน 1024 Kb." data-original-title="" title=""><i class="fa fa-info-circle btn-icon-wrapper"></i></button>
-                                    </label>
-                                    <div class="file-upload">
-                                        <asp:FileUpload ID="FileUpload1" runat="server" name="FileUpload1" />
-                                        <i class="fa fa-camera"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-1">
-                                <div class="form-group">
-                                    <label></label>
-
-                                    <asp:Button ID="cmdAddSlip" CssClass="btn btn-success pull-right" runat="server" Text="บันทึก" Width="100px" />
-                                </div>
-
-                            </div>
-
-                            <div class="col-md-12">
-                                <asp:GridView ID="grdSlip" CssClass="table table-hover"
-                                    runat="server" CellPadding="0"
-                                    GridLines="None"
-                                    AutoGenerateColumns="False" Width="100%">
-
-                                    <Columns>
-                                        <asp:BoundField DataField="nRow" HeaderText="No.">
-                                            <HeaderStyle HorizontalAlign="Center" />
-                                            <ItemStyle HorizontalAlign="Left" Width="30px" />
-
-                                        </asp:BoundField>
-
-                                        <asp:TemplateField HeaderText="หลักฐานการโอนเงิน">
-                                            <ItemTemplate>
-                                                <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl='<%# CPAQA.DocumentLocation & "/" & DataBinder.Eval(Container.DataItem, "LocationUID") & "/" & DataBinder.Eval(Container.DataItem, "FilePath") %>' Text='<%# DataBinder.Eval(Container.DataItem, "DocumentName") %>' Target="_blank"></asp:HyperLink>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="ลบ">
-                                            <ItemTemplate>
-                                                <asp:ImageButton ID="imgDel" runat="server" ImageUrl="images/delete.png" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "UID") %>' />
-                                            </ItemTemplate>
-                                            <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="30px" />
-                                        </asp:TemplateField>
-                                    </Columns>
-                                    <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                                    <PagerStyle HorizontalAlign="Center"
-                                        CssClass="dc_pagination dc_paginationC dc_paginationC01" />
-                                    <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-                                    <HeaderStyle CssClass="th" Font-Bold="True"
-                                        VerticalAlign="Middle" HorizontalAlign="Left" />
-
-
-                                </asp:GridView>
-
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+           
             </section>
             <section class="col-lg-6 connectedSortable">
                 <div class="main-card mb-3 card">
@@ -551,6 +468,92 @@
                     </div>
                 </div>
 
+                <div id="pnPayment" runat="server" class="main-card mb-3 card">
+                    <div class="card-header">
+                        แนบหลักฐานการโอนเงิน
+                    </div>
+                    <div class="card-body">
+                        <div class="alert alert-primary text-center">
+                            โอนค่าธรรมเนียมเข้าบัญชี ธนาคารไทยพาณิชย์ เลขที่บัญชี <b>3402014548</b> ชื่อบัญชี สภาเภสัชกรรม&nbsp;
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>จำนวนเงิน</label>
+                                    <div class="input-group">
+                                        <asp:TextBox ID="txtAmount" runat="server" CssClass="form-control text-bold text-center text-primary"></asp:TextBox>
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">฿</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label>
+                                        ไฟล์สลิปโอนเงิน 
+                                                <button class="btn-icon btn-icon-only btn-link no-border ico-info small" type="button" data-title="Note" data-toggle="popover-custom-bg" data-bg-class="text-white small bg-primary" data-content="ไฟล์นามสกุล .jpg, .jpeg, .gif, .png,.pdf เท่านั้น ,ขนาดไฟล์ไม่เกิน 1024 Kb." data-original-title="" title=""><i class="fa fa-info-circle btn-icon-wrapper"></i></button>
+                                    </label>
+                                    <div class="file-upload">
+                                        <asp:FileUpload ID="FileUpload1" runat="server" name="FileUpload1" />
+                                        <i class="fa fa-camera"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-1">
+                                <div class="form-group">
+                                    <label></label>
+
+                                    <asp:Button ID="cmdAddSlip" CssClass="btn btn-success pull-right" runat="server" Text="บันทึก" Width="100px" />
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-12">
+                                <asp:GridView ID="grdSlip" CssClass="table table-hover"
+                                    runat="server" CellPadding="0"
+                                    GridLines="None"
+                                    AutoGenerateColumns="False" Width="100%">
+
+                                    <Columns>
+                                        <asp:BoundField DataField="nRow" HeaderText="No.">
+                                            <HeaderStyle HorizontalAlign="Center" />
+                                            <ItemStyle HorizontalAlign="Left" Width="30px" />
+
+                                        </asp:BoundField>
+
+                                        <asp:TemplateField HeaderText="หลักฐานการโอนเงิน">
+                                            <ItemTemplate>
+                                                <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl='<%# CPAQA.DocumentLocation & "/" & DataBinder.Eval(Container.DataItem, "LocationUID") & "/" & DataBinder.Eval(Container.DataItem, "FilePath") %>' Text='<%# DataBinder.Eval(Container.DataItem, "DocumentName") %>' Target="_blank"></asp:HyperLink>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="ลบ">
+                                            <ItemTemplate>
+                                                <asp:ImageButton ID="imgDel" runat="server" ImageUrl="images/delete.png" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "UID") %>' />
+                                            </ItemTemplate>
+                                            <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="30px" />
+                                        </asp:TemplateField>
+                                    </Columns>
+                                    <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                                    <PagerStyle HorizontalAlign="Center"
+                                        CssClass="dc_pagination dc_paginationC dc_paginationC01" />
+                                    <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                                    <HeaderStyle CssClass="th" Font-Bold="True"
+                                        VerticalAlign="Middle" HorizontalAlign="Left" />
+
+
+                                </asp:GridView>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
                 <div id="pnCommentBack" runat="server" class="box box-solid">
                     <div class="box-header">
                         ส่งข้อความตอบกลับร้านยา
@@ -631,6 +634,10 @@
                      <div class="text-bold">ประวัติคดีความ</div> <br />
             <asp:Label ID="lblLitigation" runat="server" Text="ไม่มี"></asp:Label>
         </div>
+
+
+                
+
 
                 <!-- Modal HTML -->
                 <div id="modal-window-send" class="modal fade" role="dialog" data-backdrop="static">
@@ -774,6 +781,27 @@
         <div class="row">
             <section class="col-lg-12 connectedSortable">
 
+                              <div class="box box-solid">
+      <div class="box-header no-border">
+          ข้อเสนอแนะเพื่อการพัฒนา (โดยผู้เยี่ยมประเมิน)
+   <div class="box-tools pull-right">
+       <button type="button" class="btn btn-box-tool" data-widget="collapse">
+           <i class="fa fa-minus"></i>
+       </button>
+   </div>
+      </div>
+      <div class="box-body">
+          <div class="row">
+               <div class="col-md-12">
+    <div class="form-group">        
+        <asp:TextBox ID="txtAuditorComment2" runat="server" CssClass="form-control" TextMode="MultiLine" Height="100"></asp:TextBox>
+    </div>
+</div>
+                </div>
+            </div>
+
+                        </div>
+                
                 <div id="pnAudit" runat="server" class="box box-solid">
                     <div class="box-header">
                         บันทึกผลการตรวจเยี่ยมประเมิน (โดยผู้เยี่ยมประเมิน)
@@ -791,12 +819,7 @@
                                     <asp:TextBox ID="txtAuditorComment1" runat="server" CssClass="form-control" TextMode="MultiLine" Height="60"></asp:TextBox>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>ข้อเสนอแนะเพื่อการพัฒนา</label>
-                                    <asp:TextBox ID="txtAuditorComment2" runat="server" CssClass="form-control" TextMode="MultiLine" Height="60"></asp:TextBox>
-                                </div>
-                            </div>
+                           
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>สิ่งที่ทำได้ดีเกินมาตรฐาน</label>
@@ -809,7 +832,7 @@
                                     <asp:TextBox ID="txtAuditorComment4" runat="server" CssClass="form-control" TextMode="MultiLine" Height="60"></asp:TextBox>
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label>งานที่ดีเด่นของร้าน ที่เป็นตัวอย่างที่ดี หรือ เป็นรูปแบบ / ต้นแบบ  หรือ นวัตกรรม (ร้านบอกเอง หรือ สรุปจากผู้ประเมิน )</label>
                                     <asp:TextBox ID="txtAuditorComment5" runat="server" CssClass="form-control" TextMode="MultiLine" Height="60"></asp:TextBox>
@@ -960,7 +983,6 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                      <% If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) > 1 Then %>
                          <div class="row">

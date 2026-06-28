@@ -257,51 +257,6 @@ Partial Public Class RequestDetail
     Protected WithEvents grdDocument As Global.System.Web.UI.WebControls.GridView
 
     '''<summary>
-    '''pnPayment control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents pnPayment As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-
-    '''<summary>
-    '''txtAmount control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtAmount As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''FileUpload1 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents FileUpload1 As Global.System.Web.UI.WebControls.FileUpload
-
-    '''<summary>
-    '''cmdAddSlip control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents cmdAddSlip As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
-    '''grdSlip control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents grdSlip As Global.System.Web.UI.WebControls.GridView
-
-    '''<summary>
     '''pnAsmAll control.
     '''</summary>
     '''<remarks>
@@ -662,6 +617,51 @@ Partial Public Class RequestDetail
     Protected WithEvents cmdSaveUpdate As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
+    '''pnPayment control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents pnPayment As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
+    '''txtAmount control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtAmount As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''FileUpload1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents FileUpload1 As Global.System.Web.UI.WebControls.FileUpload
+
+    '''<summary>
+    '''cmdAddSlip control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents cmdAddSlip As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''grdSlip control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents grdSlip As Global.System.Web.UI.WebControls.GridView
+
+    '''<summary>
     '''pnCommentBack control.
     '''</summary>
     '''<remarks>
@@ -878,6 +878,15 @@ Partial Public Class RequestDetail
     Protected WithEvents cmdConfirmCancel As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
+    '''txtAuditorComment2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtAuditorComment2 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
     '''pnAudit control.
     '''</summary>
     '''<remarks>
@@ -894,15 +903,6 @@ Partial Public Class RequestDetail
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtAuditorComment1 As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''txtAuditorComment2 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtAuditorComment2 As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''txtAuditorComment3 control.
