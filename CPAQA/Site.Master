@@ -1238,6 +1238,10 @@
     <script>
         $(function () {
             $('#tbdata').DataTable()
+            $('#tblocation').DataTable({
+                "searchDelay" : 800,               
+            })
+
             $('#tbdata2').DataTable({
                 "order": [[5, "desc"]],
                 "columnDefs": [

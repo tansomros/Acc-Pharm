@@ -127,9 +127,8 @@ Public Class LocationController
         ds = SqlHelper.ExecuteDataset(ConnectionString, ("Location_GetByRequestUID"), LocationUid, RequestUID)
         Return ds.Tables(0)
     End Function
-    Public Function Location_GetBySearchAll(provid As String, id As String) As DataTable
-
-        ds = SqlHelper.ExecuteDataset(ConnectionString, GetFullyQualifiedName("Location_GetByProvinceIDAll"), provid, id)
+    Public Function Location_GetList(ProvinceID As String, isAccPharm As String, AccStatus As String, Search As String) As DataTable
+        ds = SqlHelper.ExecuteDataset(ConnectionString, GetFullyQualifiedName("Location_GetList"), ProvinceID, isAccPharm, AccStatus, Search)
         Return ds.Tables(0)
     End Function
 

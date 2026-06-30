@@ -18,9 +18,60 @@
                 </div>
             </div>
 
-    <section class="content"> 
+    <section class="content">         
+        <div id="pnSearch" runat="server"  class="box box-solid">
+            <div class="box-body">
+                <div class="row">             
+                    <div class="col-lg-6 col-md-3 col-xl-2">
+                        <div class="form-group">
+                            <label>จังหวัด</label><br />
+                            <asp:DropDownList ID="ddlProvince" runat="server" CssClass="form-control select2">
+                            </asp:DropDownList>
+                        </div>
+                    </div>
+                     <div class="col-lg-6 col-md-3 col-xl-2">
+                        <div class="form-group">
+                            <label>ร้านยาคุณภาพ</label><br />
+                            <asp:DropDownList ID="ddlAccPharm" runat="server" CssClass="form-control select2">
+                                <asp:ListItem Selected="True" Value="0">ทั้งหมด</asp:ListItem>
+                                <asp:ListItem Value="Y">ร้านยาคุณภาพ</asp:ListItem>
+                                <asp:ListItem Value="N">ไม่ใช่ร้านยาคุณภาพ</asp:ListItem>
+                            </asp:DropDownList>
+                        </div>
+                    </div>         
+                       <div class="col-lg-6 col-md-3 col-xl-2">
+       <div class="form-group">
+           <label>สถานะใบรับรอง</label><br />
+           <asp:DropDownList ID="ddlAccStatus" runat="server" CssClass="form-control select2">
+               <asp:ListItem Selected="True" Value="0">ทั้งหมด</asp:ListItem>
+               <asp:ListItem Value="A">ปกติ</asp:ListItem>
+               <asp:ListItem Value="E">หมดอายุการรับรอง</asp:ListItem>
+               <asp:ListItem Value="X">ยกเลิกการรับรอง</asp:ListItem>
+           </asp:DropDownList>
+       </div>
+   </div>
+                    <div class="col-lg-3 col-md-3 col-xl-3">
+                        <div class="form-group">
+                            <label>คำค้นหา</label><br />
+                            <asp:TextBox ID="txtSearch" runat="server" CssClass="form-control" PlaceHolder="ชื่อร้าน / เลข ขย.5 /เลขที่ใบอนุญาต"></asp:TextBox>
+                        </div>
+                    </div>
+              
+                    <div class="col-md-3 pt-4">
+                        <asp:LinkButton ID="cmdView" runat="server" CssClass="btn btn-info" Width="100px">ค้นหา</asp:LinkButton>
+                         <% If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = 3 Or Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = 9 Then%>  
+   <a href="LocationNew?m=l&s=reg"  class="btn btn-success"><i class="fa fa-plus-circle"></i> เพิ่มร้านยาใหม่</a>    
+   <% End If %>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
          <div class="main-card mb-3 card">
-        <div class="card-header"><i class="header-icon fa fa-home icon-gradient bg-success">
+        <div class="card-header"><i class="header-icon lnr-store icon-gradient bg-success">
             </i>Drug Store List
             <div class="btn-actions-pane-right">
                 <% If Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = 3 Or Convert.ToInt32(Request.Cookies("ROLE_ID").Value) = 9 Then%>  
@@ -29,7 +80,7 @@
             </div>
         </div>     
               <div class="card-body table-responsive">   
-              <table id="tbdata" class="table table-bordered">
+              <table id="tblocation" class="table table-bordered">
                 <thead>
                 <tr>
                    <th class="text-center">เลขที่ใบอนุญาต ขย.5</th> 
