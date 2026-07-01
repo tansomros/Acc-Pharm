@@ -181,6 +181,10 @@ Public Class AssessmentController
         Return SqlHelper.ExecuteNonQuery(ConnectionString, GetFullyQualifiedName("QA_Assessment_Save2"), UID, RequestUID, AsmYear, LocationUID, Risk1, Risk2, Risk3, Risk4, Risk5, Risk6, Risk7, Risk8, Risk9, Risk10, Telepharmacy, TeleTools, ToolsOther, Q2, Q3, Q4, Q5, Q6, MUser)
     End Function
 
+    Public Function QA_Assessment_Save3(ByVal UID As Integer, ByVal RequestUID As Integer, ByVal AsmYear As Integer, ByVal LocationUID As Integer, ByVal Risk1 As String, ByVal Risk2 As String, ByVal Risk3 As String, ByVal Risk4 As String, ByVal Risk5 As String, ByVal Risk6 As String, ByVal Risk7 As String, ByVal Risk8 As String, ByVal Risk9 As String, ByVal Risk10 As String, ByVal Telepharmacy As String, ByVal TeleTools As String, ByVal ToolsOther As String, ByVal Q2 As String, ByVal Q3 As String, ByVal Q4 As String, ByVal Q5 As String, ByVal Q7 As String, ByVal MUser As Integer) As Integer
+        Return SqlHelper.ExecuteNonQuery(ConnectionString, GetFullyQualifiedName("QA_Assessment_Save3"), UID, RequestUID, AsmYear, LocationUID, Risk1, Risk2, Risk3, Risk4, Risk5, Risk6, Risk7, Risk8, Risk9, Risk10, Telepharmacy, TeleTools, ToolsOther, Q2, Q3, Q4, Q5, Q7, MUser)
+    End Function
+
     Public Function QA_AssessmentScore_Save(ByVal QA_Assessment_UID As Long, ByVal RequestUID As Long, ByVal Score1 As Double, ByVal AuditorComment1 As String, ByVal Score2 As Double, ByVal AuditorComment2 As String, ByVal Score3 As Double, ByVal AuditorComment3 As String, ByVal AsmStatus As String, ByVal Muser As Integer) As Integer
         Return SqlHelper.ExecuteNonQuery(ConnectionString, GetFullyQualifiedName("QA_AssessmentScore_Save"), QA_Assessment_UID, RequestUID, Score1, AuditorComment1, Score2, AuditorComment2, Score3, AuditorComment3, AsmStatus, Muser)
     End Function
@@ -189,7 +193,10 @@ Public Class AssessmentController
 
         Return SqlHelper.ExecuteNonQuery(ConnectionString, GetFullyQualifiedName("QA_AssessmentScore_Save2"), QA_Assessment_UID, RequestUID, Score1, AuditorComment1, Score2, AuditorComment2, Score3, AuditorComment3, AsmStatus, ScoreRisk1, ScoreRisk2, ScoreRisk3, ScoreRisk4, ScoreRisk5, ScoreRisk6, ScoreRisk7, ScoreRisk8, ScoreRisk9, ScoreRisk10, ScoreQ1, ScoreQ2, ScoreQ3, ScoreQ4, ScoreQ5, ScoreQ6, ScoreQ7, Muser)
     End Function
+    Public Function QA_AssessmentScore_Save3(ByVal QA_Assessment_UID As Long, ByVal RequestUID As Long, ByVal Score1 As Double, ByVal AuditorComment1 As String, ByVal Score2 As Double, ByVal AuditorComment2 As String, ByVal Score3 As Double, ByVal AuditorComment3 As String, ByVal AsmStatus As String, ByVal ScoreRisk1 As Integer, ByVal ScoreRisk2 As Integer, ByVal ScoreRisk3 As Integer, ByVal ScoreRisk4 As Integer, ByVal ScoreRisk5 As Integer, ByVal ScoreRisk6 As Integer, ByVal ScoreRisk7 As Integer, ByVal ScoreRisk8 As Integer, ByVal ScoreRisk9 As Integer, ByVal ScoreRisk10 As Integer, ByVal ScoreQ1 As Integer, ByVal ScoreQ2 As Integer, ByVal ScoreQ3 As Integer, ByVal ScoreQ4 As Integer, ByVal ScoreQ5 As Integer, ByVal ScoreQ7 As Integer, ByVal Muser As Integer) As Integer
 
+        Return SqlHelper.ExecuteNonQuery(ConnectionString, GetFullyQualifiedName("QA_AssessmentScore_Save3"), QA_Assessment_UID, RequestUID, Score1, AuditorComment1, Score2, AuditorComment2, Score3, AuditorComment3, AsmStatus, ScoreRisk1, ScoreRisk2, ScoreRisk3, ScoreRisk4, ScoreRisk5, ScoreRisk6, ScoreRisk7, ScoreRisk8, ScoreRisk9, ScoreRisk10, ScoreQ1, ScoreQ2, ScoreQ3, ScoreQ4, ScoreQ5, ScoreQ7, Muser)
+    End Function
 
     Public Function QA_AssessmentScore_Get(QAUID As Integer) As DataTable
         ds = SqlHelper.ExecuteDataset(ConnectionString, GetFullyQualifiedName("QA_AssessmentScore_Get"), QAUID)

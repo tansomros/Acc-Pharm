@@ -11,6 +11,12 @@ Public Class LocationList
             Response.Redirect("Default.aspx")
         End If
         If Not IsPostBack Then
+            If Request.Cookies("ROLE_ID").Value >= 3 Then
+                pnSearch.Visible = True
+            Else
+                pnSearch.Visible = False
+            End If
+
             LoadProvinceToDDL()
             LoadData()
         End If

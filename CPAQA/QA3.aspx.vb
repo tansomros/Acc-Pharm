@@ -251,10 +251,12 @@ Public Class QA3
         lblR9.Text = ctlM.Media_GetStatus(StrNull2Zero(Request("id")), hdLocationUID.Value, "R", 9)
         lblR10.Text = ctlM.Media_GetStatus(StrNull2Zero(Request("id")), hdLocationUID.Value, "R", 10)
 
+        lblQ1.Text = ctlM.Media_GetStatus(StrNull2Zero(Request("id")), hdLocationUID.Value, "Q", 1)
         lblQ2.Text = ctlM.Media_GetStatus(StrNull2Zero(Request("id")), hdLocationUID.Value, "Q", 2)
         lblQ3.Text = ctlM.Media_GetStatus(StrNull2Zero(Request("id")), hdLocationUID.Value, "Q", 3)
         lblQ4.Text = ctlM.Media_GetStatus(StrNull2Zero(Request("id")), hdLocationUID.Value, "Q", 4)
         lblQ5.Text = ctlM.Media_GetStatus(StrNull2Zero(Request("id")), hdLocationUID.Value, "Q", 5)
+        lblQ7.Text = ctlM.Media_GetStatus(StrNull2Zero(Request("id")), hdLocationUID.Value, "Q", 7)
 
     End Sub
     Private Sub CheckStatusAssessment()
@@ -311,7 +313,7 @@ Public Class QA3
 
         Assessment_Save(StrNull2Zero(hdRequestUID.Value))
 
-        ctlA.QA_Assessment_Save2(StrNull2Long(hdQAUID.Value), StrNull2Zero(hdRequestUID.Value), StrNull2Zero(lblYear.Text), StrNull2Zero(hdLocationUID.Value), txtRisk1.Text, txtRisk2.Text, txtRisk3.Text, txtRisk4.Text, txtRisk5.Text, txtRisk6.Text, txtRisk7.Text, txtRisk8.Text, txtRisk9.Text, txtRisk10.Text, optTelepharmacy.SelectedValue, TeleTools, txtTeleOther.Text, txtQ2.Text, txtQ3.Text, txtQ4.Text, txtQ5.Text, txtQ7.Text, Request.Cookies("UserID").Value)
+        ctlA.QA_Assessment_Save3(StrNull2Long(hdQAUID.Value), StrNull2Zero(hdRequestUID.Value), StrNull2Zero(lblYear.Text), StrNull2Zero(hdLocationUID.Value), txtRisk1.Text, txtRisk2.Text, txtRisk3.Text, txtRisk4.Text, txtRisk5.Text, txtRisk6.Text, txtRisk7.Text, txtRisk8.Text, txtRisk9.Text, txtRisk10.Text, optTelepharmacy.SelectedValue, TeleTools, txtTeleOther.Text, txtQ2.Text, txtQ3.Text, txtQ4.Text, txtQ5.Text, txtQ7.Text, Request.Cookies("UserID").Value)
 
         ctlU.User_GenLogfile(Request.Cookies("UserID").Value, ACTTYPE_ADD, "QA_Assessment", "ประเมินงานคุณภาพ", "[LocationUID=" & hdLocationUID.Value & "][RequestUID=" & hdRequestUID.Value & "]", Environment.MachineName, GetIPAddress())
         ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalSuccess(this,'Success','บันทึกข้อมูลเรียบร้อย');", True)
@@ -736,7 +738,7 @@ Public Class QA3
         Score2 = StrNull2Double(txtRiskScore.Text)
         Score3 = StrNull2Double(txtQAScore.Text)
 
-        ctlA.QA_AssessmentScore_Save2(StrNull2Long(hdQAUID.Value), StrNull2Long(hdRequestUID.Value), Score1, txtProjectComment.Text, Score2, txtRiskComment.Text, Score3, txtQAComment.Text, AsmStatus,
+        ctlA.QA_AssessmentScore_Save3(StrNull2Long(hdQAUID.Value), StrNull2Long(hdRequestUID.Value), Score1, txtProjectComment.Text, Score2, txtRiskComment.Text, Score3, txtQAComment.Text, AsmStatus,
             StrNull2Zero(ddlRiskScore1.SelectedValue),
                         StrNull2Zero(ddlRiskScore2.SelectedValue),
                         StrNull2Zero(ddlRiskScore3.SelectedValue),
@@ -752,7 +754,6 @@ Public Class QA3
                         StrNull2Zero(ddlScoreQ3.SelectedValue),
                         StrNull2Zero(ddlScoreQ4.SelectedValue),
                         StrNull2Zero(ddlScoreQ5.SelectedValue),
-                        0,
                         StrNull2Zero(ddlScoreQ7.SelectedValue),
                         StrNull2Zero(Request.Cookies("UserID").Value))
 

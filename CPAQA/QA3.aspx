@@ -669,7 +669,7 @@
                                 <div class="form-group">
                                     <label>ถ้ามี ระบุ Platform และแนบรูปภาพ  </label>
                                     <div class="input-group">
-                                        <asp:TextBox ID="txtTeleOther" runat="server" CssClass="form-control"></asp:TextBox>
+                                        <asp:TextBox ID="txtTeleOther" runat="server" CssClass="form-control" TextMode="MultiLine" Height="75px"></asp:TextBox>
                                     </div>
 
 
