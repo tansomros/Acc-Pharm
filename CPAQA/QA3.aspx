@@ -154,7 +154,7 @@
                             </ContentTemplate>
                             <Triggers>
                                 <asp:PostBackTrigger ControlID="cmdAddProject" />
-                                <asp:AsyncPostBackTrigger ControlID="grdProject" EventName="RowCommand" />
+                                <asp:PostBackTrigger ControlID="grdProject" />
                             </Triggers>
                         </asp:UpdatePanel>
 
@@ -207,7 +207,7 @@
 
                                     </ContentTemplate>
                                     <Triggers>
-                                        <asp:AsyncPostBackTrigger ControlID="grdProject" EventName="RowCommand" />
+                                        <asp:PostBackTrigger ControlID="grdProject"  />
                                         <asp:PostBackTrigger ControlID="cmdAddProject" />
                                     </Triggers>
                                 </asp:UpdatePanel>

@@ -73,8 +73,8 @@
                      <div class="row">
          <section class="col-lg-12 connectedSortable">
              <div class="main-card mb-3 card text-center">
-                 <a href="images/picError.jpg" target="_blank">
-                     <img src="images/picError.jpg" width="50%" /></a>
+                 <a href="images/news2601.jpg" target="_blank">
+                     <img src="images/news2601.jpg" width="50%" /></a>
              </div>
          </section>
                          </div>

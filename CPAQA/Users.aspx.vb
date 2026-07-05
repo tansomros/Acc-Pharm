@@ -48,7 +48,12 @@ Public Class Users
     End Sub
 
     Private Sub LoadUserAccountToGrid()
-        dtUser = objUser.User_GetBySearch(ddlGroupFind.SelectedValue, txtSearch.Text, Request.Cookies("userid").Value)
+        If ddlGroupFind.SelectedValue = "1" And txtSearch.Text = "" Then
+            dtUser.Rows.Clear()
+        Else
+            dtUser = objUser.User_GetBySearch(ddlGroupFind.SelectedValue, txtSearch.Text, Request.Cookies("userid").Value)
+        End If
+
     End Sub
 
     Protected Sub cmdFind_Click(sender As Object, e As EventArgs) Handles cmdFind.Click
