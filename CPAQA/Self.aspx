@@ -111,7 +111,7 @@
    </div> 
             <div class="box-body"> 
                      <div class="row">
-                         <div class="col-md-12 text-blue">ให้ใส่ภาพที่แสดงการจัดวางผลิตภัณฑ์ในมุมบริการตนเอง “ Self Service “  โดยแสดงการจัดวางเป็นหมวดหมู่  มีการระบุกลุ่มผลิตภัณ์ชัดเจน   ( ข้อละ 1-4 ภาพ )
+                         <div class="col-md-12 text-blue">ให้ใส่ภาพที่แสดงการจัดวางผลิตภัณฑ์ในมุมบริการตนเอง " Self Service " โดยแสดงการจัดวางเป็นหมวดหมู่  มีการระบุกลุ่มผลิตภัณฑ์ชัดเจน   ( ข้อละ 1-4 ภาพ )
 
                       <button class="btn-icon btn-icon-only btn-link no-border ico-info small" type="button" data-title="Note" data-toggle="popover-custom-bg" data-bg-class="text-white small bg-primary" data-content="ไฟล์นามสกุล .jpg, .jpeg, .gif, .png เท่านั้น ,ขนาดไฟล์ไม่เกิน 1024 Kb. เพิ่มได้ไม่เกิน 4 รูป" data-original-title="" title=""><i class="fa fa-info-circle btn-icon-wrapper"> </i></button> 
 
@@ -183,7 +183,7 @@
                   <div class="row">
                                    <div class="col-md-12">
                                         <div class="form-group">
-                                            <label>6. อาหารเสริม 
+                                            <label>6. ผลิตภัณฑ์อาหารเสริม 
                                                                                              
                                               </label> 
                                              <asp:LinkButton ID="imgRisk6" runat="server" CssClass="file-upload btn btn-primary"><i class="fa fa-camera"></i></asp:LinkButton>                 

@@ -1,4 +1,4 @@
-﻿Imports System
+Imports System
 Imports System.IO
 Imports System.Web.UI
 Imports BigLion
@@ -696,50 +696,50 @@ Public Class AsmGPP
         End If
 
         If StrNull2Zero(lblScoreS1Q1.Text) <= 0 Then
-                lblResultRemark.Text = lblResultRemark.Text & " 1.1,"
-            End If
+            lblResultRemark.Text = lblResultRemark.Text & " 1.1,"
+        End If
 
-            If StrNull2Zero(lblScoreS1Q4.Text) <= 0 Then
-                lblResultRemark.Text = lblResultRemark.Text & " 1.4,"
-            End If
-            If StrNull2Zero(lblScoreS1Q5.Text) <= 0 Then
-                lblResultRemark.Text = lblResultRemark.Text & " 1.5,"
-            End If
-            If StrNull2Zero(lblScoreS1Q7.Text) <= 0 Then
-                lblResultRemark.Text = lblResultRemark.Text & " 1.7,"
-            End If
-            If StrNull2Zero(lblScoreS1Q9.Text) <= 0 Then
-                lblResultRemark.Text = lblResultRemark.Text & " 1.9,"
-            End If
-            If StrNull2Zero(lblScoreS2Q2.Text) <= 0 Then
-                lblResultRemark.Text = lblResultRemark.Text & " 2.2,"
-            End If
-            If StrNull2Zero(lblScoreS2Q3.Text) <= 0 Then
-                lblResultRemark.Text = lblResultRemark.Text & " 2.3,"
-            End If
-            If StrNull2Zero(lblScoreS2Q4.Text) <= 0 Then
-                lblResultRemark.Text = lblResultRemark.Text & " 2.4,"
-            End If
-            If StrNull2Zero(lblScoreS2Q5.Text) <= 0 Then
-                lblResultRemark.Text = lblResultRemark.Text & " 2.5,"
-            End If
-            If StrNull2Zero(lblScoreS2Q6.Text) <= 0 Then
-                lblResultRemark.Text = lblResultRemark.Text & " 2.6,"
-            End If
-            If StrNull2Zero(lblScoreS4Q1.Text) <= 0 Then
-                lblResultRemark.Text = lblResultRemark.Text & " 4.1,"
-            End If
-            If StrNull2Zero(lblScoreS4Q3.Text) <= 0 Then
-                lblResultRemark.Text = lblResultRemark.Text & " 4.3,"
-            End If
-            If StrNull2Zero(lblScoreS5Q1.Text) <= 0 Then
+        If StrNull2Zero(lblScoreS1Q4.Text) <= 0 Then
+            lblResultRemark.Text = lblResultRemark.Text & " 1.4,"
+        End If
+        If StrNull2Zero(lblScoreS1Q5.Text) <= 0 Then
+            lblResultRemark.Text = lblResultRemark.Text & " 1.5,"
+        End If
+        If StrNull2Zero(lblScoreS1Q7.Text) <= 0 Then
+            lblResultRemark.Text = lblResultRemark.Text & " 1.7,"
+        End If
+        If StrNull2Zero(lblScoreS1Q9.Text) <= 0 Then
+            lblResultRemark.Text = lblResultRemark.Text & " 1.9,"
+        End If
+        If StrNull2Zero(lblScoreS2Q2.Text) <= 0 Then
+            lblResultRemark.Text = lblResultRemark.Text & " 2.2,"
+        End If
+        If StrNull2Zero(lblScoreS2Q3.Text) <= 0 Then
+            lblResultRemark.Text = lblResultRemark.Text & " 2.3,"
+        End If
+        If StrNull2Zero(lblScoreS2Q4.Text) <= 0 Then
+            lblResultRemark.Text = lblResultRemark.Text & " 2.4,"
+        End If
+        If StrNull2Zero(lblScoreS2Q5.Text) <= 0 Then
+            lblResultRemark.Text = lblResultRemark.Text & " 2.5,"
+        End If
+        If StrNull2Zero(lblScoreS2Q6.Text) <= 0 Then
+            lblResultRemark.Text = lblResultRemark.Text & " 2.6,"
+        End If
+        If StrNull2Zero(lblScoreS4Q1.Text) <= 0 Then
+            lblResultRemark.Text = lblResultRemark.Text & " 4.1,"
+        End If
+        If StrNull2Zero(lblScoreS4Q3.Text) <= 0 Then
+            lblResultRemark.Text = lblResultRemark.Text & " 4.3,"
+        End If
+        If StrNull2Zero(lblScoreS5Q1.Text) <= 0 Then
             lblResultRemark.Text = lblResultRemark.Text & " 5.1,"
         End If
 
         lblPercentGroup1.ForeColor = System.Drawing.Color.Gray
         lblPercentGroup2.ForeColor = System.Drawing.Color.Gray
-            lblPercentGroup3.ForeColor = System.Drawing.Color.Gray
-            lblPercentGroup4.ForeColor = System.Drawing.Color.Gray
+        lblPercentGroup3.ForeColor = System.Drawing.Color.Gray
+        lblPercentGroup4.ForeColor = System.Drawing.Color.Gray
         lblPercentGroup5.ForeColor = System.Drawing.Color.Gray
 
 
@@ -1215,7 +1215,7 @@ Public Class AsmGPP
     Protected Sub imgS1Q3_Click(sender As Object, e As EventArgs) Handles imgS1Q3.Click
         Dim fPath As String = "imageUploads/" & hdLocationUID.Value & "/GPP/"
         hdAccID.Value = "3"
-        lblTopic.Text = "ข้อ 1.3 บริเวณสำหรับให้คำปรึกษาและแนะนำการใช้ยา ต้องเป็นสัดส่วนแยกออกจากส่วนบริการอื่นอย่างชัดเจน มีพื้นที่พอสำหรับการให้คำปรึกาและการจัดเก็บประวัติ รวมทั้งจัดให้มีโต๊ะเก้าอี้สำหรับเภสัชกรและผู้มารับคำปรึกษาอยู่ในบริเวณดังกล่าวพร้อมทั้งมีป้ายแสดงชัดเจน"
+        lblTopic.Text = "ข้อ 1.3 บริเวณสำหรับให้คำปรึกษาและแนะนำการใช้ยา ต้องเป็นสัดส่วนแยกออกจากส่วนบริการอื่นอย่างชัดเจน มีพื้นที่พอสำหรับการให้คำปรึกษาและการจัดเก็บประวัติ รวมทั้งจัดให้มีโต๊ะเก้าอี้สำหรับเภสัชกรและผู้มารับคำปรึกษาอยู่ในบริเวณดังกล่าวพร้อมทั้งมีป้ายแสดงชัดเจน"
         LoadImg()
         ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalUpload(this,'3');", True)
     End Sub
@@ -1257,7 +1257,7 @@ Public Class AsmGPP
     Protected Sub imgS1Q9_Click(sender As Object, e As EventArgs) Handles imgS1Q9.Click
         Dim fPath As String = "imageUploads/" & hdLocationUID.Value & "/GPP/"
         hdAccID.Value = "9"
-        lblTopic.Text = "ข้อที่ 1.9 บริเวณจัดวางยาอันตราย และยาควบคุมพิเศษในพื้นที่ของยา จะต้อง " & vbCrLf & "1.9.1 มีพื้นที่เพียงพอในการจัดวางยาแยกตามประเภทของยาและสามารถติดป้ายแสดงประเภทของยาได้ชัดเจนตามหลักวิชาการ" & vbCrLf & "1.9.2 จัดให้มีวัสดุทึบใช้ปิดบังบริเวณที่จัดวางยาอันตราย ยาควบคุมพิเศษ สำหรับปิดในเวลาที่เภสัชกรหรือผู้มีหน้าที่ปฏิบัติการไม่อยู่ปฏิบัติหน้าที่ และจัดให้มีป้ายแจ้งให้ผู้มารับบริการทราบว่าเภสัชกรหรือผู้มีหน้าที่ปฏิบัติการไม่อยู่ (Critical lDefect)"
+        lblTopic.Text = "ข้อที่ 1.9 บริเวณจัดวางยาอันตราย และยาควบคุมพิเศษในพื้นที่ของยา จะต้อง " & vbCrLf & "1.9.1 มีพื้นที่เพียงพอในการจัดวางยาแยกตามประเภทของยาและสามารถติดป้ายแสดงประเภทของยาได้ชัดเจนตามหลักวิชาการ" & vbCrLf & "1.9.2 จัดให้มีวัสดุทึบใช้ปิดบังบริเวณที่จัดวางยาอันตราย ยาควบคุมพิเศษ สำหรับปิดในเวลาที่เภสัชกรหรือผู้มีหน้าที่ปฏิบัติการไม่อยู่ปฏิบัติหน้าที่ และจัดให้มีป้ายแจ้งให้ผู้มารับบริการทราบว่าเภสัชกรหรือผู้มีหน้าที่ปฏิบัติการไม่อยู่ (Critical Defect)"
         LoadImg()
         ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalUpload(this,'9');", True)
     End Sub
@@ -1271,7 +1271,7 @@ Public Class AsmGPP
     Protected Sub imgS2Q2_Click(sender As Object, e As EventArgs) Handles imgS2Q2.Click
         Dim fPath As String = "imageUploads/" & hdLocationUID.Value & "/GPP/"
         hdAccID.Value = "11"
-        lblTopic.Text = "ข้อ 2.2 ถาดนับเม็ดยาอย่างน้อย 2 ถาดในสภาพใช้งานได้ดี และกรณีต้องมีการแบ่งบรรจุยากลุ่มเพนนิซิลิน หรือยากลุ่มซัลโฟนาไมด์ หรือยากลุ่มต้านการอักเสบชนิดที่ไม่ใช่สเตียรอยด์ (NSAID) ทั้งนี้อุปกรณ์นับเม็ดยาสำหรับยาในกลุ่มเพนนิซิลิน หรือยากลุ่มซัลโฟนาไมด์ หรือยากลุ่มต้านการอักเสบชนิดที่ไม่ใช่สเตียรอยด์ (NSAID) ให้แยกใช้เด็ดขาดจากยากลุ่มอื่นๆ\(Critical Defect) "
+        lblTopic.Text = "ข้อ 2.2 ถาดนับเม็ดยาอย่างน้อย 2 ถาดในสภาพใช้งานได้ดี และกรณีต้องมีการแบ่งบรรจุยากลุ่มเพนนิซิลิน หรือยากลุ่มซัลโฟนาไมด์ หรือยากลุ่มต้านการอักเสบชนิดที่ไม่ใช่สเตียรอยด์ (NSAID) ทั้งนี้อุปกรณ์นับเม็ดยาสำหรับยาในกลุ่มเพนนิซิลิน หรือยากลุ่มซัลโฟนาไมด์ หรือยากลุ่มต้านการอักเสบชนิดที่ไม่ใช่สเตียรอยด์ (NSAID) ให้แยกใช้เด็ดขาดจากยากลุ่มอื่นๆ(Critical Defect) "
         LoadImg()
         ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalUpload(this,'11');", True)
     End Sub
@@ -1299,7 +1299,7 @@ Public Class AsmGPP
     Protected Sub imgS2Q6_Click(sender As Object, e As EventArgs) Handles imgS2Q6.Click
         Dim fPath As String = "imageUploads/" & hdLocationUID.Value & "/GPP/"
         hdAccID.Value = "15"
-        lblTopic.Text = "ข้อที่ 2.6 อุปกรณ์สำหรับดับเพลิง จำนวน 1 เครื่องในสภาพที่สามารถพร้อมใช้งานได้อย่างมีประสิทธิภาพ อยู่ในบริเวรสถานที่เก็บยา (Critical Defect)"
+        lblTopic.Text = "ข้อที่ 2.6 อุปกรณ์สำหรับดับเพลิง จำนวน 1 เครื่องในสภาพที่สามารถพร้อมใช้งานได้อย่างมีประสิทธิภาพ อยู่ในบริเวณสถานที่เก็บยา (Critical Defect)"
         LoadImg()
         ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalUpload(this,'15');", True)
     End Sub
