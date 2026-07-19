@@ -1,4 +1,4 @@
-﻿Imports System
+Imports System
 Imports System.IO
 Imports System.Web.UI
 Imports DevExpress.Web
@@ -259,7 +259,7 @@ Public Class Self
         Dim fPath As String = "imageUploads/" & hdLocationUID.Value & "/Self/"
         hdAccID.Value = "6"
         'lblTCode.Text = "QS"
-        lblTopic.Text = "6. อาหารเสริม"
+        lblTopic.Text = "6. ผลิตภัณฑ์อาหารเสริม"
         LoadImg()
         ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalUpload(this,'6');", True)
     End Sub

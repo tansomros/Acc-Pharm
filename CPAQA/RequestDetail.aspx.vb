@@ -1,4 +1,4 @@
-﻿Imports System.Drawing
+Imports System.Drawing
 Imports System.IO
 'Imports DevExpress.Web
 'Imports DevExpress.Web.Internal
@@ -346,7 +346,7 @@ Public Class RequestDetail
                 btnAsmLocation.NavigateUrl = "~/Location.aspx?lid=" & String.Concat(.Item("LocationUID")) & "&id=" & String.Concat(.Item("UID"))
                 btnAsmGPP.NavigateUrl = "~/GPP.aspx?lid=" & String.Concat(.Item("LocationUID")) & "&id=" & String.Concat(.Item("UID"))
 
-                If DBNull2Zero(.Item("RequestStatus")) < 52 Then
+                If DBNull2Zero(.Item("ACTDTT")) >= 20260701 Then
                     btnAsmQA.NavigateUrl = "~/QA3.aspx?lid=" & String.Concat(.Item("LocationUID")) & "&id=" & String.Concat(.Item("UID"))
                 Else
                     If DBNull2Zero(.Item("REQDTT")) < 20260701 Then
@@ -500,18 +500,20 @@ Public Class RequestDetail
 
                 txtAccRemark.Text = String.Concat(.Item("LocationAccRemark"))
 
-                'lblLocScore.Text = ""
-                lblGPPScore.Text = ((DBNull2Dbl(.Item("GPP_Percentage")) * 30) / 100).ToString("#.##") & " %"
-                'lblGPPScore.Text = String.Concat(.Item("GPP_Percentage")) & " %"
+                Dim gpp, qa As Double
+
+                gpp = DBNull2Dbl(.Item("GPP_Percentage"))
+                qa = DBNull2Dbl(.Item("QA_Percentage"))
+
+                gpp = (gpp * 30) / 100
+                lblGPPScore.Text = gpp.ToString("#.##") & " %"
 
                 lblQAScore1.Text = String.Concat(.Item("QA_Score1"))
                 lblQAScore2.Text = String.Concat(.Item("QA_Score2"))
                 lblQAScore3.Text = String.Concat(.Item("QA_Score3"))
                 lblQAScore.Text = String.Concat(.Item("QA_Percentage")) & " %"  ' String.Concat(.Item("QA_Score"))
 
-                lblTotalAsmScore.Text = (((DBNull2Dbl(.Item("GPP_Percentage")) * 30) / 100) + (DBNull2Dbl(.Item("QA_Percentage")) * 70 / 100)).ToString("#.##") & " %"
-
-                'lblTotalAsmScore.Text = (((DBNull2Dbl(.Item("GPP_Percentage")) * 30) / 100) + DBNull2Dbl(.Item("QA_Percentage"))).ToString("#.##") & " %"
+                lblTotalAsmScore.Text = (gpp + qa).ToString("#.##") & " %"
 
                 'If lblLocStatus.Text = "ผ่าน" Then
                 '    lblLocStatus.ForeColor = Color.Green
