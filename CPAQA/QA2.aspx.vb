@@ -637,7 +637,7 @@ Public Class QA2
             Exit Sub
         End If
 
-        ctlA.QA_AssessmentScore_Save(StrNull2Long(hdQAUID.Value), StrNull2Long(hdRequestUID.Value), Score1, txtProjectComment.Text, Score2, txtRiskComment.Text, Score3, txtQAComment.Text, AsmStatus, StrNull2Zero(Request.Cookies("UserID").Value))
+        ctlA.QA_AssessmentScore_Save2(StrNull2Long(hdQAUID.Value), StrNull2Long(hdRequestUID.Value), Score1, txtProjectComment.Text, Score2, txtRiskComment.Text, Score3, txtQAComment.Text, AsmStatus, StrNull2Zero(Request.Cookies("UserID").Value))
         ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "MessageAlert", "openModalSuccess(this,'Success','บันทึกข้อมูลเรียบร้อย');", True)
 
     End Sub
