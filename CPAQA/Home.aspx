@@ -70,24 +70,16 @@
 
 
                 </div>
-                     <div class="row">
-         <section class="col-lg-12 connectedSortable">
-             <div class="main-card mb-3 card text-center">
-                 <a href="images/news2601.jpg" target="_blank">
-                     <img src="images/news2601.jpg" width="50%" /></a>
-             </div>
-         </section>
-                         </div>
                    <div class="row">        
                        <section class="col-lg-6 connectedSortable">
 
                            <div class="main-card mb-3 card">                               
-                                   <img src="slide/slide18.jpg?v=02" width="100%" />
+                                   <img src="slide/fee.png?v=02" width="100%" />
                            </div>
                        </section>
                        <section class="col-lg-6 connectedSortable">
                            <div class="main-card mb-3 card">
-                                   <img src="slide/slide17.jpg?v=01" width="100%" />
+                                   <img src="images/news2601.png?v=01" width="100%" />
                            </div>
                        </section>
                 </div>

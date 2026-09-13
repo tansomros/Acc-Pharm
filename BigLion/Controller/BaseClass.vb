@@ -37,31 +37,31 @@ Public Class BaseClass : Inherits ApplicationBaseClass
     Public Const ObjectQualifier As String = ""
     Public Const DatabaseOwner As String = ""
 
-    'Public Const sqlServer As String = "NBTEE"
-    'Public Const sqlDatabase As String = "CPAQA"
-    'Public Const sqlUsername As String = "cpaadmin"
-    'Public Const sqlPassword As String = "11223344"
-    'Public Const ProjectPath As String = "http://www.acc-pharm.com"
-    'Public Const PassPhase As String = "CPA@THEDEV"
-
-    'Public Const ReportServerLocation As String = "http://127.0.0.1/ReportServer"
-    'Public Const ReportServerURL As String = "http://127.0.0.1/ReportServer"
-    'Public Const ReportServerPath As String = "/CPAQAReports"
-    'Public Const ReportServerUser As String = "Teerapol"
-    'Public Const ReportServerPassword As String = "3889"
-
-    Public Const sqlServer As String = "192.168.10.3"
+    Public Const sqlServer As String = "NBTEE"
     Public Const sqlDatabase As String = "CPAQA"
     Public Const sqlUsername As String = "cpaadmin"
-    Public Const sqlPassword As String = "Srr@CpA#$157"  'Srr@CpA#$157
+    Public Const sqlPassword As String = "11223344"
     Public Const ProjectPath As String = "http://www.acc-pharm.com"
     Public Const PassPhase As String = "CPA@THEDEV"
 
-    Public Const ReportServerLocation As String = "http://192.168.10.3/ReportServer"
-    Public Const ReportServerURL As String = "http://192.168.10.3/ReportServer"
+    Public Const ReportServerLocation As String = "http://127.0.0.1/ReportServer"
+    Public Const ReportServerURL As String = "http://127.0.0.1/ReportServer"
     Public Const ReportServerPath As String = "/CPAQAReports"
-    Public Const ReportServerUser As String = "administrator"
-    Public Const ReportServerPassword As String = "K1g9r8H2Pmbrk"
+    Public Const ReportServerUser As String = "Teerapol"
+    Public Const ReportServerPassword As String = "3889"
+
+    'Public Const sqlServer As String = "192.168.10.3"
+    'Public Const sqlDatabase As String = "CPAQA"
+    'Public Const sqlUsername As String = "cpaadmin"
+    'Public Const sqlPassword As String = "Srr@CpA#$157"  'Srr@CpA#$157
+    'Public Const ProjectPath As String = "http://www.acc-pharm.com"
+    'Public Const PassPhase As String = "CPA@THEDEV"
+
+    'Public Const ReportServerLocation As String = "http://192.168.10.3/ReportServer"
+    'Public Const ReportServerURL As String = "http://192.168.10.3/ReportServer"
+    'Public Const ReportServerPath As String = "/CPAQAReports"
+    'Public Const ReportServerUser As String = "administrator"
+    'Public Const ReportServerPassword As String = "K1g9r8H2Pmbrk"
 
 #End Region
     Public Structure stcField
